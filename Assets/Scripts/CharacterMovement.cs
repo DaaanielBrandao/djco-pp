@@ -44,6 +44,7 @@ public class CharacterMovement : MonoBehaviour
 
     public void HandleMove() {
         float input = Input.GetAxis("Horizontal");
+        direction = input;
         transform.Translate(Vector3.right * input * Time.deltaTime * speed);
     }
 
