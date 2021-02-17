@@ -47,7 +47,7 @@ public class CharacterMovement : MonoBehaviour
         float inputHor = Input.GetAxis("Horizontal");
         float inputVer = Input.GetAxis("Vertical");
 
-        Debug.Log(new Vector2(Mathf.Sign(inputHor), Mathf.Sign(inputVer)));
+        //Debug.Log(new Vector2(Mathf.Sign(inputHor), Mathf.Sign(inputVer)));
 
         direction = new Vector2(
             inputHor == 0 ? 0 : Mathf.Sign(inputHor), 

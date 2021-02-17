@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicBullet : MonoBehaviour
+public class ShotgunBullet : MonoBehaviour
 {
-    public float speed = 60f;
-    public float maxTime = 0.6f;
+    public float speed = 50f;
+    public float maxTime = 0.3f;
     private float dir;
     // Start is called before the first frame update
     void Start()
@@ -18,15 +18,16 @@ public class BasicBullet : MonoBehaviour
     {
         //por cooldwon
         transform.Translate(Vector3.right * dir * Time.deltaTime * speed);
+        
         maxTime -= Time.deltaTime;
         if(maxTime <= 0){
             Destroy(gameObject);
         }
     }
-        //desaparecer qnd se espetar e tal
+    //desaparecer qnd se espetar e tal
     private void OnTriggerEnter2D(Collider2D other) {
         if(!other.gameObject.CompareTag("Bullet")){
             Destroy(gameObject);
         }
     }
-}
+}   
