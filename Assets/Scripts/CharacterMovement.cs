@@ -7,19 +7,24 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 14f;
     public float jumpForce = 25f;
     public float gravityMod = 5.5f;
+    
     public bool isOnGround = false;
+    public bool isJumping = false;
+
+    private Vector2 defGrav;
+    private Rigidbody2D rb;
+    
+
     public float currentDashTime = 0;
     public float dashTime = 0.15f;
-
     public float dashSpeed = 30f;
-
     public float dashCooldown = 2f;
     public int dashDir;
-    private Vector2 defGrav;
+
     private float direction;
     
-    private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +33,44 @@ public class CharacterMovement : MonoBehaviour
         defGrav = Physics2D.gravity * gravityMod;
         Physics2D.gravity = defGrav;
     }
-    private void checkJump(){
-        if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
-            Debug.Log("Jump!");
+
+    // Update is called once per frame
+    void Update()
+    {
+        HandleMove();
+        HandleJump();
+        HandleDash();
+    }
+
+    public void HandleMove() {
+        float input = Input.GetAxis("Horizontal");
+        direction = input;
+        transform.Translate(Vector3.right * input * Time.deltaTime * speed);
+    }
+
+    public void HandleJump() {
+        bool isGoingDown = rb.velocity.y < 0;
+        
+        if(Input.GetKeyDown(KeyCode.Space) && isOnGround) { // && isOnGround && !gameOver){
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            isJumping = true; 
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) && isJumping && !isGoingDown) {
+           // rb.velocity += new Vector2(0, -10f);
+            rb.velocity /= 2;
+        }
+
+        if(isGoingDown){ // im yelling timbeeeeeeeeeeeeeeeeeeer
+            Physics2D.gravity = defGrav * 2f;
+        }
+        else{
+            Physics2D.gravity = defGrav;
         }
     }
-    public void checkDash(){
+        
+
+    public void HandleDash(){
         
         if(Input.GetKeyDown(KeyCode.LeftShift) && currentDashTime == 0){
             Debug.Log("dash!");
@@ -64,26 +100,12 @@ public class CharacterMovement : MonoBehaviour
              }
         } 
     }
-    // Update is called once per frame
-    void Update()
-    {
-        direction = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * direction * Time.deltaTime * speed);
-        checkJump();
-        checkDash();
 
-        if(rb.velocity.y < 0){
-            Physics2D.gravity = defGrav * 2f;
-        }
-        else{
-            Physics2D.gravity = defGrav;
-        }
-    }
-    
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Ground")){
             isOnGround = true;
+            isJumping = false;
         }
     }
     private void OnCollisionExit2D(Collision2D other) {
