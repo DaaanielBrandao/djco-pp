@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,6 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 14f;
     public float jumpForce = 25f;
     public float gravityMod = 5.5f;
-    
     private bool isOnGround = false;
     private bool isJumping = false;
     private Vector2 direction = new Vector2(1, 0);
@@ -54,6 +53,11 @@ public class CharacterMovement : MonoBehaviour
         ).normalized;
 
         transform.Translate(Vector3.right * inputHor * Time.deltaTime * speed);
+
+        if(inputHor < 0)
+            spriteRenderer.flipX = true;
+        else if(inputHor > 0)
+            spriteRenderer.flipX = false;
     }
 
     public void HandleJump() {
@@ -115,6 +119,12 @@ public class CharacterMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Ground")){
             isOnGround = true;
             isJumping = false;
+
+            if (currentDashTime > 0) {
+                Debug.Log("StopDash");
+                currentDashTime = -dashCooldown;
+                spriteRenderer.color = UnityEngine.Color.yellow;
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D other) {
