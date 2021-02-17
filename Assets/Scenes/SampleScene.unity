@@ -239,13 +239,11 @@ MonoBehaviour:
   speed: 14
   jumpForce: 25
   gravityMod: 5.5
-  isOnGround: 0
-  isJumping: 0
   currentDashTime: 0
   dashTime: 0.15
   dashSpeed: 30
   dashCooldown: 0.5
-  dashDir: 0
+  dashDir: {x: 0, y: 0}
 --- !u!50 &1484547864
 Rigidbody2D:
   serializedVersion: 4
@@ -265,7 +263,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1484547865
 BoxCollider2D:
