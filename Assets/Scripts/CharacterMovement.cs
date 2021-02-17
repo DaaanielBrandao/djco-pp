@@ -7,17 +7,29 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 14f;
     public float jumpForce = 25f;
     public float gravityMod = 5.5f;
-
+    
     public bool isOnGround = false;
     public bool isJumping = false;
 
     private Vector2 defGrav;
     private Rigidbody2D rb;
     
+
+    public float currentDashTime = 0;
+    public float dashTime = 0.15f;
+    public float dashSpeed = 30f;
+    public float dashCooldown = 2f;
+    public int dashDir;
+
+    private float direction;
+    
+    private SpriteRenderer spriteRenderer;
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         defGrav = Physics2D.gravity * gravityMod;
         Physics2D.gravity = defGrav;
     }
@@ -27,7 +39,7 @@ public class CharacterMovement : MonoBehaviour
     {
         HandleMove();
         HandleJump();
-        // Handle dash eu sei la
+        HandleDash();
     }
 
     public void HandleMove() {
@@ -54,6 +66,38 @@ public class CharacterMovement : MonoBehaviour
         else{
             Physics2D.gravity = defGrav;
         }
+    }
+        
+
+    public void HandleDash(){
+        
+        if(Input.GetKeyDown(KeyCode.LeftShift) && currentDashTime == 0){
+            Debug.Log("dash!");
+            spriteRenderer.color = UnityEngine.Color.blue;
+            dashDir = 1;
+            if(direction < 0)
+                dashDir = -1;
+            currentDashTime += Time.deltaTime;
+        } else if(currentDashTime > 0){
+            rb.velocity = Vector2.right * dashDir * dashSpeed;
+            currentDashTime += Time.deltaTime;
+            if(currentDashTime >= dashTime){
+                Debug.Log("StopDash");
+                spriteRenderer.color = UnityEngine.Color.yellow;
+
+                currentDashTime = -dashCooldown;
+                direction = Input.GetAxis("Horizontal");
+                rb.velocity = Vector2.right * dashDir * Time.deltaTime * speed;
+            }
+        } else if(currentDashTime < 0){
+             currentDashTime += Time.deltaTime;
+             if(currentDashTime >= 0){
+                spriteRenderer.color = UnityEngine.Color.red;
+                
+                currentDashTime = 0;
+                Debug.Log("Dash Ready!");
+             }
+        } 
     }
 
 
