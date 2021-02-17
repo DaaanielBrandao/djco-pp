@@ -95,5 +95,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
-  speed: 100
-  maxTime: 0.4
+  speed: 50
+  maxTime: 1
