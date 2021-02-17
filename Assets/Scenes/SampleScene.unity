@@ -244,7 +244,7 @@ MonoBehaviour:
   currentDashTime: 0
   dashTime: 0.15
   dashSpeed: 30
-  dashCooldown: 2
+  dashCooldown: 0.5
   dashDir: 0
 --- !u!50 &1484547864
 Rigidbody2D:
@@ -333,7 +333,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 46bf9568c3a38e74c8b08ebeba492ea4, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.14197397, a: 1}
+  m_Color: {r: 1, g: 0.21307768, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
