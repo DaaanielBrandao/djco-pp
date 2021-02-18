@@ -30,9 +30,9 @@ public class WeaponSwitch : MonoBehaviour
     }
 
     public int GetPressedNumber() {
-    for (int number = 0; number <= 9; number++) {
-        if (Input.GetKeyDown(number.ToString()))
-            return number;
+        for (int number = 0; number <= 9; number++) {
+            if (Input.GetKeyDown(number.ToString()))
+                return number;
     }
  
     return -1;

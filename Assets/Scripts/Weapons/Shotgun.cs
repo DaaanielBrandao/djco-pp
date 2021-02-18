@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Shotgun : Weapon
 {
-    public float spreadAngle = 40;
-    public int numBullets = 6;
+    private float spreadAngle = 40;
+    private int numBullets = 6;
 
     protected override void OnShoot() {
         for(int i = 0; i < numBullets; i++){

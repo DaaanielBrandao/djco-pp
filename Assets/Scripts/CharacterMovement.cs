@@ -7,26 +7,22 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 14f;
     public float jumpForce = 25f;
     public float gravityMod = 5.5f;
-    public Vector2 direction = new Vector2(1, 0);
-    public int turned = 1;
+    public Vector2 facingDir = new Vector2(1, 0);
 
-    public Vector3 movement;
+    public Vector2 movement;
    
     private bool isOnGround = false;
     private bool isJumping = false;
-    private bool hasDash = false;
 
-    private Vector2 defGrav;
-    private Rigidbody2D rb;
-
-    public float currentDashTime = 0;
+    public enum DashState {Ready, Dashing, Cooldown, Waiting};
     public float dashTime = 0.15f;
-    public float dashSpeed = 30f;
-    public float dashCooldown = 2f;
+    public float dashSpeed = 30f;    
+    public float dashCooldown = 0.2f;    
+    public DashState dashState = DashState.Ready; 
     public Vector2 dashDir;
     
     private SpriteRenderer spriteRenderer;
-
+    private Rigidbody2D rb;
     
     // Start is called before the first frame update
     void Start()
@@ -34,8 +30,7 @@ public class CharacterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        defGrav = Physics2D.gravity * gravityMod;
-        Physics2D.gravity = defGrav;
+        rb.gravityScale = gravityMod;
     }
 
     // Update is called once per frame
@@ -47,24 +42,20 @@ public class CharacterMovement : MonoBehaviour
     }
 
     public void HandleMove() {
-        float inputHor = Input.GetAxis("Horizontal");
+        float inputHor = Input.GetAxisRaw("Horizontal");
         float inputVer = Input.GetAxisRaw("Vertical");
 
-        direction = new Vector2(
-            inputHor == 0 ? 0 : Mathf.Sign(inputHor), 
-            inputVer == 0 ? 0 : Mathf.Sign(inputVer)
-        ).normalized;
         movement = Vector3.right * inputHor * Time.deltaTime * speed;
         transform.Translate(movement);
 
-        if (direction.x < 0){
-            transform.localScale = new Vector3(-1,1,1);
-            turned = -1;
+        Vector2 direction = new Vector2(inputHor, inputVer);        
+        if (direction.x != 0) {
+            facingDir = new Vector2(direction.x, direction.y);           
+            transform.localScale = new Vector3(direction.x, 1, 1);
         }
-        else if (direction.x > 0){
-            transform.localScale = new Vector3(1,1,1);
-             turned = +1;
-        }
+
+        if (transform.position.y < -50)
+            transform.position = new Vector3(0, 10, 0);
     }
 
     public void HandleJump() {
@@ -84,41 +75,61 @@ public class CharacterMovement : MonoBehaviour
         }
 
         if(isGoingDown){ // im yelling timbeeeeeeeeeeeeeeeeeeer
-            Physics2D.gravity = defGrav * 1.6f;
+            rb.gravityScale = gravityMod * 1.6f;
         }
         else{
-            Physics2D.gravity = defGrav;
+            rb.gravityScale = gravityMod;
         }
     }
         
+    public void HandleDash() {
+        switch (dashState) {
+            case DashState.Ready:
+                dashDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+                if (dashDir == Vector2.zero)
+                    dashDir = facingDir.normalized;
 
-    public void HandleDash(){
-        
-        if(Input.GetKeyDown(KeyCode.J) && hasDash) {
-            Debug.Log("dash!");
-            hasDash = false;
-            spriteRenderer.color = UnityEngine.Color.blue;
-            
-            dashDir = direction;            
-            currentDashTime = Time.deltaTime;
+                if(Input.GetKeyDown(KeyCode.J)) {
+                    dashState = DashState.Dashing;                 
+                    StartCoroutine(DoDash());
 
-            SoundManager.Instance.OnDash();
-        } else if (currentDashTime > 0) {
-            currentDashTime += Time.deltaTime;
-            if(currentDashTime >= dashTime) {
-                Debug.Log("StopDash");
-                currentDashTime = 0;
-                spriteRenderer.color = UnityEngine.Color.green;
-                rb.velocity = dashDir * Time.deltaTime * speed;
-                if(isOnGround){
-                    spriteRenderer.color = UnityEngine.Color.red;
-                    hasDash = true;
+                    SoundManager.Instance.OnDash();
                 }
-            }
-            else rb.velocity = dashDir * dashSpeed;
-        } 
+
+                spriteRenderer.color = UnityEngine.Color.red;
+                break;
+
+            case DashState.Dashing:
+                rb.velocity = dashDir * dashSpeed;
+                spriteRenderer.color = UnityEngine.Color.blue;
+                break;
+
+            case DashState.Cooldown:
+                spriteRenderer.color = UnityEngine.Color.cyan;
+                break;
+
+            case DashState.Waiting:
+                if (isOnGround)
+                    dashState = DashState.Ready;
+                spriteRenderer.color = UnityEngine.Color.green;
+                break;
+
+            default: break;
+        }
     }
 
+    IEnumerator DoDash() {
+        yield return new WaitForSeconds(dashTime);
+
+        if (dashState != DashState.Ready) {
+            dashState = DashState.Cooldown;
+            rb.velocity = Vector2.zero;
+
+            yield return new WaitForSeconds(dashCooldown);
+            dashState = DashState.Waiting;
+        }
+    }
+    
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Ground")){
@@ -126,14 +137,8 @@ public class CharacterMovement : MonoBehaviour
             isJumping = false;
             
             SoundManager.Instance.OnDrop();
-            
-            hasDash = true;
-            spriteRenderer.color = UnityEngine.Color.red;
 
-            if (currentDashTime > 0) {
-                Debug.Log("StopDash");
-                currentDashTime = 0;
-            }
+            dashState = DashState.Ready; // 
         }
     }
 
