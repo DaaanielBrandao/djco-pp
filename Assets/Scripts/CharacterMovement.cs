@@ -1,15 +1,16 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
-{
+{   
+    public int turned = 1;
     public float speed = 14f;
     public float jumpForce = 25f;
     public float gravityMod = 5.5f;
-    
     private bool isOnGround = false;
     private bool isJumping = false;
+    private bool hasDash = false;
     private Vector2 direction = new Vector2(1, 0);
 
     private Vector2 defGrav;
@@ -52,21 +53,29 @@ public class CharacterMovement : MonoBehaviour
             inputHor == 0 ? 0 : Mathf.Sign(inputHor), 
             inputVer == 0 ? 0 : Mathf.Sign(inputVer)
         ).normalized;
-
         transform.Translate(Vector3.right * inputHor * Time.deltaTime * speed);
+
+        if(inputHor < 0){
+            turned = -1;
+            transform.localScale = new Vector3(-1,1,1);
+        }
+        else if(inputHor > 0){
+            turned = 1;
+            transform.localScale = new Vector3(1,1,1);
+        }
     }
 
     public void HandleJump() {
         bool isGoingDown = rb.velocity.y < 0;
         
-        if(Input.GetKeyDown(KeyCode.Space) && isOnGround) { // && isOnGround && !gameOver){
+        if(Input.GetKeyDown(KeyCode.I) && isOnGround) { // && isOnGround && !gameOver){
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumping = true; 
 
             playerAudio.OnJump();
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && isJumping && !isGoingDown) {
+        if (Input.GetKeyUp(KeyCode.I) && isJumping && !isGoingDown) {
            // rb.velocity += new Vector2(0, -10f);
             rb.velocity /= 2;
         }
@@ -82,35 +91,31 @@ public class CharacterMovement : MonoBehaviour
 
     public void HandleDash(){
         
-        if(Input.GetKeyDown(KeyCode.LeftShift) && currentDashTime == 0) {
+        if(Input.GetKeyDown(KeyCode.J) && hasDash) {
             Debug.Log("dash!");
+            hasDash = false;
             spriteRenderer.color = UnityEngine.Color.blue;
             if (direction == Vector2.zero)
                 dashDir = new Vector2(1, 0);
             else dashDir = direction;
 
-            currentDashTime += Time.deltaTime;
+            
+            currentDashTime = Time.deltaTime;
 
-            playerAudio.OnDash();            
+            playerAudio.OnDash();    
         } else if (currentDashTime > 0) {
             currentDashTime += Time.deltaTime;
             if(currentDashTime >= dashTime) {
                 Debug.Log("StopDash");
-                spriteRenderer.color = UnityEngine.Color.yellow;
-
-                currentDashTime = -dashCooldown;
-               // direction = Input.GetAxis("Horizontal");
+                currentDashTime = 0;
+                spriteRenderer.color = UnityEngine.Color.green;
                 rb.velocity = dashDir * Time.deltaTime * speed;
+                if(isOnGround){
+                    spriteRenderer.color = UnityEngine.Color.red;
+                    hasDash = true;
+                }
             }
             else rb.velocity = dashDir * dashSpeed;
-        } else if (currentDashTime < 0) {
-            currentDashTime += Time.deltaTime;
-            if (currentDashTime >= 0) {
-                spriteRenderer.color = UnityEngine.Color.red;
-                
-                currentDashTime = 0;
-                Debug.Log("Dash Ready!");
-            }
         } 
     }
 
@@ -121,6 +126,14 @@ public class CharacterMovement : MonoBehaviour
             isJumping = false;
 
             playerAudio.OnDrop();
+
+            hasDash = true;
+            spriteRenderer.color = UnityEngine.Color.red;
+
+            if (currentDashTime > 0) {
+                Debug.Log("StopDash");
+                currentDashTime = 0;
+            }
         }
     }
 
