@@ -103,9 +103,10 @@ public class CharacterMovement : MonoBehaviour
             if(currentDashTime >= dashTime) {
                 Debug.Log("StopDash");
                 currentDashTime = 0;
-                spriteRenderer.color = UnityEngine.Color.yellow;
+                spriteRenderer.color = UnityEngine.Color.green;
                 rb.velocity = dashDir * Time.deltaTime * speed;
                 if(isOnGround){
+                    spriteRenderer.color = UnityEngine.Color.red;
                     hasDash = true;
                 }
             }
@@ -119,7 +120,7 @@ public class CharacterMovement : MonoBehaviour
             isOnGround = true;
             isJumping = false;
             hasDash = true;
-            spriteRenderer.color = UnityEngine.Color.yellow;
+            spriteRenderer.color = UnityEngine.Color.red;
 
             if (currentDashTime > 0) {
                 Debug.Log("StopDash");
