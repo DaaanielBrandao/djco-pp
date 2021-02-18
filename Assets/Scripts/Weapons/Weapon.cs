@@ -25,7 +25,9 @@ public abstract class Weapon : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.L)) {        
             StartCoroutine(StartCooldown());
             this.OnShoot();
+            
             SoundManager.Instance.OnShoot();
+            //GameObject.FindObjectOfType<Camera>().GetComponent<Animator>().SetTrigger("shake"); é capaz de ficar melhor qnd se mata alguem
         }
     }
 

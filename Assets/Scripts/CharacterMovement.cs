@@ -22,7 +22,10 @@ public class CharacterMovement : MonoBehaviour
     public Vector2 dashDir;
     
     private SpriteRenderer spriteRenderer;
+    
     private Rigidbody2D rb;
+
+    public GameObject mainCamera;
     
     // Start is called before the first frame update
     void Start()
@@ -94,6 +97,7 @@ public class CharacterMovement : MonoBehaviour
                     StartCoroutine(DoDash());
 
                     SoundManager.Instance.OnDash();
+                    mainCamera.GetComponent<Animator>().SetTrigger("zoop");
                 }
 
                 spriteRenderer.color = UnityEngine.Color.red;
@@ -138,7 +142,7 @@ public class CharacterMovement : MonoBehaviour
             
             SoundManager.Instance.OnDrop();
 
-            dashState = DashState.Ready; // 
+            dashState = DashState.Ready;
         }
     }
 
