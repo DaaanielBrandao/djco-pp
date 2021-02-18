@@ -14,22 +14,24 @@ public class CharacterMovement : MonoBehaviour
 
     private Vector2 defGrav;
     private Rigidbody2D rb;
-    
 
     public float currentDashTime = 0;
     public float dashTime = 0.15f;
     public float dashSpeed = 30f;
     public float dashCooldown = 2f;
     public Vector2 dashDir;
-
     
     private SpriteRenderer spriteRenderer;
+    private PlayerSoundManager playerAudio;
+
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerAudio = GetComponent<PlayerSoundManager>();
+
         defGrav = Physics2D.gravity * gravityMod;
         Physics2D.gravity = defGrav;
     }
@@ -46,8 +48,6 @@ public class CharacterMovement : MonoBehaviour
         float inputHor = Input.GetAxis("Horizontal");
         float inputVer = Input.GetAxis("Vertical");
 
-        Debug.Log(new Vector2(Mathf.Sign(inputHor), Mathf.Sign(inputVer)));
-
         direction = new Vector2(
             inputHor == 0 ? 0 : Mathf.Sign(inputHor), 
             inputVer == 0 ? 0 : Mathf.Sign(inputVer)
@@ -62,6 +62,8 @@ public class CharacterMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && isOnGround) { // && isOnGround && !gameOver){
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumping = true; 
+
+            playerAudio.OnJump();
         }
 
         if (Input.GetKeyUp(KeyCode.Space) && isJumping && !isGoingDown) {
@@ -86,8 +88,10 @@ public class CharacterMovement : MonoBehaviour
             if (direction == Vector2.zero)
                 dashDir = new Vector2(1, 0);
             else dashDir = direction;
-            
+
             currentDashTime += Time.deltaTime;
+
+            playerAudio.OnDash();            
         } else if (currentDashTime > 0) {
             currentDashTime += Time.deltaTime;
             if(currentDashTime >= dashTime) {
@@ -115,8 +119,11 @@ public class CharacterMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Ground")){
             isOnGround = true;
             isJumping = false;
+
+            playerAudio.OnDrop();
         }
     }
+
     private void OnCollisionExit2D(Collision2D other) {
         if(other.gameObject.CompareTag("Ground")){
             isOnGround = false;
