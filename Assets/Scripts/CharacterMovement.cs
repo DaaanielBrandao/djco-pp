@@ -9,6 +9,8 @@ public class CharacterMovement : MonoBehaviour
     public float gravityMod = 5.5f;
     public Vector2 direction = new Vector2(1, 0);
     public int turned = 1;
+
+    public Vector3 movement;
    
     private bool isOnGround = false;
     private bool isJumping = false;
@@ -52,7 +54,8 @@ public class CharacterMovement : MonoBehaviour
             inputHor == 0 ? 0 : Mathf.Sign(inputHor), 
             inputVer == 0 ? 0 : Mathf.Sign(inputVer)
         ).normalized;
-        transform.Translate(Vector3.right * inputHor * Time.deltaTime * speed);
+        movement = Vector3.right * inputHor * Time.deltaTime * speed;
+        transform.Translate(movement);
 
         if (direction.x < 0){
             transform.localScale = new Vector3(-1,1,1);

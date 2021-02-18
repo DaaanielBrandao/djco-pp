@@ -7,6 +7,8 @@ public abstract class Weapon : MonoBehaviour
     // Start is called before the first frame update
     public GameObject bullets;
     public GameObject hole;
+    public float cooldown;
+    public float currentCd = 0;
 
     void Start()
     {
@@ -15,9 +17,12 @@ public abstract class Weapon : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.L)) {        
+    {   
+        if(currentCd > 0){
+            currentCd -= Time.deltaTime;
+        } else if(Input.GetKeyDown(KeyCode.L)) {        
             this.OnShoot();
+            currentCd = cooldown;
             SoundManager.Instance.OnShoot();
         }
     }
