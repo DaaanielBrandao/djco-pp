@@ -27,6 +27,8 @@ public class CharacterMovement : MonoBehaviour
     
     private SpriteRenderer spriteRenderer;
 
+    public GameObject mainCamera;
+
     
     // Start is called before the first frame update
     void Start()
@@ -103,6 +105,8 @@ public class CharacterMovement : MonoBehaviour
             currentDashTime = Time.deltaTime;
 
             SoundManager.Instance.OnDash();
+            mainCamera.GetComponent<Animator>().SetTrigger("zoop");
+            
         } else if (currentDashTime > 0) {
             currentDashTime += Time.deltaTime;
             if(currentDashTime >= dashTime) {
