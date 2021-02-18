@@ -5,7 +5,7 @@ using UnityEngine;
 public class PistolBullet : Bullet {
     
     public void Reset() {
-        speed = 60f;
+        speed = 80f;
         maxTime = 0.6f;
     }
 }

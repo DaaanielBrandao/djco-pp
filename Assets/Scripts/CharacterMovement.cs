@@ -8,6 +8,7 @@ public class CharacterMovement : MonoBehaviour
     public float jumpForce = 25f;
     public float gravityMod = 5.5f;
     public Vector2 direction = new Vector2(1, 0);
+    public int turned = 1;
    
     private bool isOnGround = false;
     private bool isJumping = false;
@@ -47,13 +48,20 @@ public class CharacterMovement : MonoBehaviour
         float inputHor = Input.GetAxis("Horizontal");
         float inputVer = Input.GetAxisRaw("Vertical");
 
-        direction = new Vector2(Mathf.Sign(inputHor), Mathf.Sign(inputVer)).normalized;
+        direction = new Vector2(
+            inputHor == 0 ? 0 : Mathf.Sign(inputHor), 
+            inputVer == 0 ? 0 : Mathf.Sign(inputVer)
+        ).normalized;
         transform.Translate(Vector3.right * inputHor * Time.deltaTime * speed);
 
-        if (direction.x < 0)
+        if (direction.x < 0){
             transform.localScale = new Vector3(-1,1,1);
-        else if (direction.x > 0)
+            turned = -1;
+        }
+        else if (direction.x > 0){
             transform.localScale = new Vector3(1,1,1);
+             turned = +1;
+        }
     }
 
     public void HandleJump() {
@@ -73,7 +81,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
         if(isGoingDown){ // im yelling timbeeeeeeeeeeeeeeeeeeer
-            Physics2D.gravity = defGrav * 2f;
+            Physics2D.gravity = defGrav * 1.6f;
         }
         else{
             Physics2D.gravity = defGrav;

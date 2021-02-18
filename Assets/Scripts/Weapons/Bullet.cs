@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dir = GameObject.Find("Character").GetComponent<CharacterMovement>().direction.x;
+        dir = GameObject.Find("Character").GetComponent<CharacterMovement>().turned;
     }
 
     // Update is called once per frame
