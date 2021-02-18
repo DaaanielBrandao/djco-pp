@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {   
-    public float speed = 14f;
-    public float jumpForce = 25f;
-    public float gravityMod = 5.5f;
+    public float speed = 25;
+    public float jumpForce = 35f;
+    public float gravityMod = 7f;
     public Vector2 facingDir = new Vector2(1, 0);
 
     public Vector2 movement;
@@ -15,8 +15,8 @@ public class CharacterMovement : MonoBehaviour
     private bool isJumping = false;
 
     public enum DashState {Ready, Dashing, Cooldown, Waiting};
-    public float dashTime = 0.15f;
-    public float dashSpeed = 30f;    
+    public float dashTime = 0.2f;
+    public float dashSpeed = 40f;    
     public float dashCooldown = 0.2f;    
     public DashState dashState = DashState.Ready; 
     public Vector2 dashDir;
@@ -65,6 +65,7 @@ public class CharacterMovement : MonoBehaviour
         bool isGoingDown = rb.velocity.y < 0;
         
         if(Input.GetKeyDown(KeyCode.I) && isOnGround) { // && isOnGround && !gameOver){
+            Debug.Log("JOOOPM");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumping = true; 
 
@@ -139,6 +140,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Ground")){
+            Debug.Log("HIIIIII");
             isOnGround = true;
             isJumping = false;
             
