@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {   
-    public int turned = 1;
     public float speed = 14f;
     public float jumpForce = 25f;
     public float gravityMod = 5.5f;
+    public Vector2 direction = new Vector2(1, 0);
+   
     private bool isOnGround = false;
     private bool isJumping = false;
     private bool hasDash = false;
-    private Vector2 direction = new Vector2(1, 0);
 
     private Vector2 defGrav;
     private Rigidbody2D rb;
@@ -23,7 +23,6 @@ public class CharacterMovement : MonoBehaviour
     public Vector2 dashDir;
     
     private SpriteRenderer spriteRenderer;
-    private PlayerSoundManager playerAudio;
 
     
     // Start is called before the first frame update
@@ -31,7 +30,6 @@ public class CharacterMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        playerAudio = GetComponent<PlayerSoundManager>();
 
         defGrav = Physics2D.gravity * gravityMod;
         Physics2D.gravity = defGrav;
@@ -49,20 +47,13 @@ public class CharacterMovement : MonoBehaviour
         float inputHor = Input.GetAxis("Horizontal");
         float inputVer = Input.GetAxis("Vertical");
 
-        direction = new Vector2(
-            inputHor == 0 ? 0 : Mathf.Sign(inputHor), 
-            inputVer == 0 ? 0 : Mathf.Sign(inputVer)
-        ).normalized;
+        direction = new Vector2(Mathf.Sign(inputHor), Mathf.Sign(inputVer)).normalized;
         transform.Translate(Vector3.right * inputHor * Time.deltaTime * speed);
 
-        if(inputHor < 0){
-            turned = -1;
+        if (direction.x < 0)
             transform.localScale = new Vector3(-1,1,1);
-        }
-        else if(inputHor > 0){
-            turned = 1;
+        else if (direction.x > 0)
             transform.localScale = new Vector3(1,1,1);
-        }
     }
 
     public void HandleJump() {
@@ -72,7 +63,8 @@ public class CharacterMovement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumping = true; 
 
-            playerAudio.OnJump();
+
+            SoundManager.Instance.OnJump();
         }
 
         if (Input.GetKeyUp(KeyCode.I) && isJumping && !isGoingDown) {
@@ -95,14 +87,11 @@ public class CharacterMovement : MonoBehaviour
             Debug.Log("dash!");
             hasDash = false;
             spriteRenderer.color = UnityEngine.Color.blue;
-            if (direction == Vector2.zero)
-                dashDir = new Vector2(1, 0);
-            else dashDir = direction;
             
+            dashDir = direction;            
             currentDashTime = Time.deltaTime;
 
-            playerAudio.OnDash();    
-
+            SoundManager.Instance.OnDash();
         } else if (currentDashTime > 0) {
             currentDashTime += Time.deltaTime;
             if(currentDashTime >= dashTime) {
@@ -125,8 +114,8 @@ public class CharacterMovement : MonoBehaviour
             isOnGround = true;
             isJumping = false;
             
-            playerAudio.OnDrop();
-
+            SoundManager.Instance.OnDrop();
+            
             hasDash = true;
             spriteRenderer.color = UnityEngine.Color.red;
 

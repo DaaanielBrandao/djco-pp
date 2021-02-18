@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSoundManager : MonoBehaviour
+public class SoundManager : MonoBehaviour
 {
+    // Singleton
+    public static SoundManager Instance { get; private set; }
+    private void Awake() {
+        Instance = this;
+    }
+    
 
     public AudioClip jumpSound; 
     public AudioClip dropSound; 
     public AudioClip dashSound; 
+    public AudioClip shootSound; 
     public AudioClip pickleSound; 
     private AudioSource playerAudio;
 
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -35,5 +43,9 @@ public class PlayerSoundManager : MonoBehaviour
 
     public void OnDash() {
         playerAudio.PlayOneShot(dashSound, 1.0f);
+    }
+
+    public void OnShoot() {
+        playerAudio.PlayOneShot(shootSound, 1.0f);
     }
 }

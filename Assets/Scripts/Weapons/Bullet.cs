@@ -1,16 +1,17 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicBullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public float speed = 60f;
     public float maxTime = 0.6f;
     private float dir;
+
     // Start is called before the first frame update
     void Start()
     {
-        dir = GameObject.Find("Character").GetComponent<CharacterMovement>().turned;
+        dir = GameObject.Find("Character").GetComponent<CharacterMovement>().direction.x;
     }
 
     // Update is called once per frame

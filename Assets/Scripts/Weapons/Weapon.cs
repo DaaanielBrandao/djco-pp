@@ -1,12 +1,13 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject bullets;
     public GameObject hole;
+
     void Start()
     {
         
@@ -15,9 +16,11 @@ public class Pistol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L)){
-            Debug.Log("pew");
-            Instantiate(bullets,hole.transform.position,transform.rotation);
+        if(Input.GetKeyDown(KeyCode.L)) {        
+            this.OnShoot();
+            SoundManager.Instance.OnShoot();
         }
     }
+
+    protected abstract void OnShoot();
 }
