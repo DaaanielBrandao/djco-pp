@@ -22,7 +22,7 @@ public class PlayerPlatformCollision : MonoBehaviour
     {
 
             Debug.Log(Input.GetKey(KeyCode.LeftShift));
-        if (currentPlatform != null && Input.GetAxis("Vertical") < 0 && !Input.GetKey(KeyCode.LeftShift)) {
+        if (currentPlatform != null && Input.GetAxis("Vertical") < 0 && !Input.GetKey(KeyCode.J)) {
             Physics2D.IgnoreCollision(currentPlatform.GetComponent<Collider2D>(), collider2d, true);            
         }
     }
@@ -47,13 +47,15 @@ public class PlayerPlatformCollision : MonoBehaviour
 
     // Handling going up
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Platform Trigger")) {            
+        if(other.CompareTag("Platform Trigger")) { 
+            Debug.Log("hi");           
             Physics2D.IgnoreCollision(other.gameObject.transform.parent.gameObject.GetComponent<Collider2D>(), collider2d, true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if(other.CompareTag("Platform Trigger")) {            
+            Debug.Log("by");           
             Physics2D.IgnoreCollision(other.gameObject.transform.parent.gameObject.GetComponent<Collider2D>(), collider2d, false);
         }
     }
