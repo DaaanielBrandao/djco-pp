@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 1484547865}
   - component: {fileID: 1484547864}
   - component: {fileID: 1484547863}
+  - component: {fileID: 1484547868}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -676,6 +677,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1484547868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484547862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d55e019bb6c4b43adb3c3136763809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: 899a583a01c69b2418eb857725a44026, type: 3}
+  dropSound: {fileID: 8300000, guid: b3811de05c6b2c64aa790bd4842a9551, type: 3}
+  dashSound: {fileID: 8300000, guid: ad75914f5de328944a724b97f29479e4, type: 3}
+  pickleSound: {fileID: 8300000, guid: 6ae19e9353f81544b9205aa1a1a2c968, type: 3}
 --- !u!1001 &1602101305
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -98,11 +98,11 @@ public class CharacterMovement : MonoBehaviour
             if (direction == Vector2.zero)
                 dashDir = new Vector2(1, 0);
             else dashDir = direction;
-
             
             currentDashTime = Time.deltaTime;
 
             playerAudio.OnDash();    
+
         } else if (currentDashTime > 0) {
             currentDashTime += Time.deltaTime;
             if(currentDashTime >= dashTime) {
@@ -124,7 +124,7 @@ public class CharacterMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Ground")){
             isOnGround = true;
             isJumping = false;
-
+            
             playerAudio.OnDrop();
 
             hasDash = true;
