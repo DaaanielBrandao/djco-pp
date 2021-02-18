@@ -130,7 +130,9 @@ public class CharacterMovement : MonoBehaviour
             rb.velocity = Vector2.zero;
 
             yield return new WaitForSeconds(dashCooldown);
-            dashState = DashState.Waiting;
+
+            if (dashState != DashState.Ready)
+                dashState = DashState.Waiting;
         }
     }
     

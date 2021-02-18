@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Platform
   - Bullet
+  - Platform Trigger
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Character
   - 
   - 
   - 
@@ -41,9 +42,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 795691573
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Platforms
+    uniqueID: 3753203641
+    locked: 0
   - name: Player
     uniqueID: 592865407
+    locked: 0
+  - name: Enemies
+    uniqueID: 1349124125
     locked: 0
