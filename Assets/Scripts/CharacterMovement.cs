@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {   
+    public float inputVer;
     public int turned = 1;
     public float speed = 14f;
     public float jumpForce = 25f;
@@ -47,7 +48,7 @@ public class CharacterMovement : MonoBehaviour
 
     public void HandleMove() {
         float inputHor = Input.GetAxis("Horizontal");
-        float inputVer = Input.GetAxis("Vertical");
+        inputVer = Input.GetAxisRaw("Vertical");
 
         direction = new Vector2(
             inputHor == 0 ? 0 : Mathf.Sign(inputHor), 

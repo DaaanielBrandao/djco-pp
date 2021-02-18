@@ -21,8 +21,8 @@ public class PlayerPlatformCollision : MonoBehaviour
     void Update()
     {
 
-            Debug.Log(Input.GetKey(KeyCode.LeftShift));
-        if (currentPlatform != null && Input.GetAxis("Vertical") < 0 && !Input.GetKey(KeyCode.J)) {
+           // Debug.Log(Input.GetKey(KeyCode.LeftShift));
+        if (currentPlatform != null && Input.GetKeyDown(KeyCode.S) && !Input.GetKey(KeyCode.J)) {
             Physics2D.IgnoreCollision(currentPlatform.GetComponent<Collider2D>(), collider2d, true);            
         }
     }
