@@ -24,15 +24,19 @@ public class CharacterMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     
     private Rigidbody2D rb;
+    private Animator animator;
 
     public GameObject mainCamera;
+    public GameObject trail;
+    private TrailRenderer trailRenderer;
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        animator = GetComponent<Animator>();
+        trailRenderer = trail.GetComponent<TrailRenderer>();
         rb.gravityScale = gravityMod;
     }
 
@@ -54,11 +58,19 @@ public class CharacterMovement : MonoBehaviour
         Vector2 direction = new Vector2(inputHor, inputVer);        
         if (direction.x != 0) {
             facingDir = new Vector2(direction.x, direction.y);           
-            transform.localScale = new Vector3(direction.x, 1, 1);
+            transform.localScale = new Vector3(direction.x * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
 
         if (transform.position.y < -50)
             transform.position = new Vector3(0, 10, 0);
+
+        //animator.SetInteger("HorizontalMov", (int)Mathf.Ceil(inputHor));
+        //animator.SetBool("Airborne", isJumping);
+        bool moving = false;
+        if(inputHor != 0)
+            moving = true;
+        animator.SetBool("Moving",moving);
+        animator.SetBool("Airborne",!isOnGround);
     }
 
     public void HandleJump() {
@@ -71,6 +83,7 @@ public class CharacterMovement : MonoBehaviour
 
 
             SoundManager.Instance.OnJump();
+            animator.SetTrigger("Jump");
         }
 
         if (Input.GetKeyUp(KeyCode.I) && isJumping && !isGoingDown) {
@@ -99,24 +112,25 @@ public class CharacterMovement : MonoBehaviour
 
                     SoundManager.Instance.OnDash();
                     mainCamera.GetComponent<Animator>().SetTrigger("zoop");
+                    trailRenderer.emitting = true;
                 }
 
-                spriteRenderer.color = UnityEngine.Color.red;
+                spriteRenderer.color = UnityEngine.Color.white;
                 break;
 
             case DashState.Dashing:
                 rb.velocity = dashDir * dashSpeed;
-                spriteRenderer.color = UnityEngine.Color.blue;
+                spriteRenderer.color = UnityEngine.Color.cyan;
                 break;
 
             case DashState.Cooldown:
-                spriteRenderer.color = UnityEngine.Color.cyan;
+                spriteRenderer.color = UnityEngine.Color.gray;
                 break;
 
             case DashState.Waiting:
                 if (isOnGround)
                     dashState = DashState.Ready;
-                spriteRenderer.color = UnityEngine.Color.green;
+                spriteRenderer.color = UnityEngine.Color.gray;
                 break;
 
             default: break;
@@ -127,13 +141,14 @@ public class CharacterMovement : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
 
         if (dashState != DashState.Ready) {
+            trailRenderer.emitting = false;
             dashState = DashState.Cooldown;
             rb.velocity = Vector2.zero;
 
             yield return new WaitForSeconds(dashCooldown);
 
             if (dashState != DashState.Ready)
-                dashState = DashState.Waiting;
+                dashState = DashState.Waiting;                   
         }
     }
     
@@ -147,6 +162,7 @@ public class CharacterMovement : MonoBehaviour
             SoundManager.Instance.OnDrop();
 
             dashState = DashState.Ready;
+            trailRenderer.emitting = false;
         }
     }
 
