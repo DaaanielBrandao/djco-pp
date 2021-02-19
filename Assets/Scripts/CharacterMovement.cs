@@ -27,6 +27,8 @@ public class CharacterMovement : MonoBehaviour
     private Animator animator;
 
     public GameObject mainCamera;
+    public GameObject trail;
+    private TrailRenderer trailRenderer;
     
     // Start is called before the first frame update
     void Start()
@@ -34,7 +36,7 @@ public class CharacterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-
+        trailRenderer = trail.GetComponent<TrailRenderer>();
         rb.gravityScale = gravityMod;
     }
 
@@ -109,6 +111,7 @@ public class CharacterMovement : MonoBehaviour
 
                     SoundManager.Instance.OnDash();
                     mainCamera.GetComponent<Animator>().SetTrigger("zoop");
+                    trailRenderer.emitting = true;
                 }
 
                 spriteRenderer.color = UnityEngine.Color.white;
@@ -137,13 +140,14 @@ public class CharacterMovement : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
 
         if (dashState != DashState.Ready) {
+            trailRenderer.emitting = false;
             dashState = DashState.Cooldown;
             rb.velocity = Vector2.zero;
 
             yield return new WaitForSeconds(dashCooldown);
 
             if (dashState != DashState.Ready)
-                dashState = DashState.Waiting;
+                dashState = DashState.Waiting;                   
         }
     }
     
@@ -156,6 +160,7 @@ public class CharacterMovement : MonoBehaviour
             SoundManager.Instance.OnDrop();
 
             dashState = DashState.Ready;
+            trailRenderer.emitting = false;
         }
     }
 
