@@ -19,13 +19,17 @@ public abstract class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+         if(Input.GetKeyDown(KeyCode.L)) {
+            Debug.Log("PEW"); 
+         }
         if (!canShoot)
             return;
 
-        if(Input.GetKeyDown(KeyCode.L)) {        
+        if(Input.GetKeyDown(KeyCode.L)) {     
             StartCoroutine(StartCooldown());
             this.OnShoot();
             
+            GetComponent<Animator>().SetTrigger("pew");
             SoundManager.Instance.OnShoot();
             //GameObject.FindObjectOfType<Camera>().GetComponent<Animator>().SetTrigger("shake"); é capaz de ficar melhor qnd se mata alguem
         }
