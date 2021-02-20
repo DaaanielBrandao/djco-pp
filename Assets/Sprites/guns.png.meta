@@ -858,9 +858,9 @@ TextureImporter:
       name: guns_32
       rect:
         serializedVersion: 2
-        x: 80
+        x: 79
         y: 140
-        width: 3
+        width: 4
         height: 3
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
