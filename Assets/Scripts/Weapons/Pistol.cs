@@ -4,8 +4,14 @@ using UnityEngine;
 
 
 public class Pistol : Weapon
-{
+{   
+    public float spreadAngle = 5;
     protected override void OnShoot() {
-        Instantiate(bullets, hole.transform.position,transform.rotation);
+        float angle = Random.Range(-spreadAngle/2,spreadAngle/2);
+
+
+        Instantiate(bullets, hole.transform.position,new Quaternion(90,angle,0,0));
+
+        SoundManager.Instance.OnShootPistol();
     }
 }

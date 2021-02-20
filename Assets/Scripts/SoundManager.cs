@@ -14,7 +14,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip jumpSound; 
     public AudioClip dropSound; 
     public AudioClip dashSound; 
-    public AudioClip shootSound; 
+    public AudioClip pistolSound; 
+    public AudioClip shotgunSound; 
     public AudioClip pickleSound; 
     private AudioSource playerAudio;
 
@@ -45,7 +46,10 @@ public class SoundManager : MonoBehaviour
         playerAudio.PlayOneShot(dashSound, 1.0f);
     }
 
-    public void OnShoot() {
-        playerAudio.PlayOneShot(shootSound, 1.0f);
+    public void OnShootPistol() {
+        playerAudio.PlayOneShot(pistolSound, 1.0f);
+    }
+    public void OnShootShotgun() {
+        playerAudio.PlayOneShot(shotgunSound, 1.0f);
     }
 }

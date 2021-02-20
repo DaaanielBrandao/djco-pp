@@ -14,7 +14,7 @@ public class CharacterMovement : MonoBehaviour
     private bool isOnGround = false;
     private bool isJumping = false;
 
-    public enum DashState {Ready, Dashing, Cooldown, Waiting};
+    public enum DashState {Ready, Dashing, Cooldown, Waiting, WaveDash};
     public float dashTime = 0.2f;
     public float dashSpeed = 40f;    
     public float dashCooldown = 0.2f;    
@@ -53,7 +53,20 @@ public class CharacterMovement : MonoBehaviour
         float inputVer = Input.GetAxisRaw("Vertical");
 
         movement = Vector3.right * inputHor * Time.deltaTime * speed;
-        transform.Translate(movement);
+        //transform.Translate(movement);
+        if(!(inputHor * rb.velocity.x > 0 && Mathf.Abs(rb.velocity.x) > 30)){
+            rb.AddForce(movement * 5, ForceMode2D.Impulse);
+        }
+
+    /*
+        if(isOnGround && ((inputHor == 0 && Mathf.Abs(rb.velocity.x) > 0) ||  Mathf.Abs(rb.velocity.x) > 30)){
+            Debug.Log("ola");
+            rb.AddForce(Vector3.right* -5 * Mathf.Sign(rb.velocity.x), ForceMode2D.Impulse);
+        }*/
+        if(!isJumping && (dashState != DashState.WaveDash && Mathf.Abs(rb.velocity.x) > 30 || inputHor == 0)){
+            rb.velocity = new Vector2(rb.velocity.x * Mathf.Pow(0.00005f,Time.deltaTime) ,rb.velocity.y);
+        }
+        
 
         Vector2 direction = new Vector2(inputHor, inputVer);        
         if (direction.x != 0) {
@@ -63,6 +76,8 @@ public class CharacterMovement : MonoBehaviour
 
         if (transform.position.y < -50)
             transform.position = new Vector3(0, 10, 0);
+
+        
 
         //animator.SetInteger("HorizontalMov", (int)Mathf.Ceil(inputHor));
         //animator.SetBool("Airborne", isJumping);
@@ -105,6 +120,7 @@ public class CharacterMovement : MonoBehaviour
                 dashDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
                 if (dashDir == Vector2.zero)
                     dashDir = facingDir.normalized;
+                else dashDir = dashDir.normalized;
 
                 if(Input.GetKeyDown(KeyCode.J)) {
                     dashState = DashState.Dashing;                 
@@ -132,6 +148,14 @@ public class CharacterMovement : MonoBehaviour
                     dashState = DashState.Ready;
                 spriteRenderer.color = UnityEngine.Color.gray;
                 break;
+            case DashState.WaveDash:
+                rb.velocity = new Vector2(dashSpeed * dashDir.x ,rb.velocity.y);
+                if(Input.GetKeyDown(KeyCode.I)){
+                    dashState = DashState.Ready;
+                    trailRenderer.emitting = false;
+                    //HandleJump();
+                }
+                break;
 
             default: break;
         }
@@ -142,12 +166,16 @@ public class CharacterMovement : MonoBehaviour
 
         if (dashState != DashState.Ready) {
             trailRenderer.emitting = false;
-            dashState = DashState.Cooldown;
-            rb.velocity = Vector2.zero;
+            if(dashState == DashState.WaveDash)
+                dashState = DashState.Ready;
+            else {
+                dashState = DashState.Cooldown;
+                rb.velocity = Vector2.zero;
+            }
 
             yield return new WaitForSeconds(dashCooldown);
 
-            if (dashState != DashState.Ready)
+            if (dashState != DashState.Ready && dashState != DashState.WaveDash)
                 dashState = DashState.Waiting;                   
         }
     }
@@ -161,8 +189,11 @@ public class CharacterMovement : MonoBehaviour
             
             SoundManager.Instance.OnDrop();
 
-            dashState = DashState.Ready;
-            trailRenderer.emitting = false;
+            if(dashState == DashState.Dashing){
+               dashState = DashState.WaveDash;
+               //rb.velocity = new Vector2(dashSpeed * dashDir.x ,rb.velocity.y);
+               //trailRenderer.emitting = false;
+            }
         }
     }
 

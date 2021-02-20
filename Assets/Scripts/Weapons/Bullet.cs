@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour
 {
-    protected float speed = 60f;
-    protected float maxTime = 0.6f;
+    public float speed = 60f;
+    public float maxTime = 0.6f;
 
     private float dir;
     private Vector3 charSpeed;

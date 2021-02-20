@@ -6,6 +6,6 @@ public class ShotgunBullet : Bullet {
 
     public void Reset() {
         speed = 70f;
-        maxTime = 0.4f;
+        maxTime = 0.01f;
     }
 }   

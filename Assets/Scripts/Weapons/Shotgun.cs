@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shotgun : Weapon
 {
-    private float spreadAngle = 40;
+    public float spreadAngle = 40;
     private int numBullets = 6;
 
     protected override void OnShoot() {
@@ -19,5 +19,8 @@ public class Shotgun : Weapon
             float angle = Random.Range(-spreadAngle/2,spreadAngle/2);
             Instantiate(bullets,hole.transform.position, new Quaternion(90,angle,0,0));
         }
+
+        SoundManager.Instance.OnShootShotgun();
+        GameObject.FindObjectOfType<Camera>().GetComponent<Animator>().SetTrigger("shake"); //é capaz de ficar melhor qnd se mata alguem
     }
 }

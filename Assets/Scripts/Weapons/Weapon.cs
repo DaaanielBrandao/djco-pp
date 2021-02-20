@@ -30,8 +30,6 @@ public abstract class Weapon : MonoBehaviour
             this.OnShoot();
             
             GetComponent<Animator>().SetTrigger("pew");
-            SoundManager.Instance.OnShoot();
-            //GameObject.FindObjectOfType<Camera>().GetComponent<Animator>().SetTrigger("shake"); é capaz de ficar melhor qnd se mata alguem
         }
     }
 
