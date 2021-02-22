@@ -194,6 +194,7 @@ public class CharacterMovement : MonoBehaviour
                //rb.velocity = new Vector2(dashSpeed * dashDir.x ,rb.velocity.y);
                //trailRenderer.emitting = false;
             }
+            else trailRenderer.emitting = false;
         }
     }
 
