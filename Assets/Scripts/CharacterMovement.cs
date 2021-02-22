@@ -92,7 +92,6 @@ public class CharacterMovement : MonoBehaviour
         bool isGoingDown = rb.velocity.y < 0;
         
         if(Input.GetKeyDown(KeyCode.I) && isOnGround) { // && isOnGround && !gameOver){
-            Debug.Log("JOOOPM");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumping = true; 
 
@@ -183,7 +182,6 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Ground")){
-            Debug.Log("HIIIIII");
             isOnGround = true;
             isJumping = false;
             

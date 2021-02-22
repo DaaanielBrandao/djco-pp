@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    // Singleton
-    public static SoundManager Instance { get; private set; }
-    private void Awake() {
-        Instance = this;
-    }
+    // Singleton gamings
+    private static SoundManager _instance;
+    public static SoundManager Instance { get { return _instance; } }
     
+    private void Awake() {
+        if (_instance != null && _instance != this)
+            Destroy(this.gameObject);
+        else _instance = this;
+    }
+
+
+
+
 
     public AudioClip jumpSound; 
     public AudioClip dropSound; 
@@ -19,12 +26,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip pickleSound; 
     private AudioSource playerAudio;
 
- 
-
     // Start is called before the first frame update
     void Start()
     {
-        Instance = this;
         playerAudio = GetComponent<AudioSource>();        
     }
 

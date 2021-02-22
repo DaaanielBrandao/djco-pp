@@ -41,7 +41,6 @@ public class PlatformCollision : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        Debug.Log("Oi");
         if(other.CompareTag(TriggerTag)) {     
             Physics2D.IgnoreCollision(other.gameObject.transform.parent.gameObject.GetComponent<Collider2D>(), collider2d, false);
         }

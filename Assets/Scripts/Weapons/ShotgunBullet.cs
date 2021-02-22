@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShotgunBullet : Bullet {
 
-    public void Reset() {
+    ShotgunBullet() {
         speed = 70f;
-        maxTime = 0.01f;
+        maxTime = 0.1f;
     }
 }   

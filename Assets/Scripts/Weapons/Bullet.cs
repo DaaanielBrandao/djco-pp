@@ -28,8 +28,6 @@ public abstract class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log((Vector2.right * dir * speed + charSpeed) * Time.deltaTime);
-
         transform.Translate((Vector2.right * dir * speed + charSpeed) * Time.deltaTime);
     }
 
