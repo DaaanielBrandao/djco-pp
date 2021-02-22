@@ -98,7 +98,7 @@ public class CharacterMovement : MonoBehaviour
 
 
             SoundManager.Instance.OnJump();
-            animator.SetTrigger("Jump");
+            // animator.SetTrigger("Jump");
         }
 
         if (Input.GetKeyUp(KeyCode.I) && isJumping && !isGoingDown) {

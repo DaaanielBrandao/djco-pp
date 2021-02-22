@@ -8,13 +8,19 @@ public abstract class Bullet : MonoBehaviour
     public float maxTime = 0.6f;
 
     private float dir;
-    private Vector3 charSpeed;
+    private Vector2 charSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        dir = GameObject.Find("Character").GetComponent<CharacterMovement>().facingDir.x;
-        charSpeed = GameObject.Find("Character").GetComponent<CharacterMovement>().movement;
+        GameObject character = GameObject.Find("Character");
+        
+        dir = character.GetComponent<CharacterMovement>().facingDir.x;
+
+        charSpeed = new Vector2(
+            character.GetComponent<Rigidbody2D>().velocity.x,
+            character.GetComponent<Rigidbody2D>().velocity.y
+        );
 
         StartCoroutine(DestroyAfterLifetime());
     }
@@ -22,7 +28,9 @@ public abstract class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * dir * Time.deltaTime * speed + charSpeed);
+        Debug.Log((Vector2.right * dir * speed + charSpeed) * Time.deltaTime);
+
+        transform.Translate((Vector2.right * dir * speed + charSpeed) * Time.deltaTime);
     }
 
     IEnumerator DestroyAfterLifetime() {
@@ -30,9 +38,9 @@ public abstract class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
+
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log(other.gameObject.name);
-        if(!other.gameObject.CompareTag("Bullet")){
+        if(other.gameObject.layer != PlatformCollision.PlatformLayer && !other.gameObject.CompareTag("Bullet")){
             Destroy(gameObject);
         }
     }

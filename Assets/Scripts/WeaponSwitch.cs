@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class WeaponSwitch : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject[] Weapons;
     public int pressedNumber = 1;
+
+    public float cooldown = 0.2f;
+    public bool canSwitch = true;
+
+    // Start is called before the first frame update
     void Start()
     {
         SelectWeapon(pressedNumber);
@@ -15,27 +19,35 @@ public class WeaponSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pressedNumber = GetPressedNumber();
-        if(pressedNumber > 0 && pressedNumber <= Weapons.Length)
-            SelectWeapon(pressedNumber);
-    }
-    public void SelectWeapon(int index){
-        for (int i=0; i<Weapons.Length; i++)
-        {
-            if (i == (index - 1))
-                Weapons[i].SetActive(true);
-            else
-                Weapons[i].SetActive(false);
+        if (!canSwitch)
+            return;
+
+        int newPressedNumber = GetPressedNumber();
+        if (pressedNumber != newPressedNumber && newPressedNumber > 0 && newPressedNumber <= Weapons.Length) {
+            SelectWeapon(newPressedNumber);
+            StartCoroutine(StartCooldown());
         }
+    }
+    
+    IEnumerator StartCooldown() {
+        canSwitch = false;
+        yield return new WaitForSeconds(cooldown);
+        canSwitch = true;        
+    }
+
+    public void SelectWeapon(int index){
+        Weapons[pressedNumber - 1].SetActive(false);
+        Weapons[index - 1].SetActive(true);
+        pressedNumber = index;
     }
 
     public int GetPressedNumber() {
-        for (int number = 0; number <= 9; number++) {
+        for (int number = 1; number <= 9; number++) {
             if (Input.GetKeyDown(number.ToString()))
                 return number;
+        }
+        
+        return -1;
     }
- 
-    return -1;
-}
  
 }

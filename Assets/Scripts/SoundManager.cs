@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         playerAudio = GetComponent<AudioSource>();        
     }
 
@@ -39,7 +40,7 @@ public class SoundManager : MonoBehaviour
     }
 
     public void OnDrop() {
-        playerAudio.PlayOneShot(dropSound, 1.0f);
+        //playerAudio.PlayOneShot(dropSound, 1.0f);
     }
 
     public void OnDash() {

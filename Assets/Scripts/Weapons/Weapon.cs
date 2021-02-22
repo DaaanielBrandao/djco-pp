@@ -12,16 +12,16 @@ public abstract class Weapon : MonoBehaviour
     public bool canShoot = true;
 
     void Start()
-    {
-        
+    { 
+    }
+
+    void OnEnable() {
+        canShoot = true;
     }
 
     // Update is called once per frame
     void Update()
-    {   
-         if(Input.GetKeyDown(KeyCode.L)) {
-            Debug.Log("PEW"); 
-         }
+    {  
         if (!canShoot)
             return;
 
