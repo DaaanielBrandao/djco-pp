@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class FloatingEnemy : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float minRange = 10;
-    public float maxRange = 12;
+    public float speed = 7.5f;
+    public float minRange = 7.5f;
+    public float maxRange = 10;
 
-    public float circleSpeed = 10.0f;
+    public float circleSpeed = 1.5f;
+    public int circleDir = 1;
 
     private GameObject follow;
 
     private Vector2 originalScale;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         follow = GameObject.FindGameObjectWithTag("Player");
         originalScale = transform.localScale;
-        
+
+        // Ignore platforms
+        var objects = FindObjectsOfType<GameObject>();
+        for (int i = 0; i < objects.Length; i++)
+            if (objects[i].layer == PlatformCollision.PlatformLayer)
+                Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), objects[i].GetComponent<Collider2D>(), true);
     }
 
     // Update is called once per frame
@@ -42,6 +47,7 @@ public class FloatingEnemy : MonoBehaviour
         else {
             dir = Vector2.zero;
         }
+        dir.y *= 2;
         
         transform.Translate(dir * speed * Time.deltaTime, Space.World);
 
@@ -57,6 +63,14 @@ public class FloatingEnemy : MonoBehaviour
         }
 
         // Circle
-        transform.RotateAround(follow.transform.position, Vector3.forward, circleSpeed / distance * Time.deltaTime);
+        transform.RotateAround(follow.transform.position, Vector3.forward, circleDir * circleSpeed * 360 / distance * Time.deltaTime);
+  
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.CompareTag("Ground")) {
+            circleDir = -circleDir;
+        }
+    }
+
 }

@@ -15,9 +15,6 @@ public class SoundManager : MonoBehaviour
     }
 
 
-
-
-
     public AudioClip jumpSound; 
     public AudioClip dropSound; 
     public AudioClip dashSound; 
@@ -32,9 +29,16 @@ public class SoundManager : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();        
     }
 
+
+
+
+
     // Update is called once per frame
     void Update()
     {
+        if (_instance == null || _instance != this) // helps with not breaking
+            _instance = this;
+
         if (Input.GetKeyDown(KeyCode.P))
             playerAudio.PlayOneShot(pickleSound);
     }
