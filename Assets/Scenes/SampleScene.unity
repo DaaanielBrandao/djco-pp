@@ -1239,36 +1239,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &520318088
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 520318089}
-  m_Layer: 0
-  m_Name: SpriteGhost
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &520318089
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520318088}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.513687, y: -17.454945, z: -5.0996094}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &615690759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1752,7 +1722,7 @@ GameObject:
   - component: {fileID: 875847819}
   - component: {fileID: 875847821}
   - component: {fileID: 875847820}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -5910,7 +5880,7 @@ ParticleSystem:
     radiusScale: 0.24
     collidesWith:
       serializedVersion: 2
-      m_Bits: 512
+      m_Bits: 1536
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -6875,13 +6845,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956626374}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.66, y: 0.84, z: 0}
+  m_LocalRotation: {x: -0, y: -0.013344973, z: -0, w: 0.99991095}
+  m_LocalPosition: {x: 16.49, y: -4.66, z: -0.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -1.529, z: 0}
 --- !u!4 &961457585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3218562380831665906, guid: ceda2ce478b088246af83efab1a9fb2e,
@@ -17562,7 +17532,7 @@ GameObject:
   - component: {fileID: 1867689868}
   - component: {fileID: 1867689867}
   - component: {fileID: 1867689869}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -22878,7 +22848,7 @@ GameObject:
   - component: {fileID: 1994029489}
   - component: {fileID: 1994029491}
   - component: {fileID: 1994029490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
