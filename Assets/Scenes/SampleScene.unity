@@ -2470,6 +2470,7 @@ GameObject:
   - component: {fileID: 1484547863}
   - component: {fileID: 1484547870}
   - component: {fileID: 1484547868}
+  - component: {fileID: 1484547869}
   m_Layer: 8
   m_Name: Character
   m_TagString: Player
@@ -2635,6 +2636,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1484547869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484547862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2251b651ddeed2489815f26b026e905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailSize: 3
+  spacing: 2
+  color: {r: 0, g: 1, b: 0.9608457, a: 100}
+  ghostMaterial: []
+  ghostSpriteSortingOrder: 0
+  renderOnMotion: 0
+  colorAlphaOverride: 1
+  alphaFluctuationOverride: 0.351
+  alphaFluctuationDivisor: 91
 --- !u!114 &1484547870
 MonoBehaviour:
   m_ObjectHideFlags: 0
