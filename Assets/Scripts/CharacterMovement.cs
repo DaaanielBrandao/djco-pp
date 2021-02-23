@@ -29,7 +29,8 @@ public class CharacterMovement : MonoBehaviour
     public GameObject mainCamera;
     public GameObject trail;
     private TrailRenderer trailRenderer;
-    
+    public ParticleSystem dust;
+    public ParticleSystem waveDust;
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +98,7 @@ public class CharacterMovement : MonoBehaviour
 
 
             SoundManager.Instance.OnJump();
+            dust.Play();
             // animator.SetTrigger("Jump");
         }
 
@@ -191,6 +193,7 @@ public class CharacterMovement : MonoBehaviour
                dashState = DashState.WaveDash;
                //rb.velocity = new Vector2(dashSpeed * dashDir.x ,rb.velocity.y);
                //trailRenderer.emitting = false;
+               waveDust.Play();
             }
             else trailRenderer.emitting = false;
         }
