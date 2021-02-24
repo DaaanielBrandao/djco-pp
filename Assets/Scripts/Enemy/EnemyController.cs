@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
         movementBehavior = GetComponent<MovementBehavior>();
         attackBehavior = GetComponent<AttackBehavior>();
     }
-    
+
     // Update is called once per frame
     void Update()
     {

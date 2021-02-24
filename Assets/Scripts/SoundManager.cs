@@ -20,7 +20,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip dashSound; 
     public AudioClip pistolSound; 
     public AudioClip shotgunSound; 
-    public AudioClip pickleSound; 
+    public AudioClip pickleSound;
+
+    public AudioClip enemyExplosion;  
     private AudioSource playerAudio;
 
     // Start is called before the first frame update
@@ -60,5 +62,8 @@ public class SoundManager : MonoBehaviour
     }
     public void OnShootShotgun() {
         playerAudio.PlayOneShot(shotgunSound, 1.0f);
+    }
+    public void OnEnemyExplosion() {
+        playerAudio.PlayOneShot(enemyExplosion, 1.0f);
     }
 }
