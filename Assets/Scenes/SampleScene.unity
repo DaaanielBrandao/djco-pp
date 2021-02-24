@@ -22988,9 +22988,10 @@ GameObject:
   - component: {fileID: 2066390819}
   - component: {fileID: 2066390818}
   - component: {fileID: 2066390822}
-  - component: {fileID: 2066390821}
   - component: {fileID: 2066390817}
+  - component: {fileID: 2066390821}
   - component: {fileID: 2066390824}
+  - component: {fileID: 2066390825}
   - component: {fileID: 2066390823}
   m_Layer: 8
   m_Name: Floaty
@@ -23011,11 +23012,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48f73869372cf6419be708ca387cbfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 1
   staggerHP: 0.25
   staggerTime: 5
-  visionRadius: 50
-  enemyState: 0
+  isStaggered: 0
 --- !u!58 &2066390818
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -23109,7 +23108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869676825cdd4b443978c3cee0c943e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5
+  maxHP: 100
   currentHP: 0
 --- !u!50 &2066390822
 Rigidbody2D:
@@ -23168,6 +23167,22 @@ MonoBehaviour:
   maxRange: 10
   circleSpeed: 1.5
   circleDir: 1
+  visionRadius: 50
+--- !u!114 &2066390825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066390816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce67d861ad725d84787e9043e77c1a77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 1
+  bullet: {fileID: 6218367985906079948, guid: 37d51887c8f631249a010be22034768b, type: 3}
+  visionRadius: 50
 --- !u!1 &2083728451
 GameObject:
   m_ObjectHideFlags: 0

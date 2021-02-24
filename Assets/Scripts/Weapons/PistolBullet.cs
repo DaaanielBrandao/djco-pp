@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PistolBullet : Bullet {
     
-    public void Reset() {
+    PistolBullet() {
         speed = 80f;
         maxTime = 0.6f;
+        damage = 30;
     }
 }

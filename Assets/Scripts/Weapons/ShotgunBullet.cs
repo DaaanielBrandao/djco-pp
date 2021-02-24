@@ -7,5 +7,6 @@ public class ShotgunBullet : Bullet {
     ShotgunBullet() {
         speed = 70f;
         maxTime = 0.1f;
+        damage = 15;
     }
 }   

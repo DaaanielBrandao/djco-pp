@@ -4,22 +4,23 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour
 {
-    public float speed = 60f;
-    public float maxTime = 0.6f;
+    public float speed; // units/s
+    public float maxTime; // s
+    public float damage; // HP
+
+    public GameObject shooter;
 
     private float dir;
     private Vector2 charSpeed;
 
     // Start is called before the first frame update
     void Start()
-    {
-        GameObject character = GameObject.Find("Character");
-        
-        dir = character.GetComponent<CharacterMovement>().facingDir.x;
+    {        
+        dir = shooter.GetComponent<CharacterMovement>().facingDir.x;
 
         charSpeed = new Vector2(
-            character.GetComponent<Rigidbody2D>().velocity.x,
-            character.GetComponent<Rigidbody2D>().velocity.y
+            shooter.GetComponent<Rigidbody2D>().velocity.x,
+            shooter.GetComponent<Rigidbody2D>().velocity.y
         );
 
         StartCoroutine(DestroyAfterLifetime());

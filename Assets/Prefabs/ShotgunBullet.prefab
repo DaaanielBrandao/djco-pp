@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 70
-  maxTime: 0.3
+  maxTime: 0.1
+  damage: 15
+  shooter: {fileID: 0}
 --- !u!58 &3209588282716014800
 CircleCollider2D:
   m_ObjectHideFlags: 0

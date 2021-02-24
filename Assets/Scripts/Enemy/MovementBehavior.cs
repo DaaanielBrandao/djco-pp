@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloatingEnemy : MonoBehaviour
+public class MovementBehavior : MonoBehaviour
 {
     public float speed = 7.5f;
     public float minRange = 7.5f;
@@ -11,9 +11,11 @@ public class FloatingEnemy : MonoBehaviour
     public float circleSpeed = 1.5f;
     public int circleDir = 1;
 
-    private GameObject follow;
-
     private Vector2 originalScale;
+    
+    private Animator animator;
+    private GameObject currentFollow;
+    public float visionRadius = 50f;
 
     // Start is called before the first frame update
     void Start() {
@@ -24,11 +26,18 @@ public class FloatingEnemy : MonoBehaviour
         for (int i = 0; i < objects.Length; i++)
             if (objects[i].layer == PlatformCollision.PlatformLayer)
                 Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), objects[i].GetComponent<Collider2D>(), true);
+    
+        currentFollow = GameObject.Find("Character"); // !!!
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() { 
+        if (Vector2.Distance(currentFollow.transform.position, transform.position) <= visionRadius)
+            FollowObject(currentFollow);
+    }
+
+    void FollowObject(GameObject follow) {
         Vector2 dir = follow.transform.position - gameObject.transform.position;
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -65,11 +74,6 @@ public class FloatingEnemy : MonoBehaviour
 
         // Circle
         transform.RotateAround(follow.transform.position, Vector3.forward, circleDir * circleSpeed * 360 / distance * Time.deltaTime);
-  
-    }
-
-    public void SetFollow(GameObject follow) {
-        this.follow = follow;
     }
 
     private void OnCollisionEnter2D(Collision2D other) {

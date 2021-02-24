@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
-    public float maxHP = 5;
+    public float maxHP = 100;
     public float currentHP;
 
     private SpriteRenderer spriteRenderer;
@@ -20,6 +20,11 @@ public class EnemyHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("HP " + currentHP);
+        if (currentHP <= 0) {
+            // boom
+            Destroy(gameObject);
+        }
         spriteRenderer.color = Color.Lerp(Color.gray, Color.white, currentHP / (float)maxHP);
     }
 
@@ -30,4 +35,12 @@ public class EnemyHP : MonoBehaviour
     public float percentageOfMax() {
         return currentHP / (float)maxHP;
     }    
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.CompareTag("Player Bullet")) {  
+            float damage = other.gameObject.GetComponent<Bullet>().damage;
+            Debug.Log("DMG " + damage);
+            this.changeHP(-damage);
+        }
+    }
 }

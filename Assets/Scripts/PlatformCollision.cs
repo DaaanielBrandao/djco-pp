@@ -22,9 +22,6 @@ public class PlatformCollision : MonoBehaviour
         
     }
 
-    private void OnEnable() {
-        
-    }
     // Handling going down
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.layer == PlatformCollision.PlatformLayer)

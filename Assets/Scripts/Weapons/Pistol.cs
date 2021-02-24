@@ -9,7 +9,7 @@ public class Pistol : Weapon
     protected override void OnShoot() {
         float angle = Random.Range(-spreadAngle/2,spreadAngle/2);
 
-        Instantiate(bullets, hole.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
+        SpawnBullet(hole.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
 
         SoundManager.Instance.OnShootPistol();
     }
