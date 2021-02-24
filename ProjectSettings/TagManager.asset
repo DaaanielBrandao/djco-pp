@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Bullet
   - Platform Trigger
+  - Player Bullet
+  - Enemy Bullet
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - Character
   - Platform
-  - 
+  - Projectile
   - 
   - 
   - 

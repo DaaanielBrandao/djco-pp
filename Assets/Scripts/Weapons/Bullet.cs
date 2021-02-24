@@ -37,9 +37,7 @@ public abstract class Bullet : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.layer != PlatformCollision.PlatformLayer && !other.gameObject.CompareTag("Bullet")){
-            Destroy(gameObject);
-        }
+    private void OnTriggerEnter2D(Collider2D other) {
+        Destroy(gameObject);
     }
 }

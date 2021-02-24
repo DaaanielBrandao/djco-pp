@@ -17,7 +17,6 @@ public class FloatingEnemy : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        follow = GameObject.FindGameObjectWithTag("Player");
         originalScale = transform.localScale;
 
         // Ignore platforms
@@ -48,6 +47,8 @@ public class FloatingEnemy : MonoBehaviour
             dir = Vector2.zero;
         }
         dir.y *= 2;
+
+        Debug.Log(dir);
         
         transform.Translate(dir * speed * Time.deltaTime, Space.World);
 
@@ -65,6 +66,10 @@ public class FloatingEnemy : MonoBehaviour
         // Circle
         transform.RotateAround(follow.transform.position, Vector3.forward, circleDir * circleSpeed * 360 / distance * Time.deltaTime);
   
+    }
+
+    public void SetFollow(GameObject follow) {
+        this.follow = follow;
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
