@@ -73,7 +73,7 @@ public class FloatingEnemy : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Ground")) {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Ground")) {
             circleDir = -circleDir;
         }
     }

@@ -187,7 +187,7 @@ public class CharacterMovement : MonoBehaviour
     
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Ground")){
+        if(other.gameObject.CompareTag("Jumpable")){
             isOnGround = true;
             isJumping = false;
             
@@ -204,7 +204,7 @@ public class CharacterMovement : MonoBehaviour
     }
 
     private void OnCollisionExit2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Ground")){
+        if(other.gameObject.CompareTag("Jumpable")){
             isOnGround = false;
         }
     }

@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 3218562380831665904}
   m_Layer: 9
   m_Name: Platform
-  m_TagString: Ground
+  m_TagString: Jumpable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
