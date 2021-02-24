@@ -7,6 +7,8 @@ public class EnemyHP : MonoBehaviour
     public float maxHP = 100;
     public float currentHP;
 
+    public ParticleSystem explosionEffect;
+
     private SpriteRenderer spriteRenderer;
     
     // Start is called before the first frame update
@@ -23,6 +25,9 @@ public class EnemyHP : MonoBehaviour
         Debug.Log("HP " + currentHP);
         if (currentHP <= 0) {
             // boom
+            SoundManager.Instance.OnEnemyExplosion();
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+
             Destroy(gameObject);
         }
         spriteRenderer.color = Color.Lerp(Color.gray, Color.white, currentHP / (float)maxHP);
