@@ -48,7 +48,7 @@ public class FloatingEnemy : MonoBehaviour
         }
         dir.y *= 2;
 
-        Debug.Log(dir);
+        //Debug.Log(dir);
         
         transform.Translate(dir * speed * Time.deltaTime, Space.World);
 

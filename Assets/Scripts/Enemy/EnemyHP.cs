@@ -24,7 +24,7 @@ public class EnemyHP : MonoBehaviour
     }
 
     public void changeHP(float amount) {
-        currentHP = Mathf.Clamp(currentHP - amount, 0, maxHP);
+        currentHP = Mathf.Clamp(currentHP + amount, 0, maxHP);
     }
 
     public float percentageOfMax() {
