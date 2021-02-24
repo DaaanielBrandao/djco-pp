@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
     private Animator animator;
     private GameObject follow;
 
+    public ParticleSystem explosionEffect;
+
     public enum EnemyState {NotSee = 0, Ready = 1, Staggered = 2, Dying}
     public EnemyState enemyState = EnemyState.NotSee; 
 
@@ -51,7 +53,9 @@ public class EnemyController : MonoBehaviour
     IEnumerator Die() { // moas beep boop ?
         enemyState = EnemyState.Dying;
         animator.SetTrigger("Dying");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.03f);
+        SoundManager.Instance.OnEnemyExplosion();
+        Instantiate(explosionEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
