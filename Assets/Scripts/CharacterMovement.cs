@@ -29,7 +29,10 @@ public class CharacterMovement : MonoBehaviour
     public GameObject mainCamera;
     public GameObject trail;
     private TrailRenderer trailRenderer;
-    
+    public ParticleSystem dust;
+    public ParticleSystem waveDust;
+
+    public ParticleSystem dashDust;
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +100,7 @@ public class CharacterMovement : MonoBehaviour
 
 
             SoundManager.Instance.OnJump();
+            dust.Play();
             // animator.SetTrigger("Jump");
         }
 
@@ -128,6 +132,7 @@ public class CharacterMovement : MonoBehaviour
                     SoundManager.Instance.OnDash();
                     mainCamera.GetComponent<Animator>().SetTrigger("zoop");
                     trailRenderer.emitting = true;
+                    dashDust.Play();
                 }
 
                 spriteRenderer.color = UnityEngine.Color.white;
@@ -152,6 +157,7 @@ public class CharacterMovement : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.I)){
                     dashState = DashState.Ready;
                     trailRenderer.emitting = false;
+                    waveDust.Stop();
                     //HandleJump();
                 }
                 break;
@@ -191,6 +197,7 @@ public class CharacterMovement : MonoBehaviour
                dashState = DashState.WaveDash;
                //rb.velocity = new Vector2(dashSpeed * dashDir.x ,rb.velocity.y);
                //trailRenderer.emitting = false;
+               waveDust.Play();
             }
             else trailRenderer.emitting = false;
         }
