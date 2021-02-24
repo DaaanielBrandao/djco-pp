@@ -46,7 +46,7 @@ public class EnemyController : MonoBehaviour
         this.isStaggered = isStaggered;
         movementBehavior.enabled = !isStaggered;
         attackBehavior.enabled = !isStaggered;
-        animator.SetBool("Staggered", isStaggered); // sei la
+        animator.SetBool("staggered", isStaggered); // sei la
     }
 
     // No staggered fazer o coiso do dash a cena é q tipo n há collisionins entre player e enemy

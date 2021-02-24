@@ -22,7 +22,7 @@ public class EnemyHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("HP " + currentHP);
+        //Debug.Log("HP " + currentHP);
         if (currentHP <= 0) {
             // boom
             SoundManager.Instance.OnEnemyExplosion();

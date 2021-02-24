@@ -13,9 +13,10 @@ public class AttackBehavior : MonoBehaviour
     public float visionRadius = 50f;
   
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        animator = GetComponent<Animator>();
+       animator = GetComponent<Animator>();
+       Debug.Log("ola");
     }
 
     private void OnEnable() {
@@ -31,13 +32,12 @@ public class AttackBehavior : MonoBehaviour
     IEnumerator Attack() {        
         while (true) {
             Vector3 dir = currentFollow.transform.position - transform.position;
-
             if (dir.magnitude <= visionRadius) {
                 Debug.Log("Im attacking you bro!");
-              
-
+                animator.SetTrigger("shoot");
+                yield return new WaitForSeconds(1f);
+                dir = currentFollow.transform.position - transform.position;
                 Instantiate(bullet, transform.position + dir.normalized * 5, Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg));
-                animator.SetTrigger("Attack");
             }
 
             yield return new WaitForSeconds(attackCooldown);
