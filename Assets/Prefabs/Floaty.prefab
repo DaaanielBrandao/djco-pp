@@ -171,10 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d7e39b19246c44f88694bee73b2427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7.5
-  minRange: 7.5
-  maxRange: 10
-  circleSpeed: 1.5
+  speed: 20
+  minRange: 15
+  maxRange: 25
+  circleSpeed: 2
   circleDir: 1
   visionRadius: 50
 --- !u!114 &7777302223765549459

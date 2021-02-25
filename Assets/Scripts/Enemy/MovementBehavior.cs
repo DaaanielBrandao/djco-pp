@@ -37,6 +37,14 @@ public class MovementBehavior : MonoBehaviour
         GameObject follow = detector.nearestPlayer;
         if (follow != null && Vector2.Distance(follow.transform.position, transform.position) <= visionRadius)
             FollowObject(follow);
+      /*
+        else {
+             float x = (Mathf.PerlinNoise(transform.position.x, transform.position.y) - 0.5f);
+             float y = (Mathf.PerlinNoise(transform.position.y, transform.position.x) - 0.5f);
+             Debug.Log("PERLIN: " + x + "  " + y);
+             transform.Translate(new Vector3(x,0,0) * Time.deltaTime);
+        }
+        */ //TEM POTENCIAL SE CALHAR
     }
 
     void FollowObject(GameObject follow) {
@@ -82,6 +90,10 @@ public class MovementBehavior : MonoBehaviour
         if(other.gameObject.layer == LayerMask.NameToLayer("Ground")) {
             circleDir = -circleDir;
         }
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(transform.position,visionRadius);
     }
 
 }
