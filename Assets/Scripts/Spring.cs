@@ -13,6 +13,7 @@ public class Spring : MonoBehaviour
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -24,12 +25,9 @@ public class Spring : MonoBehaviour
         if(other.gameObject.name == "Character"){
             CharacterMovement cm = other.gameObject.GetComponent<CharacterMovement>();
             Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
-            playerRb.velocity = new Vector2(playerRb.velocity.x,Mathf.Clamp(Mathf.Abs(playerRb.velocity.y),minJumpSpeed,maxJumpSpeed));
+            playerRb.velocity = new Vector2(playerRb.velocity.x, Mathf.Clamp(Mathf.Abs(playerRb.velocity.y), minJumpSpeed, maxJumpSpeed));
             //playerRb.AddForce(Vector2.up * springForce, ForceMode2D.Impulse);
-            cm.isOnGround = false;
-            cm.isJumping = true;
-            cm.trailRenderer.emitting = false;
-            cm.dashState = CharacterMovement.DashState.Ready;
+            cm.Boioioing();
         }
     }
 }

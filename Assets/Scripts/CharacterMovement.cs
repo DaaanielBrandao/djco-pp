@@ -216,4 +216,11 @@ public class CharacterMovement : MonoBehaviour
     public bool IsDashing() {
         return dashState == DashState.Dashing || dashState == DashState.WaveDash;
     }
+
+    public void Boioioing() {
+        isOnGround = false;
+        isJumping = true;
+        trailRenderer.emitting = false;
+        dashState = CharacterMovement.DashState.Ready;
+    }
 }
