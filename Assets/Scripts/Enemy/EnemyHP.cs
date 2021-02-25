@@ -33,6 +33,10 @@ public class EnemyHP : MonoBehaviour
         spriteRenderer.color = Color.Lerp(Color.gray, Color.white, currentHP / (float)maxHP);
     }
 
+    public void Kill() {
+        currentHP = 0;
+    }
+
     public void changeHP(float amount) {
         currentHP = Mathf.Clamp(currentHP + amount, 0, maxHP);
     }
@@ -40,11 +44,10 @@ public class EnemyHP : MonoBehaviour
     public float percentageOfMax() {
         return currentHP / (float)maxHP;
     }    
-
+    
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Player Bullet")) {  
             float damage = other.gameObject.GetComponent<Bullet>().damage;
-            Debug.Log("DMG " + damage);
             this.changeHP(-damage);
         }
     }

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1542353176}
   m_Layer: 8
   m_Name: Floaty
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48f73869372cf6419be708ca387cbfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staggerHP: 0.25
+  staggerHP: 0.5
   staggerTime: 5
-  isStaggered: 0
+  staggerState: 0
 --- !u!114 &5566599878092044617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,8 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 1
-  bullet: {fileID: 6218367985906079948, guid: 37d51887c8f631249a010be22034768b, type: 3}
   visionRadius: 50
+  bullet: {fileID: 6218367985906079948, guid: 37d51887c8f631249a010be22034768b, type: 3}
 --- !u!95 &1542353176
 Animator:
   serializedVersion: 3

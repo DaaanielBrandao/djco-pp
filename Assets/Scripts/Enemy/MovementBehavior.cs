@@ -11,11 +11,11 @@ public class MovementBehavior : MonoBehaviour
     public float circleSpeed = 1.5f;
     public int circleDir = 1;
 
-    private Vector2 originalScale;
-    
-    private Animator animator;
-    private GameObject currentFollow;
     public float visionRadius = 50f;
+   
+    private Vector2 originalScale;    
+    private PlayerDetector detector;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start() {
@@ -27,14 +27,16 @@ public class MovementBehavior : MonoBehaviour
             if (objects[i].layer == PlatformCollision.PlatformLayer)
                 Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), objects[i].GetComponent<Collider2D>(), true);
     
-        currentFollow = GameObject.Find("Character"); // !!!
         animator = GetComponent<Animator>();
+        detector = gameObject.AddComponent<PlayerDetector>();
+        detector.radius = visionRadius;
     }
 
     // Update is called once per frame
     void Update() { 
-        if (Vector2.Distance(currentFollow.transform.position, transform.position) <= visionRadius)
-            FollowObject(currentFollow);
+        GameObject follow = detector.nearestPlayer;
+        if (follow != null && Vector2.Distance(follow.transform.position, transform.position) <= visionRadius)
+            FollowObject(follow);
     }
 
     void FollowObject(GameObject follow) {

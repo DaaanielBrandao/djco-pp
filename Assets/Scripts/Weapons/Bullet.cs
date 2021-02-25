@@ -39,6 +39,7 @@ public abstract class Bullet : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Destroy(gameObject);
+        if (!other.CompareTag("Player"))
+            Destroy(gameObject);
     }
 }

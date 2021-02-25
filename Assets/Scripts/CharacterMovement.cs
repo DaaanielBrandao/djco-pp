@@ -51,7 +51,7 @@ public class CharacterMovement : MonoBehaviour
         HandleDash();
     }
 
-    public void HandleMove() {
+    void HandleMove() {
         float inputHor = Input.GetAxisRaw("Horizontal");
         float inputVer = Input.GetAxisRaw("Vertical");
 
@@ -91,7 +91,7 @@ public class CharacterMovement : MonoBehaviour
         animator.SetBool("Airborne",!isOnGround);
     }
 
-    public void HandleJump() {
+    void HandleJump() {
         bool isGoingDown = rb.velocity.y < 0;
         
         if(Input.GetKeyDown(KeyCode.I) && isOnGround) { // && isOnGround && !gameOver){
@@ -117,7 +117,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
         
-    public void HandleDash() {
+    void HandleDash() {
         switch (dashState) {
             case DashState.Ready:
                 dashDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -207,5 +207,13 @@ public class CharacterMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Jumpable")){
             isOnGround = false;
         }
+    }
+
+    public void ResetDash() {
+        dashState = DashState.Ready;
+    }
+
+    public bool IsDashing() {
+        return dashState == DashState.Dashing || dashState == DashState.WaveDash;
     }
 }
