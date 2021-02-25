@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shotgun : Weapon
 {
     public float spreadAngle = 40;
-    private int numBullets = 6;
+    public int numBullets = 6;
 
     protected override void OnShoot() {
         /*

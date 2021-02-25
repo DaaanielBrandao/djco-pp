@@ -15,6 +15,7 @@ public class CharacterMovement : MonoBehaviour
     private bool isJumping = false;
 
     public enum DashState {Ready, Dashing, Cooldown, Waiting, WaveDash};
+    public bool extraDash = false;
     public float dashTime = 0.2f;
     public float dashSpeed = 40f;    
     public float dashCooldown = 0.2f;    
@@ -171,9 +172,15 @@ public class CharacterMovement : MonoBehaviour
 
         if (dashState != DashState.Ready) {
             trailRenderer.emitting = false;
-            if(dashState == DashState.WaveDash)
+            if(dashState == DashState.WaveDash){
                 dashState = DashState.Ready;
-            else {
+            }
+            else if (extraDash){
+                dashState = DashState.Ready;
+                extraDash = false;
+                rb.velocity = Vector2.zero;
+            }
+            else{
                 dashState = DashState.Cooldown;
                 rb.velocity = Vector2.zero;
             }
@@ -190,6 +197,7 @@ public class CharacterMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Jumpable")){
             isOnGround = true;
             isJumping = false;
+            extraDash = false;
             
             SoundManager.Instance.OnDrop();
 
@@ -210,7 +218,7 @@ public class CharacterMovement : MonoBehaviour
     }
 
     public void ResetDash() {
-        dashState = DashState.Ready;
+        extraDash = true;
     }
 
     public bool IsDashing() {

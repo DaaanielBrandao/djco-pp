@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    private float spawnRange = 40;
+    public float spawnRangeX = 200;
+    public float spawnRangeY = 20;
     public int enemyCount;
     public int waveNumber = 1;
     // Start is called before the first frame update
@@ -20,14 +21,14 @@ public class SpawnManager : MonoBehaviour
         enemyCount = FindObjectsOfType<EnemyController>().Length;
         if(enemyCount == 0){
             waveNumber++;
-            waveNumber = Mathf.Min(waveNumber,4); // e o msm codigo do que o tutorial 4 e n me aptece mexer
+            waveNumber = Mathf.Min(waveNumber,30); // e o msm codigo do que o tutorial 4 e n me aptece mexer
             spawnEnemyWave(waveNumber);
         }
     }
 
     private Vector3 getRandomPos(){
-        float spawnPosX = Random.Range(-spawnRange,spawnRange);
-        float spawnPosZ = Random.Range(-spawnRange,spawnRange);
+        float spawnPosX = Random.Range(-spawnRangeX,spawnRangeX);
+        float spawnPosZ = Random.Range(-spawnRangeY,spawnRangeY);
         return new Vector3(spawnPosX + transform.position.x,spawnPosZ + transform.position.y,0);
     }
 
@@ -38,6 +39,6 @@ public class SpawnManager : MonoBehaviour
     }
 
     private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position,spawnRange);
+        Gizmos.DrawWireCube(transform.position, new Vector3(spawnRangeX*2,spawnRangeY*2,0));
     }
 }

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 80
   maxTime: 0.6
-  damage: 30
+  damage: 20
   shooter: {fileID: 0}
 --- !u!70 &4837330479090675163
 CapsuleCollider2D:

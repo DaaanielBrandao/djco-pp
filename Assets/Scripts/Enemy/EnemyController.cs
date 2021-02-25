@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     public enum StaggerState {Ready, Staggered, Survivor};
     public StaggerState staggerState;
 
+    public ParticleSystem dashKillEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,7 @@ public class EnemyController : MonoBehaviour
             if (staggerState == StaggerState.Staggered && movement.IsDashing()) {
                 movement.ResetDash();
                 enemyHP.Kill();
+                Instantiate(dashKillEffect, transform.position, transform.rotation);
             }
         }
     }

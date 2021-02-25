@@ -139,8 +139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staggerHP: 0.5
-  staggerTime: 5
+  staggerTime: 3
   staggerState: 0
+  dashKillEffect: {fileID: 8850104209487686098, guid: e9ad70968ab11d24598c75b25c5dd41b,
+    type: 3}
 --- !u!114 &5566599878092044617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869676825cdd4b443978c3cee0c943e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 115
   currentHP: 0
   explosionEffect: {fileID: 5244189803977291356, guid: 05b57acb1a4a4064b9ad03e722e40c00,
     type: 3}
