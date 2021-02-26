@@ -23,6 +23,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip pickleSound;
 
     public AudioClip enemyExplosion;  
+
+    public AudioClip boing;
     private AudioSource playerAudio;
 
     // Start is called before the first frame update
@@ -65,5 +67,8 @@ public class SoundManager : MonoBehaviour
     }
     public void OnEnemyExplosion() {
         playerAudio.PlayOneShot(enemyExplosion, 1.0f);
+    }
+    public void OnBoing() {
+        playerAudio.PlayOneShot(boing, 1.0f);
     }
 }
