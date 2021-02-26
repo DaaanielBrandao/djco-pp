@@ -211,6 +211,11 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D other) {
+        if(!isOnGround)
+            OnCollisionEnter2D(other);
+    }
+
     private void OnCollisionExit2D(Collision2D other) {
         if(other.gameObject.CompareTag("Jumpable")){
             isOnGround = false;
