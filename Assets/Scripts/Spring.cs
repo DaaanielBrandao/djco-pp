@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,4 +36,9 @@ public class Spring : MonoBehaviour
             animator.SetTrigger("boing");
         }
     }
+    /*
+    private void OnTriggerStay2D(Collider2D other) {
+        OnTriggerEnter2D(other);
+    }
+    */
 }
