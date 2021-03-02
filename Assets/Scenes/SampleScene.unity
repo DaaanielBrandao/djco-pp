@@ -2424,12 +2424,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 680876995}
-  - component: {fileID: 680876998}
   - component: {fileID: 680876997}
   - component: {fileID: 680876996}
+  - component: {fileID: 680876998}
   m_Layer: 11
   m_Name: Ground
-  m_TagString: Jumpable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21362,8 +21362,8 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!61 &680876998
-BoxCollider2D:
+--- !u!19719996 &680876998
+TilemapCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21375,19 +21375,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.496689, y: -2.7632213}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 188.96033, y: 5.5437765}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &682396706
 GameObject:
   m_ObjectHideFlags: 0

@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 7717874114882601215}
   m_Layer: 9
   m_Name: Platform Medium
-  m_TagString: Jumpable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

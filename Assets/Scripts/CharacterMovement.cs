@@ -22,10 +22,11 @@ public class CharacterMovement : MonoBehaviour
     public DashState dashState = DashState.Ready; 
     public Vector2 dashDir;
     
-    private SpriteRenderer spriteRenderer;
     
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private Collider2D charCollider;
 
     public GameObject mainCamera;
     public GameObject trail;
@@ -41,15 +42,41 @@ public class CharacterMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         trailRenderer = trail.GetComponent<TrailRenderer>();
+        charCollider = GetComponent<Collider2D>();
         rb.gravityScale = gravityMod;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        UpdateGroundTouch();
         HandleMove();
         HandleJump();
         HandleDash();
+    }
+
+    void UpdateGroundTouch() {
+        Bounds colliderBounds = charCollider.bounds;
+        Vector2 bottomCenter = colliderBounds.center - new Vector3(0, colliderBounds.extents.y);
+        Vector2 boxSize = new Vector2(colliderBounds.extents.x * 2, 0.01f);
+
+        string[] layers = {"Ground", "Platform"};
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(bottomCenter, boxSize, 0, Vector2.down, 0.01f, LayerMask.GetMask(layers));
+
+        bool newIsOnGround = false;
+        foreach (RaycastHit2D hit in hits) {
+            if (!hit.collider.isTrigger && !Physics2D.GetIgnoreCollision(hit.collider, charCollider)) {
+                newIsOnGround = true;
+                break;
+            }
+        }
+
+        if (!isOnGround && newIsOnGround) {
+            isJumping = false;
+            extraDash = false;
+        }
+        isOnGround = newIsOnGround;
     }
 
     void HandleMove() {
@@ -78,17 +105,11 @@ public class CharacterMovement : MonoBehaviour
             transform.localScale = new Vector3(direction.x * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
 
-        if (transform.position.y < -50)
+
+        if (transform.position.y < -50) // !
             transform.position = new Vector3(0, 10, 0);
 
-        
-
-        //animator.SetInteger("HorizontalMov", (int)Mathf.Ceil(inputHor));
-        //animator.SetBool("Airborne", isJumping);
-        bool moving = false;
-        if(inputHor != 0)
-            moving = true;
-        animator.SetBool("Moving",moving);
+        animator.SetBool("Moving", inputHor != 0);
         animator.SetBool("Airborne",!isOnGround);
     }
 
@@ -119,6 +140,8 @@ public class CharacterMovement : MonoBehaviour
     }
         
     void HandleDash() {
+        trailRenderer.emitting = IsDashing();
+
         switch (dashState) {
             case DashState.Ready:
                 dashDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -132,7 +155,6 @@ public class CharacterMovement : MonoBehaviour
 
                     SoundManager.Instance.OnDash();
                     mainCamera.GetComponent<Animator>().SetTrigger("zoop");
-                    trailRenderer.emitting = true;
                     dashDust.Play();
                 }
 
@@ -141,6 +163,12 @@ public class CharacterMovement : MonoBehaviour
 
             case DashState.Dashing:
                 rb.velocity = dashDir * dashSpeed;
+
+                if (isOnGround && dashDir.y < 0) { // only diagonal dash counts
+                    dashState = DashState.WaveDash;            
+                    waveDust.Play();
+                }
+
                 spriteRenderer.color = UnityEngine.Color.cyan;
                 break;
 
@@ -155,12 +183,12 @@ public class CharacterMovement : MonoBehaviour
                 break;
             case DashState.WaveDash:
                 rb.velocity = new Vector2(dashSpeed * dashDir.x ,rb.velocity.y);
+
                 if(Input.GetKeyDown(KeyCode.I)){
                     dashState = DashState.Ready;
-                    trailRenderer.emitting = false;
                     waveDust.Stop();
-                    //HandleJump();
                 }
+
                 break;
 
             default: break;
@@ -170,60 +198,39 @@ public class CharacterMovement : MonoBehaviour
     IEnumerator DoDash() {
         yield return new WaitForSeconds(dashTime);
 
-        if (dashState != DashState.Ready) {
-            trailRenderer.emitting = false;
-            if(dashState == DashState.WaveDash){
-                dashState = DashState.Ready;
-            }
-            else if (extraDash){
-                dashState = DashState.Ready;
-                extraDash = false;
-                rb.velocity = Vector2.zero;
-            }
-            else{
-                dashState = DashState.Cooldown;
-                rb.velocity = Vector2.zero;
-            }
+        // Other factors can set DashState to ready, so leave if needed
+        if (dashState == DashState.Ready)
+            yield break; 
 
+        if(dashState == DashState.WaveDash){
+            dashState = DashState.Ready;
+        }
+        else if (extraDash){
+            dashState = DashState.Ready;
+            extraDash = false;
+            rb.velocity = Vector2.zero;
+        }
+        else {
+            dashState = DashState.Cooldown;
+            rb.velocity = Vector2.zero;
+
+            bool wasOnGround = isOnGround;
             yield return new WaitForSeconds(dashCooldown);
-
-            if (dashState != DashState.Ready && dashState != DashState.WaveDash)
-                dashState = DashState.Waiting;                   
+            
+            if (wasOnGround) // Wave Dash?
+                dashState = DashState.Ready;
+            else if (dashState != DashState.Ready)
+                dashState = DashState.Waiting; 
         }
     }
     
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Jumpable")){
-            isOnGround = true;
-            isJumping = false;
-            extraDash = false;
-            
-            SoundManager.Instance.OnDrop();
 
-            if(dashState == DashState.Dashing){
-               dashState = DashState.WaveDash;
-               //rb.velocity = new Vector2(dashSpeed * dashDir.x ,rb.velocity.y);
-               //trailRenderer.emitting = false;
-               waveDust.Play();
-            }
-            else trailRenderer.emitting = false;
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D other) {
-        if(!isOnGround)
-            OnCollisionEnter2D(other);
-    }
-
-    private void OnCollisionExit2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Jumpable")){
-            isOnGround = false;
-        }
-    }
 
     public void ResetDash() {
-        extraDash = true;
+        if (IsDashing())
+            extraDash = true;
+        else dashState = DashState.Ready;
     }
 
     public bool IsDashing() {
@@ -233,7 +240,6 @@ public class CharacterMovement : MonoBehaviour
     public void Boioioing() {
         isOnGround = false;
         isJumping = true;
-        trailRenderer.emitting = false;
         dashState = CharacterMovement.DashState.Ready;
     }
 }

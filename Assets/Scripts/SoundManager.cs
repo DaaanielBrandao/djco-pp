@@ -51,10 +51,6 @@ public class SoundManager : MonoBehaviour
         playerAudio.PlayOneShot(jumpSound, 1.0f);
     }
 
-    public void OnDrop() {
-        //playerAudio.PlayOneShot(dropSound, 1.0f);
-    }
-
     public void OnDash() {
         playerAudio.PlayOneShot(dashSound, 1.0f);
     }

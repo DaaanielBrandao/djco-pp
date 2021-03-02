@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2664184263196926385}
   m_Layer: 9
   m_Name: Platform Big
-  m_TagString: Jumpable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
