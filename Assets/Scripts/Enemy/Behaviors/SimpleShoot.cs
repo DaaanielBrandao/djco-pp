@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SimpleShoot : AttackBehavior
 {
-    public bool targeted = true;
+    public enum ShootType { Targeted, Auto, Forward };
+    public ShootType shootType = ShootType.Targeted;
+
     public float cooldown = 1f;
     public int numShots = 1;
     public float angle = 0;
@@ -33,7 +35,7 @@ public class SimpleShoot : AttackBehavior
     }
 
     private bool CanShoot() {
-        if (!targeted)
+        if (shootType != ShootType.Targeted)
             return true;
             
         GameObject follow = detector.nearestPlayer;
@@ -41,11 +43,20 @@ public class SimpleShoot : AttackBehavior
     }
 
     private Vector3 GetDefaultRotation() {
-        GameObject follow = detector.nearestPlayer;
-        if (follow == null)
-            return Vector3.right;
-        Vector3 dir = follow.transform.position - transform.position;
-        return new Vector3(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + defaultAngle);
+        switch (shootType)
+        {  
+            case ShootType.Targeted:
+                GameObject follow = detector.nearestPlayer;
+                if (follow == null)
+                    return new Vector3(0, 0, defaultAngle);
+                Vector3 dir = follow.transform.position - transform.position;
+                return new Vector3(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + defaultAngle);
+            case ShootType.Auto:
+                return new Vector3(0, 0, defaultAngle);
+            case ShootType.Forward:
+                return new Vector3(0, 0, transform.localScale.x < 0 ? 180 : 0); // 2 directions    
+            default: Debug.LogError("Unhandled shoot type: " + shootType); return Vector3.zero;
+        }
     }
 
     IEnumerator Attack() {       
@@ -60,6 +71,8 @@ public class SimpleShoot : AttackBehavior
                 for(int i = 0; i < numShots; i++) {
 
                     float bulletAngle = angle * (i - (numShots - 1) / 2.0f);
+
+                    Debug.Log(bulletAngle);
 
                     Instantiate(bullet, transform.position, Quaternion.Euler(rotation + new Vector3(0, 0, bulletAngle)));
                 }

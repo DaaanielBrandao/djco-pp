@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   safetyNet: 1
-  speed: 1
+  speed: 10
 --- !u!114 &6250549600042985422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,8 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4a22cba42407244a28196f044e89a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targeted: 1
-  cooldown: 1
+  shootType: 2
+  cooldown: 0.8
   numShots: 1
   angle: 0
   visionRadius: 50

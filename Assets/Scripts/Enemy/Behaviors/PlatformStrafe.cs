@@ -21,10 +21,9 @@ public class PlatformStrafe : MovementBehavior
     // Update is called once per frame
     void Update()
     {
-       rb.velocity = dir * speed;
+       rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
        transform.localScale = new Vector3(dir.x * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
 
-       Debug.Log(dir);
        HandleEdges();
     }
 
@@ -50,12 +49,5 @@ public class PlatformStrafe : MovementBehavior
         if (hit.collider == null)
             dir = -dir;
     }
-
-    private void OnDrawGizmos() {
-        Bounds bounds = enemyCollider.bounds;
-        Vector2 bottomRight = bounds.min + new Vector3(bounds.size.x + safetyNet, 0, 0);
-        Gizmos.DrawLine(bottomRight, bottomRight + Vector2.down);        
-    }
-
-    
+   
 }
