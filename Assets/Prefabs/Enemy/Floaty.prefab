@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7696103719934805984}
   - component: {fileID: 9206780454109631611}
   - component: {fileID: 1542353176}
+  - component: {fileID: 8244762482115200331}
   m_Layer: 13
   m_Name: Floaty
   m_TagString: Untagged
@@ -138,11 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48f73869372cf6419be708ca387cbfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staggerHP: 0.5
-  staggerTime: 3
-  staggerState: 0
-  dashKillEffect: {fileID: 8850104209487686098, guid: e9ad70968ab11d24598c75b25c5dd41b,
-    type: 3}
 --- !u!114 &5566599878092044617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4a22cba42407244a28196f044e89a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targeted: 1
+  shootType: 0
   cooldown: 1
   numShots: 1
   angle: 0
@@ -217,3 +213,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8244762482115200331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566599878092044620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd76659dd384754e94a0c1ddd8a1931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staggerHP: 0.25
+  staggerTime: 5
+  dashKillEffect: {fileID: 8850104209487686098, guid: e9ad70968ab11d24598c75b25c5dd41b,
+    type: 3}

@@ -8,12 +8,13 @@ public abstract class Weapon : MonoBehaviour
     public GameObject hole;
 
     public float cooldown;
-    public bool canShoot = true;
-
     public AudioClip shootSound;
-
+   
     public int magSize;
     public int numOfBullets;
+
+    private bool canShoot = true;
+
     
     void OnEnable() {
         canShoot = true;
@@ -48,5 +49,12 @@ public abstract class Weapon : MonoBehaviour
 
     protected abstract void OnShoot();
 
-    public abstract bool addAmmo();
+    public bool addAmmo() {
+        if(magSize == numOfBullets)
+            return false;
+        numOfBullets = magSize;
+        
+        Debug.Log("AMMO " + gameObject.name);
+        return true;
+    }
 }

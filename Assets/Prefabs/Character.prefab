@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 2649974861408128576}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &2649974861007184362
 TrailRenderer:
@@ -176,7 +176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2649974861408128576}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -95.031, y: 0, z: 0}
 --- !u!198 &2649974861020112705
 ParticleSystem:
@@ -4999,8 +4999,9 @@ MonoBehaviour:
   bullets: {fileID: 1573597018435887170, guid: d51550cf3c2c4534bbcfb1932bcaedbb, type: 3}
   hole: {fileID: 2649974862834990153}
   cooldown: 0.15
-  canShoot: 1
   shootSound: {fileID: 8300000, guid: 6f5a927d3d60ae54a85640336809aca0, type: 3}
+  magSize: 0
+  numOfBullets: 0
   spreadAngle: 7
 --- !u!95 &2649974861155238070
 Animator:
@@ -5052,7 +5053,7 @@ Transform:
   - {fileID: 2649974861155238065}
   - {fileID: 2649974862059454334}
   m_Father: {fileID: 2649974861408128576}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2649974861156417727
 MonoBehaviour:
@@ -5102,7 +5103,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2649974861408128576}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &2649974861210151575
 ParticleSystem:
@@ -9889,7 +9890,6 @@ Transform:
   m_LocalPosition: {x: -7.9, y: -20.5, z: 0}
   m_LocalScale: {x: 16.4, y: 20.7, z: 1}
   m_Children:
-  - {fileID: 2649974861964956434}
   - {fileID: 2649974861156417720}
   - {fileID: 2649974862440534491}
   - {fileID: 2649974861007184363}
@@ -10104,7 +10104,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2649974861408128576}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &2649974861776481282
 ParticleSystem:
@@ -14827,63 +14827,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!1 &2649974861964956435
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2649974861964956434}
-  - component: {fileID: 2649974861964956433}
-  m_Layer: 0
-  m_Name: Hitbox
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2649974861964956434
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2649974861964956435}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2649974861408128576}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2649974861964956433
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2649974861964956435}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 1782fef9e0ba5da4aa5ca6be05078533, type: 2}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0024554282, y: -0.000504259}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.15, y: 0.18}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.16248149, y: 0.18400535}
-  m_EdgeRadius: 0
 --- !u!1 &2649974862059454335
 GameObject:
   m_ObjectHideFlags: 0
@@ -14983,8 +14926,9 @@ MonoBehaviour:
   bullets: {fileID: 3095381652908384560, guid: 6fde37b7f3fbfd447a9cb2d3dc49b346, type: 3}
   hole: {fileID: 2649974861276974606}
   cooldown: 0.5
-  canShoot: 1
   shootSound: {fileID: 8300000, guid: fead2a42efc107c46904f78f87a313eb, type: 3}
+  magSize: 0
+  numOfBullets: 0
   spreadAngle: 50
   numBullets: 6
 --- !u!95 &2649974862059454323
@@ -15039,7 +14983,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2649974861408128576}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2649974862440534308
 Camera:
@@ -15205,7 +15149,7 @@ Transform:
   m_LocalScale: {x: 0.06097561, y: 0.048309177, z: 1}
   m_Children: []
   m_Father: {fileID: 2649974861408128576}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2649974862646254559
 MonoBehaviour:
