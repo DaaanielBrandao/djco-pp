@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponSwitch : MonoBehaviour
 {
     public GameObject[] Weapons;
-    public int pressedNumber = 1;
+    public int pressedNumber = 0;
 
     public float cooldown = 0.2f;
     public bool canSwitch = true;
@@ -13,7 +13,7 @@ public class WeaponSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SelectWeapon(pressedNumber);
+        Debug.Log("ola");
     }
 
     // Update is called once per frame

@@ -22,4 +22,13 @@ public class Shotgun : Weapon
 
         GameObject.FindObjectOfType<Camera>().GetComponent<Animator>().SetTrigger("shake"); //é capaz de ficar melhor qnd se mata alguem
     }
+
+    public override bool addAmmo(){
+        if(magSize == numOfBullets)
+            return false;
+        numOfBullets = magSize;
+        
+        Debug.Log("AMMO SHOTUGUN!");
+        return true;
+    }
 }
