@@ -20,7 +20,7 @@ public class Spikes : MonoBehaviour
         Debug.Log("boing!");
         GameObject go = other.gameObject;
         
-        if(other.gameObject.name == "Character"){
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player")){
             CharacterMovement cm = other.gameObject.GetComponent<CharacterMovement>();
             Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
             Vector2 knockbackDir = (go.transform.position - gameObject.transform.position).normalized;

@@ -320,7 +320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 124802323}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: WeaponHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &144026951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +789,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 145355690}
     m_Modifications:
+    - target: {fileID: 3341108008440431895, guid: 061293a4e93103f49b0ddbe3c2471086,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3341108009063412564, guid: 061293a4e93103f49b0ddbe3c2471086,
         type: 3}
       propertyPath: m_Name
@@ -1025,7 +1030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 305181317}
   - component: {fileID: 305181316}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1774,7 +1779,6 @@ Transform:
   m_Children:
   - {fileID: 1160011230}
   - {fileID: 1659010737}
-  - {fileID: 551883599}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1945,7 +1949,8 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  m_Layer: 8
+  - component: {fileID: 519420034}
+  m_Layer: 12
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2034,7 +2039,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1484547867}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -2070,6 +2075,37 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1001 &538867191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2149,36 +2185,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 973c3d2c03c6aec47893ef94608f2feb, type: 3}
---- !u!1 &551883598
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 551883599}
-  m_Layer: 0
-  m_Name: 
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &551883599
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551883598}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 414412888}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &553026196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21805,7 +21811,7 @@ GameObject:
   - component: {fileID: 826971687}
   - component: {fileID: 826971686}
   - component: {fileID: 826971688}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22394,7 +22400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1484547867}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &984414794
 BoxCollider2D:
@@ -23076,7 +23082,7 @@ GameObject:
   - component: {fileID: 1181271387}
   - component: {fileID: 1181271385}
   - component: {fileID: 1181271386}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: WaveDustPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27816,7 +27822,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1484547867}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1203237082
 GameObject:
@@ -27967,6 +27973,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground Platform Medium (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758362674403271661, guid: 0b053da5cc5844144866855e96c0cd14,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b053da5cc5844144866855e96c0cd14, type: 3}
@@ -28692,7 +28703,7 @@ GameObject:
   - component: {fileID: 1484547863}
   - component: {fileID: 1484547870}
   - component: {fileID: 1484547868}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -28836,13 +28847,13 @@ Transform:
   m_LocalPosition: {x: 31.6, y: -20.5, z: 0}
   m_LocalScale: {x: 16.4, y: 20.7, z: 1}
   m_Children:
+  - {fileID: 984414793}
   - {fileID: 1803528675}
   - {fileID: 519420032}
   - {fileID: 1937918128}
   - {fileID: 1739277262}
   - {fileID: 1181271387}
   - {fileID: 1935642140}
-  - {fileID: 984414793}
   - {fileID: 305181317}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -29685,7 +29696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1672423254}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: WeaponHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29861,7 +29872,7 @@ GameObject:
   - component: {fileID: 1739277262}
   - component: {fileID: 1739277260}
   - component: {fileID: 1739277261}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: DustPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34601,7 +34612,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1484547867}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1740078370
 PrefabInstance:
@@ -34893,7 +34904,7 @@ GameObject:
   - component: {fileID: 1800514027}
   - component: {fileID: 1800514028}
   - component: {fileID: 1800514029}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35106,7 +35117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1803528675}
   - component: {fileID: 1803528676}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: WeaponSwitcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35127,7 +35138,7 @@ Transform:
   - {fileID: 1800514026}
   - {fileID: 826971685}
   m_Father: {fileID: 1484547867}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1803528676
 MonoBehaviour:
@@ -35567,7 +35578,7 @@ GameObject:
   - component: {fileID: 1935642140}
   - component: {fileID: 1935642138}
   - component: {fileID: 1935642139}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: DashDustPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40307,7 +40318,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1484547867}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -95.031, y: 0, z: 0}
 --- !u!1 &1937918127
 GameObject:
@@ -40319,7 +40330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1937918128}
   - component: {fileID: 1937918129}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40338,7 +40349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 1484547867}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &1937918129
 TrailRenderer:
@@ -40870,6 +40881,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 145355690}
     m_Modifications:
+    - target: {fileID: 3341108008440431895, guid: 061293a4e93103f49b0ddbe3c2471086,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3341108009063412564, guid: 061293a4e93103f49b0ddbe3c2471086,
         type: 3}
       propertyPath: m_Name
@@ -40999,6 +41015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground Platform Medium (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2758362674403271661, guid: 0b053da5cc5844144866855e96c0cd14,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b053da5cc5844144866855e96c0cd14, type: 3}
 --- !u!4 &2135264383 stripped
@@ -41105,6 +41126,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 145355690}
     m_Modifications:
+    - target: {fileID: 3341108008440431895, guid: 061293a4e93103f49b0ddbe3c2471086,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3341108009063412564, guid: 061293a4e93103f49b0ddbe3c2471086,
         type: 3}
       propertyPath: m_Name
@@ -41233,6 +41259,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground Platform Medium
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758362674403271661, guid: 0b053da5cc5844144866855e96c0cd14,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b053da5cc5844144866855e96c0cd14, type: 3}
@@ -41395,6 +41426,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451877402932021855, guid: 1f1eee3d68dc5e0439d4ab8c4c81139a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f1eee3d68dc5e0439d4ab8c4c81139a, type: 3}

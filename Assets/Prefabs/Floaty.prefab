@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 5566599878092044612}
   - component: {fileID: 7777302223765549459}
   - component: {fileID: 1542353176}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Floaty
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d7e39b19246c44f88694bee73b2427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 5
   minRange: 15
   maxRange: 25
   circleSpeed: 2

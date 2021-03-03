@@ -24,7 +24,7 @@ public class Spring : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         Debug.Log("boing!");
         GameObject go = other.gameObject;
-        if(other.gameObject.name == "Character"){
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player")) {
             CharacterMovement cm = other.gameObject.GetComponent<CharacterMovement>();
             Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
             //playerRb.velocity = new Vector2(playerRb.velocity.x, Mathf.Clamp(Mathf.Abs(playerRb.velocity.y), minJumpSpeed, maxJumpSpeed));

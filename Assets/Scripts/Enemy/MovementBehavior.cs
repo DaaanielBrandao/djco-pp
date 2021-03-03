@@ -17,6 +17,8 @@ public class MovementBehavior : MonoBehaviour
     private PlayerDetector detector;
     private Animator animator;
 
+    public bool goingAway = false;
+
     // Start is called before the first frame update
     void Start() {
         originalScale = transform.localScale;
@@ -37,14 +39,39 @@ public class MovementBehavior : MonoBehaviour
         GameObject follow = detector.nearestPlayer;
         if (follow != null && Vector2.Distance(follow.transform.position, transform.position) <= visionRadius)
             FollowObject(follow);
-      /*
-        else {
-             float x = (Mathf.PerlinNoise(transform.position.x, transform.position.y) - 0.5f);
-             float y = (Mathf.PerlinNoise(transform.position.y, transform.position.x) - 0.5f);
-             Debug.Log("PERLIN: " + x + "  " + y);
-             transform.Translate(new Vector3(x,0,0) * Time.deltaTime);
+        else Wander();
+
+        AvoidOtherEnemies();
+    }
+
+    void AvoidOtherEnemies() {
+        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        float colliderRadius = collider.bounds.extents.x;
+
+        LayerMask mask = LayerMask.GetMask(new string[]{"Enemy"});
+        Collider2D[] hits = Physics2D.OverlapCircleAll(collider.bounds.center, colliderRadius + 2, mask);
+
+        foreach (Collider2D hit in hits) {
+            if (hit.gameObject != gameObject) {
+                if (transform.position.x > hit.gameObject.transform.position.x) {
+                    StartCoroutine(GoAway());
+                }
+                break;
+            }
         }
-        */ //TEM POTENCIAL SE CALHAR
+    }
+
+    IEnumerator GoAway() {
+        goingAway = true;
+        yield return new WaitForSeconds(1.0f);
+        goingAway = false;
+    }
+
+    void Wander() {
+       // float x = (Mathf.PerlinNoise(transform.position.x, transform.position.y) - 0.5f);
+       // float y = (Mathf.PerlinNoise(transform.position.y, transform.position.x) - 0.5f);
+       // Debug.Log("PERLIN: " + x + "  " + y);
+       // transform.Translate(new Vector3(x, y));
     }
 
     void FollowObject(GameObject follow) {
@@ -54,20 +81,19 @@ public class MovementBehavior : MonoBehaviour
 
         float distance = dir.magnitude;
 
-        if (distance == 0 && minRange > 0)
+        if (distance == 0 && minRange > 0) // Edge case
             dir = new Vector2(0, 1);
 
         // Move
-        if (distance > maxRange)
+        if (distance > maxRange) { // Towards player
             dir = dir.normalized;
-        else if (distance < minRange)
-            dir = -dir.normalized;
+            dir.y *= 2;
+        }
+        else if (distance < minRange)  // Away from player
+            dir = -dir.normalized / 2;
         else {
             dir = Vector2.zero;
         }
-        dir.y *= 2;
-
-        //Debug.Log(dir);
         
         transform.Translate(dir * speed * Time.deltaTime, Space.World);
 
@@ -91,9 +117,4 @@ public class MovementBehavior : MonoBehaviour
             circleDir = -circleDir;
         }
     }
-
-    private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position,visionRadius);
-    }
-
 }

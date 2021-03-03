@@ -15,13 +15,9 @@ public class PlayerDetector : MonoBehaviour
 
     IEnumerator Detect() {
         while (true) {            
-            Collider2D[] list = Physics2D.OverlapCircleAll(transform.position, radius, LayerMask.GetMask(new string[]{"Character"}));
-            foreach (Collider2D collider in list) {
-                if (collider.CompareTag("Player")) {
-                    nearestPlayer = collider.gameObject;
-                    break;
-                }
-            }
+            Collider2D hit = Physics2D.OverlapCircle(transform.position, radius, LayerMask.GetMask(new string[]{"Player"}));
+            if (hit != null)
+                nearestPlayer = hit.gameObject;
 
             yield return new WaitForSeconds(cooldown);
         }

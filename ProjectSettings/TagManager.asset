@@ -7,8 +7,6 @@ TagManager:
   - Platform Trigger
   - Player Bullet
   - Enemy Bullet
-  - Jumpable
-  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,12 +16,12 @@ TagManager:
   - UI
   - 
   - 
-  - Character
+  - 
   - Platform
   - Projectile
   - Ground
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 

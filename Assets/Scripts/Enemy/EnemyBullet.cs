@@ -26,7 +26,7 @@ public class EnemyBullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (!other.CompareTag("Enemy"))
+        if (other.gameObject.layer != LayerMask.NameToLayer("Enemy"))
             Destroy(gameObject);
     }
 }
