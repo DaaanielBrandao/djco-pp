@@ -190,6 +190,7 @@ public class CharacterMovement : MonoBehaviour
 
                 if(Input.GetKeyDown(KeyCode.I)){
                     dashState = DashState.Ready;
+                    rb.velocity = new Vector2(Mathf.Abs(dashSpeed * dashDir.x) * facingDir.x ,rb.velocity.y);
                     waveDust.Stop();
                 }
 
