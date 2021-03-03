@@ -95,7 +95,7 @@ public class CharacterMovement : MonoBehaviour
 
 
         // Drag (reduce velocity if over max speed - except for wavedash - or if user not trying to move)
-        if(!isJumping && (dashState != DashState.WaveDash && Mathf.Abs(rb.velocity.x) > maxSpeed || inputHor == 0)){
+        if(isOnGround && (dashState != DashState.WaveDash && Mathf.Abs(rb.velocity.x) > maxSpeed || inputHor == 0)){
             rb.velocity = new Vector2(rb.velocity.x * Mathf.Pow(0.00005f, Time.deltaTime) ,rb.velocity.y);
         }
         
@@ -128,7 +128,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
         if (Input.GetKeyUp(KeyCode.I) && isJumping && !isGoingDown) {
-            rb.velocity /= 2;
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 2);
         }
 
         if(isGoingDown){ // im yelling timbeeeeeeeeeeeeeeeeeeer
