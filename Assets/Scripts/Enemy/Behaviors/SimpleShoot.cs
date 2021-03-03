@@ -72,8 +72,6 @@ public class SimpleShoot : AttackBehavior
 
                     float bulletAngle = angle * (i - (numShots - 1) / 2.0f);
 
-                    Debug.Log(bulletAngle);
-
                     Instantiate(bullet, transform.position, Quaternion.Euler(rotation + new Vector3(0, 0, bulletAngle)));
                 }
 

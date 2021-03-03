@@ -197,8 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootType: 2
   cooldown: 0.8
-  numShots: 1
-  angle: 0
+  numShots: 2
+  angle: 10
   visionRadius: 50
   defaultAngle: 0
   bullet: {fileID: 6218367985906079948, guid: 37d51887c8f631249a010be22034768b, type: 3}

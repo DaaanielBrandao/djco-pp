@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
     private bool isOnGround = false;
     private bool isJumping = false;
 
-    public enum DashState {Ready, Dashing, Cooldown, Waiting, WaveDash};
+    public enum DashState {Ready, Dashing, Cooldown, CooldownToReady, Waiting, WaveDash};
     public bool extraDash = false;
     public float dashTime = 0.2f;
     public float dashSpeed = 40f;    
@@ -128,7 +128,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
         if (Input.GetKeyUp(KeyCode.I) && isJumping && !isGoingDown) {
-            rb.velocity /= 2;
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 2);
         }
 
         if(isGoingDown){ // im yelling timbeeeeeeeeeeeeeeeeeeer
@@ -173,9 +173,13 @@ public class CharacterMovement : MonoBehaviour
                 break;
 
             case DashState.Cooldown:
+                if (isOnGround)
+                    dashState = DashState.CooldownToReady;
                 spriteRenderer.color = UnityEngine.Color.gray;
                 break;
-
+            case DashState.CooldownToReady:
+                spriteRenderer.color = UnityEngine.Color.gray;
+                break;
             case DashState.Waiting:
                 if (isOnGround)
                     dashState = DashState.Ready;
@@ -214,10 +218,9 @@ public class CharacterMovement : MonoBehaviour
             dashState = DashState.Cooldown;
             rb.velocity = Vector2.zero;
 
-            bool wasOnGround = isOnGround;
             yield return new WaitForSeconds(dashCooldown);
-            
-            if (wasOnGround) // Wave Dash?
+           
+            if (dashState == DashState.CooldownToReady)
                 dashState = DashState.Ready;
             else if (dashState != DashState.Ready)
                 dashState = DashState.Waiting; 
