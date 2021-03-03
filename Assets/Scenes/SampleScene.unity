@@ -580,7 +580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &144026951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39845,6 +39845,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649974861964956435, guid: 46eb078eee0f26849a832464f275982e,
+        type: 3}
+      propertyPath: m_Name
+      value: Stagger Destroyer 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649974861964956435, guid: 46eb078eee0f26849a832464f275982e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2649974862059454333, guid: 46eb078eee0f26849a832464f275982e,
         type: 3}

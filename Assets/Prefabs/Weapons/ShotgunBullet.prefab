@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3189994979614879391}
   - component: {fileID: 6433155121565648454}
-  - component: {fileID: 2935195842331944719}
   - component: {fileID: 3209588282716014800}
   - component: {fileID: -2824848242959277172}
+  - component: {fileID: 939452796029940610}
   m_Layer: 10
   m_Name: ShotgunBullet
   m_TagString: Player Bullet
@@ -85,22 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2935195842331944719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3095381652908384560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85de3228280c3414386fc289ca6410e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 70
-  maxTime: 0.4
-  damage: 10
-  shooter: {fileID: 0}
 --- !u!58 &3209588282716014800
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,3 +122,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &939452796029940610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095381652908384560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408c8920f5b7efb4b8219d4b701edf28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 70
+  maxTime: 0.1
+  damage: 15
+  shooter: {fileID: 0}

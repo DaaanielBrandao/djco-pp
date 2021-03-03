@@ -11,13 +11,4 @@ public class Pistol : Weapon
 
         SpawnBullet(hole.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
     }
-
-    public override bool addAmmo(){
-        if(magSize == numOfBullets)
-            return false;
-        numOfBullets = magSize;
-        
-        Debug.Log("AMMO pistole!");
-        return true;
-    }
 }

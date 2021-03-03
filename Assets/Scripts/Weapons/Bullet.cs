@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public float speed; // units/s
     public float maxTime; // s
@@ -39,7 +39,7 @@ public abstract class Bullet : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (!other.CompareTag("Player"))
+        if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
             Destroy(gameObject);
     }
 }

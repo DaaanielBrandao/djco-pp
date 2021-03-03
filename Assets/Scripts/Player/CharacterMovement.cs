@@ -228,9 +228,6 @@ public class CharacterMovement : MonoBehaviour
         }
     }
     
-
-
-
     public void ResetDash() {
         if (IsDashing())
             extraDash = true;

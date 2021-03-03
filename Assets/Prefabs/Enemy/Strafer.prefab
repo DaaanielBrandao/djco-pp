@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2520636916825262123}
   - component: {fileID: 6250549600042985422}
   - component: {fileID: 3754618712623711149}
+  - component: {fileID: 5359516878726140242}
   m_Layer: 13
   m_Name: Strafer
   m_TagString: Untagged
@@ -147,11 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48f73869372cf6419be708ca387cbfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staggerHP: 0.5
-  staggerTime: 3
-  staggerState: 0
-  dashKillEffect: {fileID: 8850104209487686098, guid: e9ad70968ab11d24598c75b25c5dd41b,
-    type: 3}
 --- !u!114 &4567652982949724319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,3 +217,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5359516878726140242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4621168938474701276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd76659dd384754e94a0c1ddd8a1931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staggerHP: 0.25
+  staggerTime: 5
+  dashKillEffect: {fileID: 8850104209487686098, guid: e9ad70968ab11d24598c75b25c5dd41b,
+    type: 3}
