@@ -59,7 +59,7 @@ public class EnemyController : MonoBehaviour
             CharacterMovement movement = other.GetComponentInParent<CharacterMovement>();
             if (staggerState == StaggerState.Staggered && movement.IsDashing()) {
                 movement.ResetDash();
-                enemyHP.Kill();
+                enemyHP.Die();
                 Instantiate(dashKillEffect, transform.position, transform.rotation);
             }
         }

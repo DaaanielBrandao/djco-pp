@@ -5000,6 +5000,7 @@ MonoBehaviour:
   hole: {fileID: 2649974862834990153}
   cooldown: 0.15
   canShoot: 1
+  shootSound: {fileID: 8300000, guid: 6f5a927d3d60ae54a85640336809aca0, type: 3}
   spreadAngle: 7
 --- !u!95 &2649974861155238070
 Animator:
@@ -9869,6 +9870,7 @@ GameObject:
   - component: {fileID: 2649974861408128588}
   - component: {fileID: 2649974861408128581}
   - component: {fileID: 2649974861408128583}
+  - component: {fileID: 3925529146618289145}
   m_Layer: 12
   m_Name: Character
   m_TagString: Player
@@ -10058,6 +10060,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3925529146618289145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649974861408128589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1077b8f880b8449893d94e28385902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 1000
+  currentHP: 0
 --- !u!1 &2649974861776481283
 GameObject:
   m_ObjectHideFlags: 0
@@ -14968,6 +14984,7 @@ MonoBehaviour:
   hole: {fileID: 2649974861276974606}
   cooldown: 0.5
   canShoot: 1
+  shootSound: {fileID: 8300000, guid: fead2a42efc107c46904f78f87a313eb, type: 3}
   spreadAngle: 50
   numBullets: 6
 --- !u!95 &2649974862059454323

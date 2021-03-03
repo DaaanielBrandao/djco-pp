@@ -39766,11 +39766,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2649974861155238071, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 6f5a927d3d60ae54a85640336809aca0, type: 3}
     - target: {fileID: 2649974861408128576, guid: 46eb078eee0f26849a832464f275982e,
         type: 3}
       propertyPath: m_RootOrder
@@ -39831,11 +39826,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 2649974862059454333, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: fead2a42efc107c46904f78f87a313eb, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46eb078eee0f26849a832464f275982e, type: 3}
 --- !u!1001 &2664184263773003291
