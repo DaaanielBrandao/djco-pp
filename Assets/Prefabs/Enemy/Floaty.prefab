@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5566599878092044618}
   - component: {fileID: 5566599878092044621}
   - component: {fileID: 5566599878092044617}
-  - component: {fileID: 5566599878092044612}
-  - component: {fileID: 7777302223765549459}
+  - component: {fileID: 7696103719934805984}
+  - component: {fileID: 9206780454109631611}
   - component: {fileID: 1542353176}
   m_Layer: 13
   m_Name: Floaty
@@ -159,7 +159,8 @@ MonoBehaviour:
   currentHP: 0
   explosionEffect: {fileID: 5244189803977291356, guid: 05b57acb1a4a4064b9ad03e722e40c00,
     type: 3}
---- !u!114 &5566599878092044612
+  explosionSound: {fileID: 8300000, guid: 507ce018dbdd9a44bbb826f62ea4e418, type: 3}
+--- !u!114 &7696103719934805984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,16 +169,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5566599878092044620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d7e39b19246c44f88694bee73b2427, type: 3}
+  m_Script: {fileID: 11500000, guid: f859c785d5aa04d4599c636f4a3dfc24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  minRange: 15
-  maxRange: 25
-  circleSpeed: 2
+  speed: 7.5
+  minRange: 7.5
+  maxRange: 10
+  circleSpeed: 1.5
   circleDir: 1
   visionRadius: 50
---- !u!114 &7777302223765549459
+  goingAway: 0
+--- !u!114 &9206780454109631611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,11 +188,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5566599878092044620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce67d861ad725d84787e9043e77c1a77, type: 3}
+  m_Script: {fileID: 11500000, guid: aa4a22cba42407244a28196f044e89a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 1
+  targeted: 1
+  cooldown: 1
+  numShots: 1
+  angle: 0
   visionRadius: 50
+  defaultAngle: 0
   bullet: {fileID: 6218367985906079948, guid: 37d51887c8f631249a010be22034768b, type: 3}
 --- !u!95 &1542353176
 Animator:

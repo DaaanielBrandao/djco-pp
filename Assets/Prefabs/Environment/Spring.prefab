@@ -98,9 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21075996b1aa454abbbffd40a90ffb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  springForce: 131.38
-  minJumpSpeed: 50
-  maxJumpSpeed: 80
+  springForce: 130
+  boingSound: {fileID: 8300000, guid: 703cee182feca2946bbc1ee23326a31c, type: 3}
 --- !u!61 &1448452048650097884
 BoxCollider2D:
   m_ObjectHideFlags: 0

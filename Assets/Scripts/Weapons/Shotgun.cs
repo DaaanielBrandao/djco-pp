@@ -20,7 +20,6 @@ public class Shotgun : Weapon
             SpawnBullet(hole.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
         }
 
-        SoundManager.Instance.OnShootShotgun();
         GameObject.FindObjectOfType<Camera>().GetComponent<Animator>().SetTrigger("shake"); //é capaz de ficar melhor qnd se mata alguem
     }
 }

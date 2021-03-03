@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spikes : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float knockbackForce = 20f;
+    public float knockbackForce = 32f;
     void Start()
     {
         
@@ -16,17 +16,13 @@ public class Spikes : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("boing!");
-        GameObject go = other.gameObject;
-        
+    private void OnTriggerEnter2D(Collider2D other) {        
         if (other.gameObject.layer == LayerMask.NameToLayer("Player")){
             CharacterMovement cm = other.gameObject.GetComponent<CharacterMovement>();
             Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
-            Vector2 knockbackDir = (go.transform.position - gameObject.transform.position).normalized;
-            //playerRb.velocity = new Vector2(playerRb.velocity.x, Mathf.Clamp(Mathf.Abs(playerRb.velocity.y), minJumpSpeed, maxJumpSpeed));
+            Vector2 knockbackDir = (other.gameObject.transform.position - gameObject.transform.position).normalized;
             playerRb.velocity = knockbackDir * knockbackForce;
-            //playerRb.AddForce(Vector2.up * springForce, ForceMode2D.Impulse);
+
             cm.Boioioing();
         }
     }

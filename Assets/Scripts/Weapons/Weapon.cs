@@ -4,12 +4,15 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject bullets;
     public GameObject hole;
 
     public float cooldown;
     public bool canShoot = true;
+
+    public AudioClip shootSound;
+
+
 
     void OnEnable() {
         canShoot = true;
@@ -25,6 +28,7 @@ public abstract class Weapon : MonoBehaviour
             StartCoroutine(StartCooldown());
             this.OnShoot();
             
+            SoundManager.Instance.Play(shootSound);
             GetComponent<Animator>().SetTrigger("pew");
         }
     }

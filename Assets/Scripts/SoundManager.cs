@@ -15,16 +15,8 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    public AudioClip jumpSound; 
-    public AudioClip dropSound; 
-    public AudioClip dashSound; 
-    public AudioClip pistolSound; 
-    public AudioClip shotgunSound; 
     public AudioClip pickleSound;
 
-    public AudioClip enemyExplosion;  
-
-    public AudioClip boing;
     private AudioSource playerAudio;
 
     // Start is called before the first frame update
@@ -47,24 +39,7 @@ public class SoundManager : MonoBehaviour
             playerAudio.PlayOneShot(pickleSound);
     }
 
-    public void OnJump() {
-        playerAudio.PlayOneShot(jumpSound, 1.0f);
-    }
-
-    public void OnDash() {
-        playerAudio.PlayOneShot(dashSound, 1.0f);
-    }
-
-    public void OnShootPistol() {
-        playerAudio.PlayOneShot(pistolSound, 1.0f);
-    }
-    public void OnShootShotgun() {
-        playerAudio.PlayOneShot(shotgunSound, 1.0f);
-    }
-    public void OnEnemyExplosion() {
-        playerAudio.PlayOneShot(enemyExplosion, 1.0f);
-    }
-    public void OnBoing() {
-        playerAudio.PlayOneShot(boing, 1.0f);
+    public void Play(AudioClip sound) {
+        playerAudio.PlayOneShot(sound);
     }
 }

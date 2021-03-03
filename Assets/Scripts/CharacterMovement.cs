@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {   
-    public float speed = 25;
+    public float moveForce = 125;
+    public float maxSpeed = 30;
     public float jumpForce = 35f;
     public float gravityMod = 7f;
     public Vector2 facingDir = new Vector2(1, 0);
@@ -28,13 +29,16 @@ public class CharacterMovement : MonoBehaviour
     private Animator animator;
     private Collider2D charCollider;
 
+    public AudioClip dashSound;
+    public AudioClip jumpSound;
+
     public GameObject mainCamera;
     public GameObject trail;
-    private TrailRenderer trailRenderer;
     public ParticleSystem dust;
     public ParticleSystem waveDust;
-
-    public ParticleSystem dashDust;
+    public ParticleSystem dashDust;    
+    private TrailRenderer trailRenderer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -61,52 +65,50 @@ public class CharacterMovement : MonoBehaviour
         Vector2 bottomCenter = colliderBounds.center - new Vector3(0, colliderBounds.extents.y);
         Vector2 boxSize = new Vector2(colliderBounds.extents.x * 2, 0.01f);
 
-        string[] layers = {"Ground", "Platform"};
+        string[] layers = {"Ground", "Platform"}; // Beep boop?
         RaycastHit2D[] hits = Physics2D.BoxCastAll(bottomCenter, boxSize, 0, Vector2.down, 0.01f, LayerMask.GetMask(layers));
 
-        bool newIsOnGround = false;
+        isOnGround = false;
         foreach (RaycastHit2D hit in hits) {
             if (!hit.collider.isTrigger && !Physics2D.GetIgnoreCollision(hit.collider, charCollider)) {
-                newIsOnGround = true;
+                isOnGround = true;
                 break;
             }
         }
 
-        if (!isOnGround && newIsOnGround) {
+        if (isOnGround) {
             isJumping = false;
             extraDash = false;
         }
-        isOnGround = newIsOnGround;
     }
 
     void HandleMove() {
         float inputHor = Input.GetAxisRaw("Horizontal");
         float inputVer = Input.GetAxisRaw("Vertical");
 
-        movement = Vector3.right * inputHor * Time.deltaTime * speed;
-        //transform.Translate(movement);
-        if(!(inputHor * rb.velocity.x > 0 && Mathf.Abs(rb.velocity.x) > 30)){
-            rb.AddForce(movement * 5, ForceMode2D.Impulse);
+        movement = Vector3.right * inputHor * Time.deltaTime * moveForce;
+        
+        // Movement (only add force if changing direction or if below max speed)
+        if (inputHor * rb.velocity.x <= 0 || Mathf.Abs(rb.velocity.x) <= maxSpeed) {
+            rb.AddForce(movement, ForceMode2D.Impulse);
         }
 
-    /*
-        if(isOnGround && ((inputHor == 0 && Mathf.Abs(rb.velocity.x) > 0) ||  Mathf.Abs(rb.velocity.x) > 30)){
-            Debug.Log("ola");
-            rb.AddForce(Vector3.right* -5 * Mathf.Sign(rb.velocity.x), ForceMode2D.Impulse);
-        }*/
-        if(!isJumping && (dashState != DashState.WaveDash && Mathf.Abs(rb.velocity.x) > 30 || inputHor == 0)){
-            rb.velocity = new Vector2(rb.velocity.x * Mathf.Pow(0.00005f,Time.deltaTime) ,rb.velocity.y);
+
+        // Drag (reduce velocity if over max speed - except for wavedash - or if user not trying to move)
+        if(!isJumping && (dashState != DashState.WaveDash && Mathf.Abs(rb.velocity.x) > maxSpeed || inputHor == 0)){
+            rb.velocity = new Vector2(rb.velocity.x * Mathf.Pow(0.00005f, Time.deltaTime) ,rb.velocity.y);
         }
         
 
+        // Facing Direction
         Vector2 direction = new Vector2(inputHor, inputVer);        
         if (direction.x != 0) {
             facingDir = new Vector2(direction.x, direction.y);           
             transform.localScale = new Vector3(direction.x * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
 
-
-        if (transform.position.y < -50) // !
+        // Out of bounds
+        if (transform.position.y < -50)
             transform.position = new Vector3(0, 10, 0);
 
         animator.SetBool("Moving", inputHor != 0);
@@ -121,13 +123,11 @@ public class CharacterMovement : MonoBehaviour
             isJumping = true; 
 
 
-            SoundManager.Instance.OnJump();
+            SoundManager.Instance.Play(jumpSound);
             dust.Play();
-            // animator.SetTrigger("Jump");
         }
 
         if (Input.GetKeyUp(KeyCode.I) && isJumping && !isGoingDown) {
-           // rb.velocity += new Vector2(0, -10f);
             rb.velocity /= 2;
         }
 
@@ -153,7 +153,7 @@ public class CharacterMovement : MonoBehaviour
                     dashState = DashState.Dashing;                 
                     StartCoroutine(DoDash());
 
-                    SoundManager.Instance.OnDash();
+                    SoundManager.Instance.Play(dashSound);
                     mainCamera.GetComponent<Animator>().SetTrigger("zoop");
                     dashDust.Play();
                 }

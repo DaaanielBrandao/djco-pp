@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementBehavior : MonoBehaviour
+public class Follow : MovementBehavior
 {
     public float speed = 7.5f;
     public float minRange = 7.5f;
@@ -12,12 +12,13 @@ public class MovementBehavior : MonoBehaviour
     public int circleDir = 1;
 
     public float visionRadius = 50f;
+
+    public bool goingAway = false; // :(
    
     private Vector2 originalScale;    
     private PlayerDetector detector;
     private Animator animator;
 
-    public bool goingAway = false;
 
     // Start is called before the first frame update
     void Start() {

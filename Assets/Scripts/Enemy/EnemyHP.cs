@@ -8,6 +8,7 @@ public class EnemyHP : MonoBehaviour
     public float currentHP;
 
     public ParticleSystem explosionEffect;
+    public AudioClip explosionSound;
 
     private SpriteRenderer spriteRenderer;
     
@@ -22,19 +23,16 @@ public class EnemyHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("HP " + currentHP);
         if (currentHP <= 0) {
-            // boom
-            SoundManager.Instance.OnEnemyExplosion();
-            Instantiate(explosionEffect, transform.position, transform.rotation);
-
-            Destroy(gameObject);
+            Kill();
         }
-        spriteRenderer.color = Color.Lerp(Color.gray, Color.white, currentHP / (float)maxHP);
+        // spriteRenderer.color = Color.Lerp(Color.gray, Color.white, currentHP / (float)maxHP);
     }
 
     public void Kill() {
-        currentHP = 0;
+        SoundManager.Instance.Play(explosionSound);
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 
     public void changeHP(float amount) {

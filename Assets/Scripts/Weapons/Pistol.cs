@@ -10,7 +10,5 @@ public class Pistol : Weapon
         float angle = Random.Range(-spreadAngle/2,spreadAngle/2);
 
         SpawnBullet(hole.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
-
-        SoundManager.Instance.OnShootPistol();
     }
 }
