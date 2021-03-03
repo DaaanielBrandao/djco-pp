@@ -12,8 +12,9 @@ public abstract class Weapon : MonoBehaviour
 
     public AudioClip shootSound;
 
-
-
+    public int magSize;
+    public int numOfBullets;
+    
     void OnEnable() {
         canShoot = true;
     }
@@ -24,9 +25,10 @@ public abstract class Weapon : MonoBehaviour
         if (!canShoot)
             return;
 
-        if(Input.GetKeyDown(KeyCode.L)) {     
+        if(Input.GetKeyDown(KeyCode.L) && numOfBullets > 0) {     
             StartCoroutine(StartCooldown());
             this.OnShoot();
+            numOfBullets--;
             
             SoundManager.Instance.Play(shootSound);
             GetComponent<Animator>().SetTrigger("pew");
@@ -45,4 +47,6 @@ public abstract class Weapon : MonoBehaviour
     }
 
     protected abstract void OnShoot();
+
+    public abstract bool addAmmo();
 }
