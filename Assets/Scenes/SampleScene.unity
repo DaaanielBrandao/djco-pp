@@ -36127,7 +36127,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -37014,16 +37014,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1448452047847417634, guid: 9b9e7743cc4b5a947b41eebbfd756b4b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6.666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 1448452047847417634, guid: 9b9e7743cc4b5a947b41eebbfd756b4b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 6.666667
       objectReference: {fileID: 0}
     - target: {fileID: 1448452047847417634, guid: 9b9e7743cc4b5a947b41eebbfd756b4b,
         type: 3}
@@ -39881,6 +39871,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2649974861155238071, guid: 46eb078eee0f26849a832464f275982e,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649974861155238071, guid: 46eb078eee0f26849a832464f275982e,
+        type: 3}
+      propertyPath: currentAmmo
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 2649974861408128576, guid: 46eb078eee0f26849a832464f275982e,
         type: 3}
       propertyPath: m_RootOrder
@@ -39961,6 +39961,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649974862059454333, guid: 46eb078eee0f26849a832464f275982e,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649974862059454333, guid: 46eb078eee0f26849a832464f275982e,
+        type: 3}
+      propertyPath: currentAmmo
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 2649974862059454335, guid: 46eb078eee0f26849a832464f275982e,
         type: 3}
