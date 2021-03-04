@@ -20,5 +20,21 @@ public class ChargedBullet : Bullet
         //damage
         damage = minDamage + charge * (damage - minDamage);
         
+        
+        charSpeed = new Vector2(charSpeed.x, 0);
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        if (charge < 1)
+            base.OnTriggerEnter2D(other);
+        else
+        {
+            int layer = other.gameObject.layer;
+            if (layer == LayerMask.NameToLayer("Ground"))
+                Destroy(gameObject);
+            else if (layer == LayerMask.NameToLayer("Enemy"))
+                other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
+        }
     }
 }

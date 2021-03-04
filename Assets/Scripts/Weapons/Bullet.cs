@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     private GameObject shooter;
 
     private float dir;
-    private Vector2 charSpeed;
+    protected Vector2 charSpeed;
     protected float charge;
 
     // Start is called before the first frame update
@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    protected virtual void OnTriggerEnter2D(Collider2D other) {
         int layer = other.gameObject.layer;
         if (layer == LayerMask.NameToLayer("Enemy") || layer == LayerMask.NameToLayer("Ground"))
         {
