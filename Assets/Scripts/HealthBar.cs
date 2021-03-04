@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,7 @@ public abstract class HealthBar : MonoBehaviour
             Die();
         }
     }
-
+    
     public abstract void Die();
 
     public void refillHP() {
