@@ -123,3 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: Uzi
+  soundEffect: {fileID: 0}
