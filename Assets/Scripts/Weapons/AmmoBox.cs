@@ -22,7 +22,7 @@ public class AmmoBox : MonoBehaviour
             //other.gameObject.transform.Find("Shotgun").GetComponent<Shotgun>().addAmmo();
             //float test = other.gameObject.transform.Find("Shotgun").GetComponent<Shotgun>().spreadAngle;
             //var instance = Activator.CreateInstance(weaponType,className);
-            if(other.gameObject.transform.Find("WeaponSwitcher").gameObject.transform.Find(weaponType).GetComponent<Weapon>().addAmmo())
+            if(other.gameObject.transform.Find("WeaponSwitcher").gameObject.transform.Find(weaponType).GetComponent<Weapon>().refillAmmo())
                 Destroy(gameObject);
         }
     }

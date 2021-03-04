@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {        
         dir = shooter.GetComponent<CharacterMovement>().facingDir.x;
+        transform.localScale = new Vector2(dir * Mathf.Abs(transform.localScale.x), transform.localScale.y);
 
         charSpeed = new Vector2(
             shooter.GetComponent<Rigidbody2D>().velocity.x,
@@ -29,6 +30,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         transform.Translate((Vector2.right * dir * speed + charSpeed) * Time.deltaTime);
     }
 
@@ -37,9 +39,17 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
+        int layer = other.gameObject.layer;
+        if (layer != LayerMask.NameToLayer("Player")) {
+            if (layer == LayerMask.NameToLayer("Enemy"))
+                other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
             Destroy(gameObject);
+        }
+    }
+
+    public static void SpawnBullet(GameObject bullet, GameObject weapon, Vector3 position, Quaternion rotation) {
+        GameObject obj = Instantiate(bullet, position, rotation);
+        obj.GetComponent<Bullet>().shooter = weapon.transform.parent.parent.gameObject;
     }
 }

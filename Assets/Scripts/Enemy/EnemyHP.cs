@@ -13,10 +13,7 @@ public class EnemyHP : HealthBar
         Destroy(gameObject);
     }
     
-    void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.CompareTag("Player Bullet")) {  
-            float damage = other.gameObject.GetComponent<Bullet>().damage;
-            this.changeHP(-damage);
-        }
+    public void OnHit(float amount) {
+        this.changeHP(-amount);
     }
 }

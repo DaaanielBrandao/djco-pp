@@ -2,38 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
-{
-    public GameObject bullets;
-    public GameObject hole;
+public abstract class Weapon : MonoBehaviour {
 
     public float cooldown;
     public AudioClip shootSound;
+    public AudioClip noAmmoSound;
    
-    public int magSize;
-    public int numOfBullets;
+    public int maxAmmo;
+    public int currentAmmo;
 
-    private bool canShoot = true;
+    protected bool canShoot = true;
+    protected GameObject hole;
 
-    
+    private void Start() {
+        hole = transform.Find("WeaponHole").gameObject;
+    }
+
     void OnEnable() {
         canShoot = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {  
+    protected abstract void Shoot();
+
+    protected void OnDetectShoot() {
+        if (currentAmmo <= 0) {
+            // Sound effect
+            return;
+        }
         if (!canShoot)
             return;
 
-        if(Input.GetKeyDown(KeyCode.L) && numOfBullets > 0) {     
-            StartCoroutine(StartCooldown());
-            this.OnShoot();
-            numOfBullets--;
+        StartCoroutine(StartCooldown());
+        Shoot();
+        currentAmmo--;
             
-            SoundManager.Instance.Play(shootSound);
-            GetComponent<Animator>().SetTrigger("pew");
-        }
+        SoundManager.Instance.Play(shootSound);
+        GetComponent<Animator>().SetTrigger("pew");
     }
 
     IEnumerator StartCooldown() {
@@ -42,17 +46,10 @@ public abstract class Weapon : MonoBehaviour
         canShoot = true;        
     }
 
-    protected void SpawnBullet(Vector3 position, Quaternion rotation) {
-        GameObject obj = Instantiate(bullets, position, rotation);
-        obj.GetComponent<Bullet>().shooter = gameObject.transform.parent.parent.gameObject;
-    }
-
-    protected abstract void OnShoot();
-
-    public bool addAmmo() {
-        if(magSize == numOfBullets)
+    public bool refillAmmo() {
+        if(maxAmmo == currentAmmo)
             return false;
-        numOfBullets = magSize;
+        currentAmmo = maxAmmo;
         
         Debug.Log("AMMO " + gameObject.name);
         return true;

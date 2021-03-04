@@ -1,5 +1,158 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &992151918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 992151919}
+  m_Layer: 12
+  m_Name: WeaponHole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &992151919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992151918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.111, y: 0.0106, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1179057226}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1179057225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1179057226}
+  - component: {fileID: 1179057228}
+  - component: {fileID: 1179057227}
+  - component: {fileID: 1179057229}
+  m_Layer: 12
+  m_Name: Uzi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1179057226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179057225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.028, y: 0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.4}
+  m_Children:
+  - {fileID: 992151919}
+  m_Father: {fileID: 2649974861156417720}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1179057228
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179057225}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -7903565074922245131, guid: 50b215cd35055a44aad4524daba645ce,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 3, y: 2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &1179057227
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179057225}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6939c358d2a8c884394018dfa80209c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1179057229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179057225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d26fd2bac55b2489cda5930e70f84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  shootSound: {fileID: 8300000, guid: 6f5a927d3d60ae54a85640336809aca0, type: 3}
+  noAmmoSound: {fileID: 0}
+  maxAmmo: 3000
+  currentAmmo: 3000
+  spreadAngle: 300
+  bullets: {fileID: 1573597018435887170, guid: d51550cf3c2c4534bbcfb1932bcaedbb, type: 3}
 --- !u!1 &2649974861007184372
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,13 +5149,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba0ab9c2b40ca742a50e2d489bf355a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets: {fileID: 1573597018435887170, guid: d51550cf3c2c4534bbcfb1932bcaedbb, type: 3}
-  hole: {fileID: 2649974862834990153}
   cooldown: 0.15
   shootSound: {fileID: 8300000, guid: 6f5a927d3d60ae54a85640336809aca0, type: 3}
-  magSize: 0
-  numOfBullets: 0
-  spreadAngle: 7
+  noAmmoSound: {fileID: 0}
+  maxAmmo: 15
+  currentAmmo: 10
+  spreadAngle: 5
+  bullets: {fileID: 1573597018435887170, guid: d51550cf3c2c4534bbcfb1932bcaedbb, type: 3}
 --- !u!95 &2649974861155238070
 Animator:
   serializedVersion: 3
@@ -5052,6 +5205,7 @@ Transform:
   m_Children:
   - {fileID: 2649974861155238065}
   - {fileID: 2649974862059454334}
+  - {fileID: 1179057226}
   m_Father: {fileID: 2649974861408128576}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5070,6 +5224,7 @@ MonoBehaviour:
   Weapons:
   - {fileID: 2649974861155238066}
   - {fileID: 2649974862059454335}
+  - {fileID: 1179057225}
   pressedNumber: 1
   cooldown: 0.2
   canSwitch: 1
@@ -14923,14 +15078,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278997b4f2ec21549863802a48480d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets: {fileID: 3095381652908384560, guid: 6fde37b7f3fbfd447a9cb2d3dc49b346, type: 3}
-  hole: {fileID: 2649974861276974606}
   cooldown: 0.5
   shootSound: {fileID: 8300000, guid: fead2a42efc107c46904f78f87a313eb, type: 3}
-  magSize: 0
-  numOfBullets: 0
+  noAmmoSound: {fileID: 0}
+  maxAmmo: 5
+  currentAmmo: 5
   spreadAngle: 50
   numBullets: 6
+  bullets: {fileID: 3095381652908384560, guid: 6fde37b7f3fbfd447a9cb2d3dc49b346, type: 3}
 --- !u!95 &2649974862059454323
 Animator:
   serializedVersion: 3
