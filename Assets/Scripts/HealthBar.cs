@@ -34,7 +34,7 @@ public abstract class HealthBar : MonoBehaviour
         currentHP = maxHP * perc;
     }
 
-    public void changeHP(float amount) {
+    protected void changeHP(float amount) {
         currentHP = Mathf.Clamp(currentHP + amount, 0, maxHP);
     }
 

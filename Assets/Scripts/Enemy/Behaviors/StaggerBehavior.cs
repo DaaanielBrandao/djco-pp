@@ -24,22 +24,28 @@ public class StaggerBehavior : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (staggerState == StaggerState.Ready && enemyHP.percentageOfMax() < staggerHP) {
-            StartCoroutine(Stagger());
-        }
-        else if (staggerState == StaggerState.Staggered) {
-            GameObject player = GetPlayerCollision();
-            if (player == null)
-                return;
+        switch (staggerState)
+        {
+            case StaggerState.Ready when enemyHP.percentageOfMax() < staggerHP:
+                StartCoroutine(Stagger());
+                break;
+            case StaggerState.Staggered:
+            {
+                GameObject player = GetPlayerCollision();
+                if (player == null)
+                    return;
 
-            CharacterMovement movement = player.GetComponent<CharacterMovement>();
-            if (movement == null)
-                Debug.Log(player);
-            if (staggerState == StaggerState.Staggered && movement.IsDashing()) {
-                movement.ResetDash();
-                enemyHP.Die();
-                Instantiate(dashKillEffect, transform.position, transform.rotation);
-            }            
+                CharacterMovement movement = player.GetComponent<CharacterMovement>();
+                if (movement == null)
+                    Debug.Log(player);
+                if (staggerState == StaggerState.Staggered && movement.IsDashing()) {
+                    movement.ResetDash();
+                    enemyHP.Die();
+                    Instantiate(dashKillEffect, transform.position, transform.rotation);
+                }
+
+                break;
+            }
         }
     }
 

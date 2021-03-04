@@ -49,7 +49,7 @@ public class WeaponSwitch : MonoBehaviour
         pressedNumber = number;
     }
 
-    int GetPressedNumber() {
+    static int GetPressedNumber() {
         for (int number = 1; number <= 9; number++) {
             if (Input.GetKeyDown(number.ToString()))
                 return number;
@@ -83,7 +83,7 @@ public class WeaponSwitch : MonoBehaviour
         numWeapons++;
     }
 
-    public bool IsAtMaxWeapons() {
+    private bool IsAtMaxWeapons() {
         return numWeapons == 9;
     }
  

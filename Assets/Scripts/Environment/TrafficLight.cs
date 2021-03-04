@@ -52,17 +52,19 @@ public class TrafficLight : MonoBehaviour
         lightRed.SetActive(false);
     }
 
-    public void turnGreen(){
+    private void turnGreen(){
         turnOffAll();
         greenRenderer.color = UnityEngine.Color.white;
         lightGreen.SetActive(true);
     }
-    public void turnYellow(){
+
+    private void turnYellow(){
         turnOffAll();
         yellowRenderer.color = UnityEngine.Color.white;
         lightYellow.SetActive(true);
     }
-    public void turnRed(){
+
+    private void turnRed(){
         turnOffAll();
         redRenderer.color = UnityEngine.Color.white;
         lightRed.SetActive(true);

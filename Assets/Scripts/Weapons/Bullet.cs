@@ -17,7 +17,9 @@ public class Bullet : MonoBehaviour
     void Start()
     {        
         dir = shooter.GetComponent<CharacterMovement>().facingDir.x;
-        transform.localScale = new Vector2(dir * Mathf.Abs(transform.localScale.x), transform.localScale.y);
+        var localScale = transform.localScale;
+        localScale = new Vector2(dir * Mathf.Abs(localScale.x), localScale.y);
+        transform.localScale = localScale;
 
         charSpeed = new Vector2(
             shooter.GetComponent<Rigidbody2D>().velocity.x,
@@ -41,9 +43,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         int layer = other.gameObject.layer;
-        if (layer != LayerMask.NameToLayer("Player")) {
+        if (layer == LayerMask.NameToLayer("Enemy") || layer == LayerMask.NameToLayer("Ground"))
+        {
             if (layer == LayerMask.NameToLayer("Enemy"))
                 other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
+            Debug.Log("colision");
             Destroy(gameObject);
         }
     }

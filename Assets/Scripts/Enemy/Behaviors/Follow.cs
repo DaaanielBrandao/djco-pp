@@ -26,10 +26,10 @@ public class Follow : MovementBehavior
 
         // Ignore platforms
         var objects = FindObjectsOfType<GameObject>();
-        for (int i = 0; i < objects.Length; i++)
-            if (objects[i].layer == PlatformCollision.PlatformLayer)
-                Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), objects[i].GetComponent<Collider2D>(), true);
-    
+        foreach (var t in objects)
+            if (t.layer == PlatformCollision.PlatformLayer)
+                Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), t.GetComponent<Collider2D>(), true);
+
         animator = GetComponent<Animator>();
         detector = gameObject.AddComponent<PlayerDetector>();
         detector.radius = visionRadius;
