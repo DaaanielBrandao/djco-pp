@@ -8,10 +8,11 @@ public class Bullet : MonoBehaviour
     public float maxTime; // s
     public float damage; // HP
 
-    public GameObject shooter;
+    private GameObject shooter;
 
     private float dir;
     private Vector2 charSpeed;
+    protected float charge;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class Bullet : MonoBehaviour
             shooter.GetComponent<Rigidbody2D>().velocity.x,
             shooter.GetComponent<Rigidbody2D>().velocity.y
         );
-
+        onStartOther();
         StartCoroutine(DestroyAfterLifetime());
     }
 
@@ -47,13 +48,18 @@ public class Bullet : MonoBehaviour
         {
             if (layer == LayerMask.NameToLayer("Enemy"))
                 other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
-            Debug.Log("colision");
             Destroy(gameObject);
         }
     }
 
-    public static void SpawnBullet(GameObject bullet, GameObject shooter, Vector3 position, Quaternion rotation) {
+    protected virtual void onStartOther()
+    {
+        
+    }
+
+    public static void SpawnBullet(GameObject bullet, GameObject shooter, Vector3 position, Quaternion rotation, float charge = 1) {
         GameObject obj = Instantiate(bullet, position, rotation);
         obj.GetComponent<Bullet>().shooter = shooter;
+        obj.GetComponent<Bullet>().charge = charge;
     }
 }

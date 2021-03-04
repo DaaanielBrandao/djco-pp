@@ -51,7 +51,7 @@ public abstract class Weapon : MonoBehaviour {
     }
 
     public bool refillAmmo() {
-        if(maxAmmo == currentAmmo)
+        if(maxAmmo <= currentAmmo)
             return false;
         currentAmmo = maxAmmo;
         
