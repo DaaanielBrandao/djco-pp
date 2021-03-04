@@ -48,8 +48,8 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public static void SpawnBullet(GameObject bullet, GameObject weapon, Vector3 position, Quaternion rotation) {
+    public static void SpawnBullet(GameObject bullet, GameObject shooter, Vector3 position, Quaternion rotation) {
         GameObject obj = Instantiate(bullet, position, rotation);
-        obj.GetComponent<Bullet>().shooter = weapon.transform.parent.parent.gameObject;
+        obj.GetComponent<Bullet>().shooter = shooter;
     }
 }

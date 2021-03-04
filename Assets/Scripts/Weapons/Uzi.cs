@@ -10,6 +10,8 @@ public class Uzi : WeaponAuto
     protected override void Shoot() {
         float angle = Random.Range(-spreadAngle/2, spreadAngle/2);
 
-        Bullet.SpawnBullet(bullets, gameObject, hole.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
+        Bullet.SpawnBullet(bullets, shooter, hole.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
+
+        
     }
 }

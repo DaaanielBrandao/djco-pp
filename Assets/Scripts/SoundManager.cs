@@ -40,6 +40,8 @@ public class SoundManager : MonoBehaviour
     }
 
     public void Play(AudioClip sound) {
-        playerAudio.PlayOneShot(sound);
+        if (sound == null)
+            Debug.LogWarning("Tried to play null sound.");
+        else playerAudio.PlayOneShot(sound);
     }
 }

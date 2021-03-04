@@ -148,9 +148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   shootSound: {fileID: 8300000, guid: 6f5a927d3d60ae54a85640336809aca0, type: 3}
-  noAmmoSound: {fileID: 0}
+  noAmmoSound: {fileID: 8300000, guid: d0530d764b434774eaa9da7c44299505, type: 3}
   maxAmmo: 3000
   currentAmmo: 3000
+  ammoBox: {fileID: 6424140338521484876, guid: a24f59e2164d0f44daa6d87206cf5473, type: 3}
   spreadAngle: 300
   bullets: {fileID: 1573597018435887170, guid: d51550cf3c2c4534bbcfb1932bcaedbb, type: 3}
 --- !u!1 &2649974861007184372
@@ -5151,9 +5152,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0.15
   shootSound: {fileID: 8300000, guid: 6f5a927d3d60ae54a85640336809aca0, type: 3}
-  noAmmoSound: {fileID: 0}
+  noAmmoSound: {fileID: 8300000, guid: d0530d764b434774eaa9da7c44299505, type: 3}
   maxAmmo: 15
   currentAmmo: 10
+  ammoBox: {fileID: 2775062643748803201, guid: 1c6236019b5fef646a700906a6cb6146, type: 3}
   spreadAngle: 5
   bullets: {fileID: 1573597018435887170, guid: d51550cf3c2c4534bbcfb1932bcaedbb, type: 3}
 --- !u!95 &2649974861155238070
@@ -5221,13 +5223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a56d4ad82cc3d47a51fca1b58b4c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapons:
-  - {fileID: 2649974861155238066}
-  - {fileID: 2649974862059454335}
-  - {fileID: 1179057225}
+  swapCooldown: 0.2
   pressedNumber: 1
-  cooldown: 0.2
-  canSwitch: 1
 --- !u!1 &2649974861210151568
 GameObject:
   m_ObjectHideFlags: 0
@@ -15080,9 +15077,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0.5
   shootSound: {fileID: 8300000, guid: fead2a42efc107c46904f78f87a313eb, type: 3}
-  noAmmoSound: {fileID: 0}
+  noAmmoSound: {fileID: 8300000, guid: d0530d764b434774eaa9da7c44299505, type: 3}
   maxAmmo: 5
   currentAmmo: 5
+  ammoBox: {fileID: 5626032299268538682, guid: 1158a2f6c81058c42a0ddee9d4ad0e4f, type: 3}
   spreadAngle: 50
   numBullets: 6
   bullets: {fileID: 3095381652908384560, guid: 6fde37b7f3fbfd447a9cb2d3dc49b346, type: 3}

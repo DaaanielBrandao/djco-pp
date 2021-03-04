@@ -5,6 +5,8 @@ using UnityEngine;
 public class AmmoBox : MonoBehaviour
 {
     public string weaponType;
+    public AudioClip soundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +24,11 @@ public class AmmoBox : MonoBehaviour
             //other.gameObject.transform.Find("Shotgun").GetComponent<Shotgun>().addAmmo();
             //float test = other.gameObject.transform.Find("Shotgun").GetComponent<Shotgun>().spreadAngle;
             //var instance = Activator.CreateInstance(weaponType,className);
-            if(other.gameObject.transform.Find("WeaponSwitcher").gameObject.transform.Find(weaponType).GetComponent<Weapon>().refillAmmo())
+            WeaponSwitch weaponSwitch = other.gameObject.GetComponentInChildren<WeaponSwitch>();
+            if(weaponSwitch.GetWeapon(weaponType).refillAmmo()) {
                 Destroy(gameObject);
+                SoundManager.Instance.Play(soundEffect);
+            }
         }
     }
 }

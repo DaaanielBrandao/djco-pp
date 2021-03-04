@@ -10,11 +10,15 @@ public abstract class Weapon : MonoBehaviour {
    
     public int maxAmmo;
     public int currentAmmo;
+    public GameObject ammoBox;
+
 
     protected bool canShoot = true;
     protected GameObject hole;
+    protected GameObject shooter;
 
     private void Start() {
+        shooter = transform.parent.parent.gameObject;
         hole = transform.Find("WeaponHole").gameObject;
     }
 
@@ -26,7 +30,7 @@ public abstract class Weapon : MonoBehaviour {
 
     protected void OnDetectShoot() {
         if (currentAmmo <= 0) {
-            // Sound effect
+            SoundManager.Instance.Play(noAmmoSound);
             return;
         }
         if (!canShoot)
