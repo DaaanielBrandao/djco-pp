@@ -38646,7 +38646,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: d256f8b34c664674ba978f9a3579ba33, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.99954206, b: 0.9858491, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -40187,7 +40187,7 @@ PrefabInstance:
     - target: {fileID: 1179057228, guid: 46eb078eee0f26849a832464f275982e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 288dac5e208580b47bb0ed7bff47b577, type: 2}
+      objectReference: {fileID: 2100000, guid: 74eed7b8a11202649ae33c7cda98a8ea, type: 2}
     - target: {fileID: 1179057229, guid: 46eb078eee0f26849a832464f275982e, type: 3}
       propertyPath: bullets
       value: 
@@ -40230,7 +40230,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 288dac5e208580b47bb0ed7bff47b577, type: 2}
+      objectReference: {fileID: 2100000, guid: 74eed7b8a11202649ae33c7cda98a8ea, type: 2}
     - target: {fileID: 2649974861155238066, guid: 46eb078eee0f26849a832464f275982e,
         type: 3}
       propertyPath: m_IsActive
@@ -40331,7 +40331,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 288dac5e208580b47bb0ed7bff47b577, type: 2}
+      objectReference: {fileID: 2100000, guid: 74eed7b8a11202649ae33c7cda98a8ea, type: 2}
     - target: {fileID: 2649974862059454333, guid: 46eb078eee0f26849a832464f275982e,
         type: 3}
       propertyPath: maxAmmo
