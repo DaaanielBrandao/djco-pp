@@ -135,10 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53022b276b1241d594018f49cc8d9883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 80
-  maxTime: 0.4
+  speed: 100
+  maxTime: 0.5
   damage: 60
-  minSpeed: 40
+  minSpeed: 50
   minDamage: 25
 --- !u!1 &5341156534639069312
 GameObject:

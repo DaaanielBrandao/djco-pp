@@ -139,6 +139,21 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 3098562267319984721, guid: 5443f4d4a6b2f7244ae72693cd7f816f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098562267319984721, guid: 5443f4d4a6b2f7244ae72693cd7f816f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.4764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098562267319984721, guid: 5443f4d4a6b2f7244ae72693cd7f816f,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.6958105
+      objectReference: {fileID: 0}
     - target: {fileID: 3098562267319984734, guid: 5443f4d4a6b2f7244ae72693cd7f816f,
         type: 3}
       propertyPath: m_Name
@@ -590,7 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0.4
-  shootSound: {fileID: 8300000, guid: 6f5a927d3d60ae54a85640336809aca0, type: 3}
+  shootSound: {fileID: 8300000, guid: 397e6c9f502665c4888c2cbd4273210d, type: 3}
   noAmmoSound: {fileID: 8300000, guid: d0530d764b434774eaa9da7c44299505, type: 3}
   maxAmmo: 1000
   currentAmmo: 1000
@@ -598,7 +613,8 @@ MonoBehaviour:
   isCharging: 0
   totalCharge: 0
   chargeRate: 1
-  spreadAngle: 3
+  chargingSound: {fileID: 8300000, guid: 8392de29f5b17f34989be1829566d89d, type: 3}
+  spreadAngle: 0
   bullets: {fileID: 4135101377148629597, guid: b34e710e4499dd940ac531ae1f9ba57d, type: 3}
   chargedPS: {fileID: 1005567652}
 --- !u!212 &89894671
@@ -783,7 +799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &144026951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1905,7 +1921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &600711370
 Transform:
   m_ObjectHideFlags: 0
@@ -37718,7 +37734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1302334170
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,17 +5,25 @@ using UnityEngine;
 
 public abstract class WeaponCharge : Weapon
 {
-    protected float chargabilitament;
+    
     public bool isCharging;
     public float totalCharge = 0f;
     public float chargeRate = 1f;
+    
+    public AudioClip chargingSound;
 
     // Update is called once per frame
     protected virtual void Update()
     {
         // Usar 9 milhoes de QI para o charge
+        
         if(Input.GetKey(KeyCode.L))
         {
+            if (!isCharging)
+            {
+                SoundManager.Instance.Play(chargingSound);
+            }
+            
             isCharging = true;
             totalCharge = Mathf.Min(1, totalCharge + Time.deltaTime * chargeRate);
             GetComponent<Animator>().SetTrigger("charge");
@@ -24,9 +32,17 @@ public abstract class WeaponCharge : Weapon
         {
             GetComponent<Animator>().ResetTrigger("charge");
             OnDetectShoot();
+            Debug.Log("poggers");
             isCharging = false;
             totalCharge = 0;
         }
             
+    }
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        totalCharge = 0;
+        isCharging = false;
+        GetComponent<Animator>().ResetTrigger("charge");
     }
 }

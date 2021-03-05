@@ -22,7 +22,7 @@ public abstract class Weapon : MonoBehaviour {
         hole = transform.Find("WeaponHole").gameObject;
     }
 
-    void OnEnable() {
+    protected virtual void OnEnable() {
         canShoot = true;
     }
 
@@ -35,7 +35,7 @@ public abstract class Weapon : MonoBehaviour {
         }
         if (!canShoot)
             return;
-
+        Debug.Log("poggers2");
         StartCoroutine(StartCooldown());
         Shoot();
         currentAmmo--;
