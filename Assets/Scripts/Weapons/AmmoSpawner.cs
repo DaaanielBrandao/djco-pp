@@ -14,7 +14,7 @@ public class AmmoSpawner : MonoBehaviour
     private void Start()
     {
         detector = gameObject.AddComponent<PlayerDetectorAll>();
-        detector.radius = 50;
+        detector.radius = 100;
         
         areas = gameObject.GetComponentsInChildren<Collider2D>();
     }
@@ -39,18 +39,11 @@ public class AmmoSpawner : MonoBehaviour
             Weapon[] playerWeapons = player.gameObject.GetComponentInChildren<WeaponSwitch>().GetWeapons();
             GameObject ammoBox = playerWeapons[Random.Range(0, playerWeapons.Length)].ammoBox;
             
-            // Get random pos
+            // Get random pos and instantiate it
             Collider2D area = areas[Random.Range(0, areas.Length)];
             Bounds bounds = area.bounds;
-            Vector2 position = new Vector2(Random.Range(bounds.min.x, bounds.max.x),Random.Range(bounds.min.y, bounds.max.y));
-            Physics2D.queriesHitTriggers = false;
-            RaycastHit2D contact = Physics2D.Raycast(position, Vector2.down, Mathf.Infinity, LayerMask.GetMask("Ground", "Platform"));
-            Physics2D.queriesHitTriggers = true;
-            
-            Debug.Log(position + " " + contact.centroid);
-
-            Instantiate(ammoBox, contact.centroid, ammoBox.transform.rotation);
-           
+            Vector2 randomPos = new Vector2(Random.Range(bounds.min.x, bounds.max.x),Random.Range(bounds.min.y, bounds.max.y));
+            GameObject createdAmmo = GroundFinder.SpawnOnGround(ammoBox, randomPos);
             
             canSpawn = false;
             yield return new WaitForSeconds(cooldown);

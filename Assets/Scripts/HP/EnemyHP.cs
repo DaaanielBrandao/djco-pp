@@ -14,6 +14,6 @@ public class EnemyHP : HealthBar
     }
     
     public void OnHit(float amount) {
-        this.changeHP(-amount);
+        this.ChangeHp(-amount);
     }
 }

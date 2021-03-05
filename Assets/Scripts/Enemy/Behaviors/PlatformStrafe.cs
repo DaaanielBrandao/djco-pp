@@ -38,15 +38,9 @@ public class PlatformStrafe : MovementBehavior
     }
 
     private void TestEdge(Vector3 pos) {
-        string[] layers = {"Ground", "Platform"};
-       
-        Physics2D.queriesHitTriggers = false;
+        RaycastHit2D hit = GroundFinder.RayCast(pos, Vector2.down, 0.05f);
 
-        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.down, 0.05f, LayerMask.GetMask(layers));
-
-        Physics2D.queriesHitTriggers = true;
-
-        if (hit.collider == null)
+        if (hit.collider)
             dir = -dir;
     }
    

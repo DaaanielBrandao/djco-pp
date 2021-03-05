@@ -26,19 +26,19 @@ public abstract class HealthBar : MonoBehaviour
     
     public abstract void Die();
 
-    public void refillHP() {
+    public void RefillHp() {
         currentHP = maxHP;
     }
 
-    public void setHPPercentage(float perc) {
+    public void SetHpPercentage(float perc) {
         currentHP = maxHP * perc;
     }
 
-    protected void changeHP(float amount) {
+    protected void ChangeHp(float amount) {
         currentHP = Mathf.Clamp(currentHP + amount, 0, maxHP);
     }
 
-    public float percentageOfMax() {
+    public float PercentageOfMax() {
         return currentHP / (float)maxHP;
     }
 }

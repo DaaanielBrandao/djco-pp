@@ -65,8 +65,7 @@ public class CharacterMovement : MonoBehaviour
         Vector2 bottomCenter = colliderBounds.center - new Vector3(0, colliderBounds.extents.y);
         Vector2 boxSize = new Vector2(colliderBounds.extents.x * 2, 0.01f);
 
-        string[] layers = {"Ground", "Platform"}; // Beep boop?
-        RaycastHit2D[] hits = Physics2D.BoxCastAll(bottomCenter, boxSize, 0, Vector2.down, 0.01f, LayerMask.GetMask(layers));
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(bottomCenter, boxSize, 0, Vector2.down, 0.01f, LayerMask.GetMask("Ground","Platform"));
 
         isOnGround = false;
         foreach (RaycastHit2D hit in hits) {
@@ -86,7 +85,7 @@ public class CharacterMovement : MonoBehaviour
         float inputHor = Input.GetAxisRaw("Horizontal");
         float inputVer = Input.GetAxisRaw("Vertical");
 
-        movement = Vector3.right * inputHor * Time.deltaTime * moveForce;
+        movement = Vector3.right * (inputHor * Time.deltaTime * moveForce);
         
         // Movement (only add force if changing direction or if below max speed)
         if (inputHor * rb.velocity.x <= 0 || Mathf.Abs(rb.velocity.x) <= maxSpeed) {
