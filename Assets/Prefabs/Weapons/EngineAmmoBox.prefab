@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4581880834405118374
+--- !u!1 &6358563828943661170
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4581880834405118392}
-  - component: {fileID: 4581880834405118393}
-  - component: {fileID: 4581880834405118395}
-  - component: {fileID: 4581880834405118394}
+  - component: {fileID: 6358563828943661164}
+  - component: {fileID: 6358563828943661165}
+  - component: {fileID: 6358563828943661167}
+  - component: {fileID: 6358563828943661166}
   m_Layer: 0
-  m_Name: ChargedAmmoBox
+  m_Name: EngineAmmoBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4581880834405118392
+--- !u!4 &6358563828943661164
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4581880834405118374}
+  m_GameObject: {fileID: 6358563828943661170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.74, y: -21.34, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 1}
@@ -33,13 +33,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4581880834405118393
+--- !u!212 &6358563828943661165
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4581880834405118374}
+  m_GameObject: {fileID: 6358563828943661170}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,25 +72,25 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: -8158954963757045618, guid: 3570caec28ac3de4ead6505e91a7e01e,
+  m_Sprite: {fileID: -2094214918611401145, guid: 3570caec28ac3de4ead6505e91a7e01e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.09}
+  m_Size: {x: 0.32, y: 0.09}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4581880834405118395
+--- !u!61 &6358563828943661167
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4581880834405118374}
+  m_GameObject: {fileID: 6358563828943661170}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.16, y: 0.09}
-    newSize: {x: 0.16, y: 0.09}
+    newSize: {x: 0.32, y: 0.09}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -110,17 +110,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.09}
   m_EdgeRadius: 0
---- !u!114 &4581880834405118394
+--- !u!114 &6358563828943661166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4581880834405118374}
+  m_GameObject: {fileID: 6358563828943661170}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de25f53aec66662469f5f2fbfeba6f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: Charged
+  weaponType: Engine
   soundEffect: {fileID: 0}

@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: -8158954963757045618
     second: ammopacks_3
+  - first:
+      213: -2094214918611401145
+    second: ammopacks_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,7 +106,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 32
         width: 16
         height: 9
       alignment: 0
@@ -124,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 16
+        y: 32
         width: 16
         height: 9
       alignment: 0
@@ -145,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 16
         width: 16
         height: 9
       alignment: 0
@@ -166,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 16
         width: 16
         height: 9
       alignment: 0
@@ -178,6 +181,27 @@ TextureImporter:
       bones: []
       spriteID: e88e9de30b195ce80800000000000000
       internalID: -8158954963757045618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammopacks_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74608dc80aadfe2e0800000000000000
+      internalID: -2094214918611401145
       vertices: []
       indices: 
       edges: []
