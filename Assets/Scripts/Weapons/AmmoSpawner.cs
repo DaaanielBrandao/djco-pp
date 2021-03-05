@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class AmmoSpawner : MonoBehaviour
 {
-    public float cooldown;
-    
+    public float cooldown;    
+
     private bool canSpawn;
-    private PlayerDetectorAll detector; 
+    private PlayerDetectorAll detector;
+    private Collider2D[] areas;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         detector = gameObject.AddComponent<PlayerDetectorAll>();
         detector.radius = 50;
         
+        areas = gameObject.GetComponentsInChildren<Collider2D>();
     }
 
     private void OnEnable() {
@@ -22,28 +24,38 @@ public class AmmoSpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (canSpawn)
             StartCoroutine(SpawnAmmo());        
     }
 
-    IEnumerator SpawnAmmo() {
+    private IEnumerator SpawnAmmo() {
         GameObject[] players = detector.nearbyPlayers;
         if (players.Length > 0) {
+
+            // Get random ammo box
             GameObject player = players[Random.Range(0, players.Length)];
-
             Weapon[] playerWeapons = player.gameObject.GetComponentInChildren<WeaponSwitch>().GetWeapons();
-
-         
             GameObject ammoBox = playerWeapons[Random.Range(0, playerWeapons.Length)].ammoBox;
-            Vector2 randomPos = new Vector2(Random.Range(-30, 30), Random.Range(0, 20)); // Hmm!
+            
+            // Get random pos
+            Collider2D area = areas[Random.Range(0, areas.Length)];
+            Bounds bounds = area.bounds;
+            Vector2 position = new Vector2(Random.Range(bounds.min.x, bounds.max.x),Random.Range(bounds.min.y, bounds.max.y));
+            Physics2D.queriesHitTriggers = false;
+            RaycastHit2D contact = Physics2D.Raycast(position, Vector2.down, Mathf.Infinity, LayerMask.GetMask("Ground", "Platform"));
+            Physics2D.queriesHitTriggers = true;
+            
+            Debug.Log(position + " " + contact.centroid);
 
-            Instantiate(ammoBox, randomPos, ammoBox.transform.rotation);
+            Instantiate(ammoBox, contact.centroid, ammoBox.transform.rotation);
+           
             
             canSpawn = false;
             yield return new WaitForSeconds(cooldown);
             canSpawn = true;
         }
     }
+
 }
