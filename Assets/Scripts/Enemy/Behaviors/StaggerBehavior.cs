@@ -26,7 +26,7 @@ public class StaggerBehavior : MonoBehaviour {
     {
         switch (staggerState)
         {
-            case StaggerState.Ready when enemyHP.percentageOfMax() < staggerHP:
+            case StaggerState.Ready when enemyHP.PercentageOfMax() < staggerHP:
                 StartCoroutine(Stagger());
                 break;
             case StaggerState.Staggered:

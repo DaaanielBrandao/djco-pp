@@ -13,11 +13,11 @@ public class PlayerHP : HealthBar
     public override void Die() {
         // Debug.Log("Player DED");
     }
-    
-    void OnTriggerEnter2D(Collider2D other) {
+
+    private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Enemy Bullet")) {  
             float damage = other.gameObject.GetComponent<EnemyBullet>().damage;
-            this.changeHP(-damage);
+            this.ChangeHp(-damage);
             Destroy(other.gameObject);
         }
     }
