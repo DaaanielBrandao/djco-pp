@@ -37323,6 +37323,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1694728380}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1088311843 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6962223495258431126, guid: 46eb078eee0f26849a832464f275982e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2649974862877960539}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1154744129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40157,9 +40163,39 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1220756207, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220756209, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime1
+      value: 46453
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220756209, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.7764473
+      objectReference: {fileID: 0}
     - target: {fileID: 1220756210, guid: 46eb078eee0f26849a832464f275982e, type: 3}
       propertyPath: range
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220756210, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220756210, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: laserPS
+      value: 
+      objectReference: {fileID: 1088311843}
+    - target: {fileID: 522886748898593803, guid: 46eb078eee0f26849a832464f275982e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649974861155238066, guid: 46eb078eee0f26849a832464f275982e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2649974861408128576, guid: 46eb078eee0f26849a832464f275982e,
         type: 3}
@@ -40220,6 +40256,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962223495258431126, guid: 46eb078eee0f26849a832464f275982e,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46eb078eee0f26849a832464f275982e, type: 3}
