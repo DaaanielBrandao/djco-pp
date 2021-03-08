@@ -3,62 +3,83 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	public enum GameState {
+	private enum GameState {
 		Menu,
 		Starting,
 		Fight,
 		Shopping
 	}
+	private int waveNumber = 0;
+	private GameState gameState;
 
-	public GameState gameState = GameState.Menu;
+	private EnemySpawnManager spawnManager;
+	private AmmoSpawner ammoManager;
+	private PowerupSpawner powerUpManager;
 
-	public GameObject enemySpawner;
-	public GameObject ammoSpawner;
 	
 	void Start()
 	{
-		
+		gameState = GameState.Menu;
+		spawnManager = GetComponentInChildren<EnemySpawnManager>(true);
+		ammoManager = GetComponentInChildren<AmmoSpawner>(true);
+		powerUpManager = GetComponentInChildren<PowerupSpawner>(true);
 	}
-
-
-
-
 
 	// Update is called once per frame
 	void Update() {
-		enemySpawner.SetActive(gameState == GameState.Fight);
-		ammoSpawner.SetActive(gameState == GameState.Fight);
+		spawnManager.gameObject.SetActive(gameState == GameState.Fight);
+		ammoManager.gameObject.SetActive(gameState == GameState.Fight);
+		powerUpManager.gameObject.SetActive(gameState == GameState.Fight);
 		
 		switch (gameState) {
 			case GameState.Menu:
-				if (Input.GetKeyDown(KeyCode.M)) {
+				if (Input.GetKeyDown(KeyCode.S)) {
+					waveNumber = 0;
 					gameState = GameState.Starting;
-					Debug.Log("Starting Wave...");
 				}
 
 				break;
 			case GameState.Starting:
-				// Tell spawners to begin
+				StartWave();
 
-				enemySpawner.GetComponent<SpawnManager>().AdvanceWave();
 				gameState = GameState.Fight;
 				break;
 			case GameState.Fight:
 				// Ask spawners enemy count (they know what they spawn)
-				if (enemySpawner.GetComponent<SpawnManager>().IsWaveDone()) {
-					gameState = GameState.Shopping;
-					Debug.Log("Ending wave!");
+				if (spawnManager.IsWaveDone()) {
+					EndWave();
 				}
 				break;
 			case GameState.Shopping:
 				if (Input.GetKeyDown(KeyCode.S)) {
 					gameState = GameState.Starting;
-					Debug.Log("Starting Wave...");
 				}
 
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
+	}
+
+	private void EndWave()
+	{
+		gameState = GameState.Shopping;
+		spawnManager.ClearSpawned();
+		ammoManager.ClearSpawned();
+		powerUpManager.ClearSpawned();
+		
+		Debug.Log("Ending wave!");
+	}
+
+	private void StartWave()
+	{
+		waveNumber++;
+		
+		spawnManager.OnWave(waveNumber);
+		ammoManager.OnWave(waveNumber);
+		powerUpManager.OnWave(waveNumber);
+		
+		Debug.Log("Starting wave!");
+
 	}
 }

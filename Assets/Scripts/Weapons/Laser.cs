@@ -4,6 +4,9 @@ public class Laser : WeaponAuto
 {
 	public float range = 50f;
 	public float damage = 20;
+
+	public float maxAngle = 360;
+	public float maxLockedAngle = 360;
 	public ParticleSystem laserPS;
 	
 	private LineRenderer lineRenderer;
@@ -38,7 +41,7 @@ public class Laser : WeaponAuto
 				RaycastHit2D groundHit =
 					Physics2D.Raycast(origin, dir, enemyDir.magnitude, LayerMask.GetMask("Ground"));
 
-				if (groundHit || angle > 60)
+				if (groundHit || angle > maxLockedAngle)
 					currentEnemy = null;
 				else
 				{
@@ -95,7 +98,7 @@ public class Laser : WeaponAuto
 			
 			RaycastHit2D ground = Physics2D.Raycast(origin, hitDir, distance, LayerMask.GetMask("Ground"));
 			
-			if (!ground && angle < 45 && distance < minDistance) {
+			if (!ground && angle < maxAngle && distance < minDistance) {
 				minDistance = distance;
 				closest = hit;
 			}

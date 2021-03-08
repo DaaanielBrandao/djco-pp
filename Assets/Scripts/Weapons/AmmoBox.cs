@@ -14,8 +14,11 @@ public class AmmoBox : MonoBehaviour
         weaponType = newWeaponType;
     }
     
-    private void OnTriggerEnter2D(Collider2D other) {        
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player")){
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (weaponType == null) {
+            Debug.LogWarning("Weapon Type is null on " + name);
+        }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Player")){
             //other.gameObject.transform.Find("Shotgun").GetComponent<Shotgun>().addAmmo();
             //float test = other.gameObject.transform.Find("Shotgun").GetComponent<Shotgun>().spreadAngle;
             //var instance = Activator.CreateInstance(weaponType,className);
