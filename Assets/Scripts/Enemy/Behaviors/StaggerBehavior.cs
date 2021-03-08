@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,8 +27,9 @@ public class StaggerBehavior : MonoBehaviour {
     {
         switch (staggerState)
         {
-            case StaggerState.Ready when enemyHP.PercentageOfMax() < staggerHP:
-                StartCoroutine(Stagger());
+            case StaggerState.Ready:
+                if (enemyHP.PercentageOfMax() < staggerHP)
+                    StartCoroutine(Stagger());
                 break;
             case StaggerState.Staggered:
             {
@@ -36,8 +38,6 @@ public class StaggerBehavior : MonoBehaviour {
                     return;
 
                 CharacterMovement movement = player.GetComponent<CharacterMovement>();
-                if (movement == null)
-                    Debug.Log(player);
                 if (staggerState == StaggerState.Staggered && movement.IsDashing()) {
                     movement.ResetDash();
                     enemyHP.Die();
@@ -46,6 +46,10 @@ public class StaggerBehavior : MonoBehaviour {
 
                 break;
             }
+            case StaggerState.Survivor:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -58,7 +62,6 @@ public class StaggerBehavior : MonoBehaviour {
         return null;
     }
 
-    // staggering podia ser um script tb se quisessemos por enemies sem stigger
     IEnumerator Stagger() {
 
         staggerState = StaggerState.Staggered;

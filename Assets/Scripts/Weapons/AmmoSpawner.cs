@@ -40,7 +40,7 @@ public class AmmoSpawner : MonoBehaviour
             
             Weapon randomWeapon = playerWeapons[Random.Range(0, playerWeapons.Length)];
             
-            Debug.Log(randomWeapon.GetType());
+            // Debug.Log(randomWeapon.GetType());
             // Get random pos and instantiate it
             Collider2D area = areas[Random.Range(0, areas.Length)];
             Bounds bounds = area.bounds;
