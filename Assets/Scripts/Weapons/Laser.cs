@@ -61,6 +61,7 @@ public class Laser : WeaponAuto
 		}
 		
 		lineRenderer.enabled = IsShooting();
+		GetComponent<Animator>().SetBool("pewing",IsShooting());
 	}
 
 	private void RenderLineTo(Vector2 to) {
