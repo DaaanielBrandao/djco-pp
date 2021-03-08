@@ -37,13 +37,16 @@ public class AmmoSpawner : MonoBehaviour
             // Get random ammo box
             GameObject player = players[Random.Range(0, players.Length)];
             Weapon[] playerWeapons = player.gameObject.GetComponentInChildren<WeaponSwitch>().GetWeapons();
-            GameObject ammoBox = playerWeapons[Random.Range(0, playerWeapons.Length)].ammoBox;
             
+            Weapon randomWeapon = playerWeapons[Random.Range(0, playerWeapons.Length)];
+            
+            Debug.Log(randomWeapon.GetType());
             // Get random pos and instantiate it
             Collider2D area = areas[Random.Range(0, areas.Length)];
             Bounds bounds = area.bounds;
             Vector2 randomPos = new Vector2(Random.Range(bounds.min.x, bounds.max.x),Random.Range(bounds.min.y, bounds.max.y));
-            GameObject createdAmmo = GroundFinder.SpawnOnGround(ammoBox, randomPos);
+            GameObject createdAmmo = GroundFinder.SpawnOnGround(randomWeapon.ammoBox, randomPos);
+            createdAmmo.GetComponent<AmmoBox>().SetWeaponType(randomWeapon.GetType());
             
             canSpawn = false;
             yield return new WaitForSeconds(cooldown);

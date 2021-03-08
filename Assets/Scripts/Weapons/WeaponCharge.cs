@@ -19,8 +19,7 @@ public abstract class WeaponCharge : Weapon
         
         if(Input.GetKey(KeyCode.L))
         {
-            if (!isCharging)
-            {
+            if (!isCharging) {
                 SoundManager.Instance.Play(chargingSound);
             }
             
@@ -28,13 +27,11 @@ public abstract class WeaponCharge : Weapon
             totalCharge = Mathf.Min(1, totalCharge + Time.deltaTime * chargeRate);
             GetComponent<Animator>().SetTrigger("charge");
             
-        } else if (isCharging)
-        {
-            GetComponent<Animator>().ResetTrigger("charge");
+        } else if (isCharging) {
             OnDetectShoot();
-            Debug.Log("poggers");
             isCharging = false;
             totalCharge = 0;
+            GetComponent<Animator>().ResetTrigger("charge");
         }
             
     }

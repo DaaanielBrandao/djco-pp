@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class WeaponSemiAuto : Weapon
 {
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {  
         if(Input.GetKeyDown(KeyCode.L)) {     
             OnDetectShoot();

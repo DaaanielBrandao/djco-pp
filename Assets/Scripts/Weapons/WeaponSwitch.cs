@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -31,7 +32,7 @@ public class WeaponSwitch : MonoBehaviour
 
 
         int newPressedNumber = GetPressedNumber();
-        if (pressedNumber != newPressedNumber && newPressedNumber > 0 && newPressedNumber <= weapons.Length) {
+        if (pressedNumber != newPressedNumber && newPressedNumber > 0 && newPressedNumber <= weapons.Length && weapons[newPressedNumber - 1]) {
             SelectWeapon(newPressedNumber);
             StartCoroutine(StartCooldown());
         }
@@ -65,10 +66,11 @@ public class WeaponSwitch : MonoBehaviour
         return weapons.Take(numWeapons).Select(obj => obj.GetComponent<Weapon>()).ToArray();
     }
 
-    public Weapon GetWeapon(string name) {
+    public Weapon GetWeapon(Type type) {
         foreach (GameObject obj in weapons) {
-            if (obj.name == name)
-                return obj.GetComponent<Weapon>();
+            Weapon weapon = obj.GetComponent(type) as Weapon;
+            if (weapon != null)
+                return weapon;
         }
         return null;        
     }

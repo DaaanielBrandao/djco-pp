@@ -5,10 +5,14 @@ using UnityEngine;
 public abstract class WeaponAuto : Weapon
 {
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {  
-        if(Input.GetKey(KeyCode.L)) {     
+        if(IsShooting()) {     
             OnDetectShoot();
         }
+    }
+
+    public bool IsShooting() {
+        return Input.GetKey(KeyCode.L);
     }
 }

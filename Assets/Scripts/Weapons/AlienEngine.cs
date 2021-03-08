@@ -22,7 +22,7 @@ public class AlienEngine : WeaponAuto
 
     private void hitboxar()
     {
-        LayerMask mask = LayerMask.GetMask(new string[]{"Enemy"});
+        LayerMask mask = LayerMask.GetMask("Enemy");
         RaycastHit2D[] hits = Physics2D.CircleCastAll(new Vector2(hole.transform.position.x, hole.transform.position.y), radius, new Vector2(shooter.GetComponent<CharacterMovement>().facingDir.x,0), distance, mask);
         foreach (RaycastHit2D hit in hits) {
             hit.collider.gameObject.GetComponent<EnemyHP>().OnHit(damage);

@@ -44,4 +44,5 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning("Tried to play null sound.");
         else playerAudio.PlayOneShot(sound);
     }
+
 }

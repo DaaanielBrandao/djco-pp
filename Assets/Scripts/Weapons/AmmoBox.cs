@@ -1,22 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AmmoBox : MonoBehaviour
 {
-    public string weaponType;
     public AudioClip soundEffect;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     
+    private Type weaponType;
+
+    public void SetWeaponType(Type newWeaponType)
+    {
+        weaponType = newWeaponType;
     }
     
     private void OnTriggerEnter2D(Collider2D other) {        
