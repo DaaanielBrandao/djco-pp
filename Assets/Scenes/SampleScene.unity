@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -599,6 +599,7 @@ MonoBehaviour:
   spawnRangeY: 36.57
   cooldownRemaining: 0
   cooldown: 10
+  maxAlive: 5
 --- !u!4 &144026952
 Transform:
   m_ObjectHideFlags: 0
@@ -37519,7 +37520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1302334170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37538,6 +37539,7 @@ MonoBehaviour:
   spawnRangeY: 36.57
   cooldownRemaining: 0
   cooldown: 10
+  maxAlive: 5
 --- !u!4 &1302334171
 Transform:
   m_ObjectHideFlags: 0
