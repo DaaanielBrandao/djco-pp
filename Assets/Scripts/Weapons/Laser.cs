@@ -4,10 +4,12 @@ public class Laser : WeaponAuto
 {
 	public float range = 50f;
 	public float damage = 20;
+	public ParticleSystem laserPS;
 	
 	private LineRenderer lineRenderer;
 	
 	private Collider2D currentEnemy;
+	
 
 	protected void Start()
 	{
@@ -28,15 +30,21 @@ public class Laser : WeaponAuto
 
 		Debug.Log(currentEnemy);
 		if (IsShooting()) {
+			laserPS.Play();
 			if (currentEnemy)
 			{
-				Vector2 enemyDir = (Vector2)currentEnemy.bounds.center - origin;
+				Vector2 enemyDir = (Vector2) currentEnemy.bounds.center - origin;
 				float angle = Vector2.Angle(dir, enemyDir);
-				RaycastHit2D groundHit = Physics2D.Raycast(origin, dir, enemyDir.magnitude, LayerMask.GetMask("Ground"));
+				RaycastHit2D groundHit =
+					Physics2D.Raycast(origin, dir, enemyDir.magnitude, LayerMask.GetMask("Ground"));
 
 				if (groundHit || angle > 60)
 					currentEnemy = null;
-				else RenderLineTo(currentEnemy.bounds.center);
+				else
+				{
+					RenderLineTo(currentEnemy.bounds.center);
+					laserPS.transform.rotation = Quaternion.LookRotation(enemyDir);
+				}
 			}
 			else {
 				RaycastHit2D groundHit = Physics2D.Raycast(origin, dir, range, LayerMask.GetMask("Ground"));
@@ -44,7 +52,12 @@ public class Laser : WeaponAuto
 				if (groundHit)
 					RenderLineTo(groundHit.point);
 				else RenderLineTo(origin + dir * range);
+				laserPS.transform.rotation = Quaternion.Euler(dir.x >= 0 ? 0 : 180 ,90, 0);
 			}
+		}
+		else
+		{
+			laserPS.Stop();
 		}
 		
 		lineRenderer.enabled = IsShooting();
