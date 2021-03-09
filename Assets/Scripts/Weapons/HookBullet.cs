@@ -38,7 +38,10 @@ public class HookBullet : Bullet
 
 	protected override void OnEnemyEnter(Collider2D other)
 	{
-		pulledEnemy = other.gameObject;
-		other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
+		if (!pulledEnemy)
+		{
+			pulledEnemy = other.gameObject;
+			other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
+		}
 	}
 }
