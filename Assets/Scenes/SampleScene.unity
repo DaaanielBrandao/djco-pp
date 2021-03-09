@@ -52751,6 +52751,10 @@ PrefabInstance:
       propertyPath: cooldown
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 210015771, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bd485efb4dc3f8d47b2bd1ba7b486026, type: 3}
     - target: {fileID: 210015772, guid: 46eb078eee0f26849a832464f275982e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -52789,6 +52793,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6424140338521484876, guid: dbd643e208753174aa9a103281e0ea12,
         type: 3}
+    - target: {fileID: 2120707258, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9b68bcbe62e11b747af3f42bda325071, type: 3}
     - target: {fileID: 2120707259, guid: 46eb078eee0f26849a832464f275982e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -52920,6 +52928,11 @@ PrefabInstance:
       propertyPath: cooldown
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 4598479135848819332, guid: 46eb078eee0f26849a832464f275982e,
+        type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5554ddf875c902f4cabbbc41b42084bb, type: 3}
     m_RemovedComponents:
     - {fileID: 2120707257, guid: 46eb078eee0f26849a832464f275982e, type: 3}
     - {fileID: 210015770, guid: 46eb078eee0f26849a832464f275982e, type: 3}

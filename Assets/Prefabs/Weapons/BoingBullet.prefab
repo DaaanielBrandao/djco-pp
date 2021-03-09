@@ -136,4 +136,4 @@ MonoBehaviour:
   speed: 58
   maxTime: 5
   damage: 30
-  boingSound: {fileID: 8300000, guid: 703cee182feca2946bbc1ee23326a31c, type: 3}
+  boingSound: {fileID: 8300000, guid: 34dc07c2ff2794944a7f68a72d7387bd, type: 3}
