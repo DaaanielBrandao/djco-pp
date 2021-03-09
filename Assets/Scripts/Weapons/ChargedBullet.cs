@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class ChargedBullet : Bullet
 {
+    protected float charge;
+    
     public float minSpeed;
     public float minDamage;
     
-    protected override void onStartOther()
+    protected void Start()
     {
+        base.Start();
+            
         //speed
         speed = minSpeed + charge * (speed - minSpeed);
         
         //size
-        Vector3 localScale = transform.localScale;
-        localScale = new Vector3(localScale.x * (1 + charge) , localScale.y * (1 + charge) , localScale.z);
-        transform.localScale = localScale;
+        transform.localScale += new Vector3(charge, charge, 0);
         
         //damage
         damage = minDamage + charge * (damage - minDamage);
@@ -24,7 +26,7 @@ public class ChargedBullet : Bullet
         charSpeed = new Vector2(charSpeed.x, 0);
     }
 
-    protected override void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (charge < 1)
             base.OnTriggerEnter2D(other);
@@ -36,5 +38,12 @@ public class ChargedBullet : Bullet
             else if (layer == LayerMask.NameToLayer("Enemy"))
                 other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
         }
+    }
+    
+    public static GameObject SpawnChargedBullet(GameObject bullet, GameObject shooter, Vector3 position, Quaternion rotation, float charge)
+    {
+        GameObject obj = SpawnBullet(bullet, shooter, position, rotation);
+        obj.GetComponent<ChargedBullet>().charge = charge;
+        return obj;
     }
 }

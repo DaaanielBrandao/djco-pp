@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,31 +11,31 @@ public class Bullet : MonoBehaviour
 
     private GameObject shooter;
 
-    private float dir;
     protected Vector2 charSpeed;
-    protected float charge;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {        
-        dir = shooter.GetComponent<CharacterMovement>().facingDir.x;
-        var localScale = transform.localScale;
-        localScale = new Vector2(dir * Mathf.Abs(localScale.x), localScale.y);
-        transform.localScale = localScale;
 
-        charSpeed = new Vector2(
-            shooter.GetComponent<Rigidbody2D>().velocity.x,
-            shooter.GetComponent<Rigidbody2D>().velocity.y
-        );
-        onStartOther();
+        Vector2 velocity = shooter.GetComponent<Rigidbody2D>().velocity;
+
+        if (shooter.GetComponent<CharacterMovement>().facingDir.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 180 - transform.rotation.eulerAngles.z);
+            charSpeed = new Vector2(-velocity.x, -velocity.y);
+        }
+        else charSpeed = new Vector2(velocity.x, velocity.y);
+
+
+        
         StartCoroutine(DestroyAfterLifetime());
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
 
-        transform.Translate((Vector2.right * dir * speed + charSpeed) * Time.deltaTime);
+        transform.Translate((Vector2.right * speed + charSpeed) * Time.deltaTime);
     }
 
     IEnumerator DestroyAfterLifetime() {
@@ -42,7 +43,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D other) {
+    protected void OnTriggerEnter2D(Collider2D other) {
         int layer = other.gameObject.layer;
         if (layer == LayerMask.NameToLayer("Enemy") || layer == LayerMask.NameToLayer("Ground"))
         {
@@ -52,14 +53,9 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    protected virtual void onStartOther()
-    {
-        
-    }
-
-    public static void SpawnBullet(GameObject bullet, GameObject shooter, Vector3 position, Quaternion rotation, float charge = 1) {
+    public static GameObject SpawnBullet(GameObject bullet, GameObject shooter, Vector3 position, Quaternion rotation) {
         GameObject obj = Instantiate(bullet, position, rotation);
         obj.GetComponent<Bullet>().shooter = shooter;
-        obj.GetComponent<Bullet>().charge = charge;
+        return obj;
     }
 }

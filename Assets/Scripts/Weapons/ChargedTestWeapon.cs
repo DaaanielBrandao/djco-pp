@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChargedTest : WeaponCharge
+public class ChargedTestWeapon : WeaponCharge
 {
     public float spreadAngle = 3;
 
@@ -11,9 +11,7 @@ public class ChargedTest : WeaponCharge
     protected override void Shoot() {
         float angle = Random.Range(-spreadAngle/2, spreadAngle/2);
 
-        Bullet.SpawnBullet(bullets, shooter, hole.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)),totalCharge);
-
-        
+        ChargedBullet.SpawnChargedBullet(bullets, shooter, hole.transform.position, Quaternion.Euler(0, 0, angle), totalCharge);
     }
 
     protected override void Update()

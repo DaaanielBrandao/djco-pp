@@ -40157,10 +40157,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1220756210, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: range
-      value: 40
+    - target: {fileID: 2120707255, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2120707258, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: cooldown
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120707258, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: maxAngle
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120707258, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: minAngle
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120707258, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 703cee182feca2946bbc1ee23326a31c, type: 3}
     - target: {fileID: 2649974861408128576, guid: 46eb078eee0f26849a832464f275982e,
         type: 3}
       propertyPath: m_RootOrder

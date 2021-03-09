@@ -31,7 +31,6 @@ public class Laser : WeaponAuto
 		Vector2 origin = hole.transform.position;
 		Vector2 dir = new Vector2(shooter.GetComponent<CharacterMovement>().facingDir.x, 0);
 
-		Debug.Log(currentEnemy);
 		if (IsShooting()) {
 			laserPS.Play();
 			if (currentEnemy)

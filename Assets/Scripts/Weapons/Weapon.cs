@@ -35,7 +35,6 @@ public abstract class Weapon : MonoBehaviour {
         }
         if (!canShoot)
             return;
-        Debug.Log("poggers2");
         StartCoroutine(StartCooldown());
         Shoot();
         currentAmmo--;

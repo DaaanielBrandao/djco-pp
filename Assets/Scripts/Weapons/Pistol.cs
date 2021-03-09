@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class Pistol : WeaponSemiAuto
 {   
-    public float spreadAngle = 5;
+    public float minAngle = -2.5f;
+    public float maxAngle = 2.5f;
 
     public GameObject bullets;
 
-    protected override void Shoot() {
-        float angle = Random.Range(-spreadAngle/2, spreadAngle/2);
+    protected override void Shoot()
+    {
+        float angle = Random.Range(minAngle, maxAngle);
 
         Bullet.SpawnBullet(bullets, shooter, hole.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
     }
