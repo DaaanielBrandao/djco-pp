@@ -26,20 +26,13 @@ public class ChargedBullet : Bullet
         charSpeed = new Vector2(charSpeed.x, 0);
     }
 
-    protected void OnTriggerEnter2D(Collider2D other)
-    {
-        if (charge < 1)
-            base.OnTriggerEnter2D(other);
-        else
-        {
-            int layer = other.gameObject.layer;
-            if (layer == LayerMask.NameToLayer("Ground"))
-                Destroy(gameObject);
-            else if (layer == LayerMask.NameToLayer("Enemy"))
-                other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
-        }
-    }
     
+    protected override void OnEnemyEnter(Collider2D other) {
+        if (charge < 1)
+            base.OnEnemyEnter(other);
+        else other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
+    }
+
     public static GameObject SpawnChargedBullet(GameObject bullet, GameObject shooter, Vector3 position, Quaternion rotation, float charge)
     {
         GameObject obj = SpawnBullet(bullet, shooter, position, rotation);

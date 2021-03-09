@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public float maxTime; // s
     public float damage; // HP
 
-    private GameObject shooter;
+    protected GameObject shooter;
 
     protected Vector2 charSpeed;
 
@@ -45,12 +45,20 @@ public class Bullet : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D other) {
         int layer = other.gameObject.layer;
-        if (layer == LayerMask.NameToLayer("Enemy") || layer == LayerMask.NameToLayer("Ground"))
-        {
+        if (layer == LayerMask.NameToLayer("Enemy") || layer == LayerMask.NameToLayer("Ground")) {
             if (layer == LayerMask.NameToLayer("Enemy"))
-                other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
-            Destroy(gameObject);
+                OnEnemyEnter(other);
+            else OnGroundEnter(other);
         }
+    }
+
+    protected virtual void OnGroundEnter(Collider2D other) {
+        Destroy(gameObject);
+    }
+    
+    protected virtual void OnEnemyEnter(Collider2D other) {
+        other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
+        Destroy(gameObject);
     }
 
     public static GameObject SpawnBullet(GameObject bullet, GameObject shooter, Vector3 position, Quaternion rotation) {
