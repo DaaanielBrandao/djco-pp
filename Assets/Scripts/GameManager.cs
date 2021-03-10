@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 		
 		switch (gameState) {
 			case GameState.Menu:
-				if (Input.GetKeyDown(KeyCode.S)) {
+				if (Input.GetKeyDown(KeyCode.Z)) {
 					waveNumber = 0;
 					gameState = GameState.Starting;
 				}
