@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6250549600042985422}
   - component: {fileID: 3754618712623711149}
   - component: {fileID: 5359516878726140242}
+  - component: {fileID: 9173212011877297678}
   m_Layer: 13
   m_Name: Strafer
   m_TagString: Untagged
@@ -234,3 +235,15 @@ MonoBehaviour:
   staggerTime: 5
   dashKillEffect: {fileID: 8850104209487686098, guid: e9ad70968ab11d24598c75b25c5dd41b,
     type: 3}
+--- !u!114 &9173212011877297678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4621168938474701276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d907dbe69149247933fdd6099ce0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
