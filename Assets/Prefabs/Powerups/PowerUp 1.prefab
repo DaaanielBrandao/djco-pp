@@ -122,5 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpName: DashKill
-  hatSprite: {fileID: 21300000, guid: 562123c79ca547d4ea64e11d89bc0738, type: 3}
-  duration: 5
+  hatSprite: {fileID: 1264071554992867118, guid: 21382185dcf282441a794e8a728ce99b,
+    type: 3}
+  duration: 10

@@ -25,10 +25,12 @@ public class PowerupList : MonoBehaviour
     private Dictionary<string, PowerupItem> powerUps = new Dictionary<string, PowerupItem>();
 
     private SpriteRenderer powerUpHat;
+    private ParticleSystem powerUpHatPS;
     
     void Start()
     {
         powerUpHat = transform.Find("PowerupHat").GetComponent<SpriteRenderer>();
+        powerUpHatPS = powerUpHat.transform.Find("PowerupHatPS").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -43,6 +45,14 @@ public class PowerupList : MonoBehaviour
             pair => pair.Value);
 
         powerUpHat.sprite = powerUps.Count > 0 ? powerUps.First().Value.hatSprite : null;
+        if (powerUps.Count > 0)
+        {
+            Debug.Log("olas");
+            if(!powerUpHatPS.isPlaying)
+                powerUpHatPS.Play();
+        }
+        else if(powerUpHatPS.isPlaying)
+            powerUpHatPS.Stop();
     }
     
     public bool HasPowerup(string powerup)
