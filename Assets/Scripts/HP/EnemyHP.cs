@@ -7,6 +7,7 @@ public class EnemyHP : HealthBar
     public ParticleSystem explosionEffect;
     public AudioClip explosionSound;
 
+   
     public override void Die() {
         SoundManager.Instance.Play(explosionSound);
         Instantiate(explosionEffect, transform.position, transform.rotation);

@@ -38,9 +38,10 @@ public class PlatformStrafe : MovementBehavior
     }
 
     private void TestEdge(Vector3 pos) {
-        RaycastHit2D hit = GroundFinder.RayCast(pos, Vector2.down, 0.05f);
+        RaycastHit2D hitDown = GroundFinder.RayCast(pos, Vector2.down, 0.05f);
+        RaycastHit2D hitWall = GroundFinder.RayCast(pos, dir, 0.05f);
 
-        if (!hit.collider)
+        if (hitWall.collider || !hitDown.collider)
             dir = -dir;
     }
    

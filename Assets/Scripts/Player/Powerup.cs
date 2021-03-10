@@ -6,6 +6,14 @@ public class Powerup : MonoBehaviour
 	
 	
 	public Sprite hatSprite;
+	
+	public Color particleColor;
 
 	public float duration;
+
+	public void Explode()
+	{
+		Destroy(gameObject);
+		// PS?
+	}
 }

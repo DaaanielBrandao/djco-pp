@@ -16,8 +16,8 @@ public class PowerupSpawner : Spawner
     
     public override void OnWave(int waveNumber)
     {
-        cooldown = 10;
-        maxAlive = 1;
+        cooldown = 1;
+        maxAlive = 5;
         
         Debug.Log("Starting Powerup wave: " + maxAlive);
         

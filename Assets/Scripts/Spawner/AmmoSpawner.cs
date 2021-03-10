@@ -14,8 +14,8 @@ public class AmmoSpawner : Spawner
     
     public override void OnWave(int waveNumber)
     {
-        cooldown = 10;
-        maxAlive = 5;
+        cooldown = 10000;
+        maxAlive = 1;
 
         players = FindObjectsOfType<WeaponSwitch>();
         
@@ -30,7 +30,7 @@ public class AmmoSpawner : Spawner
             
         // Get random pos and instantiate it
         GameObject createdAmmo = GroundFinder.SpawnOnGround(randomWeapon.ammoBox, areas.GetValidSpawnPosition());
-        createdAmmo.GetComponent<AmmoBox>().SetWeaponType(randomWeapon.GetType());
+        createdAmmo.GetComponent<AmmoBox>().SetWeaponName(randomWeapon.name);
             
         return new List<GameObject> { createdAmmo };
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/*
 public class PlayerDetectorAll : MonoBehaviour
 {
     public float cooldown = 1;
@@ -25,3 +26,4 @@ public class PlayerDetectorAll : MonoBehaviour
         }
     }
 }
+*/

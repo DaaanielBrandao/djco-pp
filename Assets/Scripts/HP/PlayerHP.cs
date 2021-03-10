@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class PlayerHP : HealthBar
 {    
-        // Update is called once per frame
-  //  void Update()
-  //  {
-  //      Debug.Log(currentHP);
-  //  }
+    public ParticleSystem explosionEffect;
+    public AudioClip explosionSound;
+    
 
     public override void Die() {
-        // Debug.Log("Player Dead");
+        SoundManager.Instance.Play(explosionSound);
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Enemy Bullet")) {  
             float damage = other.gameObject.GetComponent<EnemyBullet>().damage;
-            this.ChangeHp(-damage);
+            OnHit(damage);
             Destroy(other.gameObject);
         }
+    }
+    
+    public void OnHit(float amount) {
+        if (GetComponent<PowerupList>().HasPowerup("Invincibility"))
+            return;
+        
+        ChangeHp(-amount);
     }
 }

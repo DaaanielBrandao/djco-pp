@@ -13,12 +13,14 @@ public class StaggerBehavior : MonoBehaviour {
 
     private Animator animator;
     private EnemyHP enemyHP;
+    private Collider2D enemyCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyHP = GetComponent<EnemyHP>();
         animator = GetComponent<Animator>();
+        enemyCollider = GetComponent<Collider2D>();
         staggerState = StaggerState.Ready;
     }
 
@@ -33,7 +35,7 @@ public class StaggerBehavior : MonoBehaviour {
                 break;
             case StaggerState.Staggered:
             {
-                GameObject player = GetPlayerCollision();
+                GameObject player = PlayerDetector.GetPlayerCollision(enemyCollider);
                 if (player == null)
                     return;
 
@@ -51,15 +53,6 @@ public class StaggerBehavior : MonoBehaviour {
             default:
                 throw new ArgumentOutOfRangeException();
         }
-    }
-
-    private GameObject GetPlayerCollision() {
-        Collider2D[] collisions = new Collider2D[1];
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.SetLayerMask(LayerMask.GetMask(new string[]{"Player"}));
-        if (GetComponent<Collider2D>().OverlapCollider(filter, collisions) > 0)
-            return collisions[0].gameObject;     
-        return null;
     }
 
     IEnumerator Stagger() {

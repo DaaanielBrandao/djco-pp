@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 28424111746201616}
   - component: {fileID: 4830273390367877356}
   m_Layer: 0
-  m_Name: PowerUp 1
+  m_Name: DashKill
   m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,4 +124,5 @@ MonoBehaviour:
   powerUpName: DashKill
   hatSprite: {fileID: 1264071554992867118, guid: 21382185dcf282441a794e8a728ce99b,
     type: 3}
+  particleColor: {r: 1, g: 0.8183053, b: 0, a: 1}
   duration: 10

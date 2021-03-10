@@ -8,18 +8,14 @@ public class PowerupList : MonoBehaviour
 {
     public class PowerupItem
     {
-        public readonly string name;
         public float timeLeft;
-        public Sprite hatSprite;
+        public Powerup original;
 
-        public PowerupItem(string name, float duration, Sprite hatSprite)
+        public PowerupItem(Powerup powerup)
         {
-            this.name = name;
-            this.timeLeft = duration;
-            this.hatSprite = hatSprite;
+            original = powerup;
+            timeLeft = powerup.duration;
         }
-        
-        public PowerupItem(Powerup powerup) : this(powerup.powerUpName, powerup.duration,powerup.hatSprite) { }
     }
     
     private Dictionary<string, PowerupItem> powerUps = new Dictionary<string, PowerupItem>();
@@ -30,34 +26,60 @@ public class PowerupList : MonoBehaviour
     void Start()
     {
         powerUpHat = transform.Find("PowerupHat").GetComponent<SpriteRenderer>();
-        powerUpHatPS = powerUpHat.transform.Find("PowerupHatPS").GetComponent<ParticleSystem>();
+        powerUpHatPS = transform.Find("PowerupHat").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        Debug.Log("Got " + powerUps.Count + "  powerups");
+        UpdatePowerupList();
+        UpdateSprite();
+
+    }
+
+    private void UpdatePowerupList()
+    {
+       // Debug.Log("Got " + powerUps.Count + "  powerups");
         foreach (PowerupItem powerup in powerUps.Values) {
             powerup.timeLeft -= Time.deltaTime;
         }
-        powerUps = powerUps.Where(powerup => powerup.Value.timeLeft > 0).ToDictionary(pair => pair.Key,
-            pair => pair.Value);
+        powerUps = powerUps.Where(powerup => powerup.Value.timeLeft > 0)
+            .ToDictionary(pair => pair.Key,pair => pair.Value);
+    }
 
-        powerUpHat.sprite = powerUps.Count > 0 ? powerUps.First().Value.hatSprite : null;
+    private void UpdateSprite()
+    {
         if (powerUps.Count > 0)
         {
-            Debug.Log("olas");
-            if(!powerUpHatPS.isPlaying)
+            Powerup powerup = powerUps.First().Value.original;
+            powerUpHat.sprite = powerup.hatSprite;
+            
+            var psMain = powerUpHatPS.main;
+            psMain.startColor = powerup.particleColor;
+            
+
+            if (!powerUpHatPS.isPlaying) {
                 powerUpHatPS.Play();
+            }
         }
-        else if(powerUpHatPS.isPlaying)
-            powerUpHatPS.Stop();
+        else {
+            powerUpHat.sprite = null;
+
+            if (powerUpHatPS.isPlaying)
+                powerUpHatPS.Stop();
+        }
+
     }
     
     public bool HasPowerup(string powerup)
     {
         return powerUps.ContainsKey(powerup);
+    }
+
+    public PowerupItem GetPowerup(string powerup)
+    {
+        return powerUps[powerup];
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -67,10 +89,12 @@ public class PowerupList : MonoBehaviour
             Powerup powerup = other.GetComponent<Powerup>();
             if (HasPowerup(powerup.powerUpName))
             {
-                PowerupItem item = powerUps[powerup.powerUpName];
+                PowerupItem item = GetPowerup(powerup.powerUpName);
                 item.timeLeft = Math.Max(item.timeLeft, powerup.duration);
             }
             else powerUps.Add(powerup.powerUpName, new PowerupItem(powerup));
+
+            powerup.Explode();
         }
     }
 }

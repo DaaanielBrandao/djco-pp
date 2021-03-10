@@ -66,10 +66,9 @@ public class WeaponSwitch : MonoBehaviour
         return weapons.Take(numWeapons).Select(obj => obj.GetComponent<Weapon>()).ToArray();
     }
 
-    public Weapon GetWeapon(Type type) {
-        foreach (GameObject obj in weapons) {
-            Weapon weapon = obj.GetComponent(type) as Weapon;
-            if (weapon != null)
+    public Weapon GetWeapon(string weaponName) {
+        foreach (Weapon weapon in GetWeapons()) {
+            if (weapon.name == weaponName)
                 return weapon;
         }
         return null;        

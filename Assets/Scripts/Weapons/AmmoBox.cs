@@ -7,23 +7,23 @@ public class AmmoBox : MonoBehaviour
 {
     public AudioClip soundEffect;
     
-    private Type weaponType;
+    private string weaponName;
 
-    public void SetWeaponType(Type newWeaponType)
+    public void SetWeaponName(string newWeaponName)
     {
-        weaponType = newWeaponType;
+        weaponName = newWeaponName;
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
-        if (weaponType == null) {
-            Debug.LogWarning("Weapon Type is null on " + name);
+        if (weaponName == null) {
+            Debug.LogWarning("Weapon Name is null on " + name);
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Player")){
             //other.gameObject.transform.Find("Shotgun").GetComponent<Shotgun>().addAmmo();
             //float test = other.gameObject.transform.Find("Shotgun").GetComponent<Shotgun>().spreadAngle;
             //var instance = Activator.CreateInstance(weaponType,className);
             WeaponSwitch weaponSwitch = other.gameObject.GetComponentInChildren<WeaponSwitch>();
-            if(weaponSwitch.GetWeapon(weaponType).refillAmmo()) {
+            if(weaponSwitch.GetWeapon(weaponName).RefillAmmo()) {
                 Destroy(gameObject);
                 SoundManager.Instance.Play(soundEffect);
             }

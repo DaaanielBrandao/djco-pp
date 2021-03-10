@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour {
-
+public abstract class Weapon : MonoBehaviour
+{
     public float cooldown;
     public AudioClip shootSound;
     public AudioClip noAmmoSound;
@@ -49,7 +49,7 @@ public abstract class Weapon : MonoBehaviour {
         canShoot = true;        
     }
 
-    public bool refillAmmo() {
+    public bool RefillAmmo() {
         if(maxAmmo <= currentAmmo)
             return false;
         currentAmmo = maxAmmo;

@@ -22,7 +22,8 @@ public class CharacterMovement : MonoBehaviour
     public float dashCooldown = 0.2f;    
     public DashState dashState = DashState.Ready; 
     public Vector2 dashDir;
-    
+
+    public Color defaultDashColor;
     
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -36,8 +37,10 @@ public class CharacterMovement : MonoBehaviour
     public GameObject trail;
     public ParticleSystem dust;
     public ParticleSystem waveDust;
-    public ParticleSystem dashDust;    
+    public ParticleSystem dashDust; 
+    
     private TrailRenderer trailRenderer;
+    private PowerupList powerups;
     
     // Start is called before the first frame update
     void Start()
@@ -47,6 +50,8 @@ public class CharacterMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         trailRenderer = trail.GetComponent<TrailRenderer>();
         charCollider = GetComponent<Collider2D>();
+        powerups = GetComponent<PowerupList>();
+        
         rb.gravityScale = gravityMod;
     }
 
@@ -58,6 +63,7 @@ public class CharacterMovement : MonoBehaviour
         HandleMove();
         HandleJump();
         HandleDash();
+        UpdateDashColour();
     }
 
     void UpdateGroundTouch() {
@@ -236,10 +242,25 @@ public class CharacterMovement : MonoBehaviour
     public bool IsDashing() {
         return dashState == DashState.Dashing || dashState == DashState.WaveDash;
     }
-
+    
     public void Boioioing() {
         isOnGround = false;
-        isJumping = true;
-        dashState = CharacterMovement.DashState.Ready;
+        isJumping = false;
+        dashState = DashState.Ready;
     }
+    
+    private void UpdateDashColour()
+    {
+        Color dashColor = powerups.HasPowerup("DashKill") ? powerups.GetPowerup("DashKill").original.particleColor : defaultDashColor;
+
+        var dashPSMain = dashDust.main;
+        var wavePSMain = waveDust.main;
+        dashPSMain.startColor = dashColor;
+        wavePSMain.startColor = dashColor;
+
+        dashColor.a = 0.3f;
+        trailRenderer.startColor = dashColor;
+        trailRenderer.endColor = dashColor;
+    }
+
 }

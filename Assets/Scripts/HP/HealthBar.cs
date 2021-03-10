@@ -8,6 +8,8 @@ public abstract class HealthBar : MonoBehaviour
     public float maxHP = 100;
     public float currentHP;
 
+    public bool isDead = false;
+
     
     // Start is called before the first frame update
     void Start()
@@ -19,8 +21,9 @@ public abstract class HealthBar : MonoBehaviour
     void Update()
     {
         
-        if (currentHP <= 0) {
+        if (currentHP <= 0 && !isDead) {
             Die();
+            isDead = true;
         }
     }
     
