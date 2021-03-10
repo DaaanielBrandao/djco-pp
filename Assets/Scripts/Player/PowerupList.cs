@@ -54,6 +54,7 @@ public class PowerupList : MonoBehaviour
         {
             Powerup powerup = powerUps.First().Value.original;
             powerUpHat.sprite = powerup.hatSprite;
+            powerUpHat.material = powerup.hatMaterial;
             
             var psMain = powerUpHatPS.main;
             psMain.startColor = powerup.particleColor;

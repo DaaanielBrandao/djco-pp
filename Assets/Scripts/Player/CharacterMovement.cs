@@ -18,7 +18,8 @@ public class CharacterMovement : MonoBehaviour
     public enum DashState {Ready, Dashing, Cooldown, CooldownToReady, Waiting, WaveDash};
     public bool extraDash = false;
     public float dashTime = 0.2f;
-    public float dashSpeed = 40f;    
+    private float dashSpeed;
+    public float defaultDashSpeed = 74;    
     public float dashCooldown = 0.2f;    
     public DashState dashState = DashState.Ready; 
     public Vector2 dashDir;
@@ -58,12 +59,11 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        UpdateDash();
         UpdateGroundTouch();
         HandleMove();
         HandleJump();
         HandleDash();
-        UpdateDashColour();
     }
 
     void UpdateGroundTouch() {
@@ -249,8 +249,10 @@ public class CharacterMovement : MonoBehaviour
         dashState = DashState.Ready;
     }
     
-    private void UpdateDashColour()
+    private void UpdateDash()
     {
+        dashSpeed = powerups.HasPowerup("DashKill") ? powerups.GetPowerup("DashKill").original.dashSpeed : defaultDashSpeed;
+        
         Color dashColor = powerups.HasPowerup("DashKill") ? powerups.GetPowerup("DashKill").original.particleColor : defaultDashColor;
 
         var dashPSMain = dashDust.main;
