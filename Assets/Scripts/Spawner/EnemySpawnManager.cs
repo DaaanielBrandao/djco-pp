@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnManager : Spawner {
-
+    
     private int remainingEnemies = 0;
     private EnemySpawner[] spawners;
 	
@@ -13,7 +13,7 @@ public class EnemySpawnManager : Spawner {
     }
 
     public override void OnWave(int waveNumber) {
-        remainingEnemies = waveNumber * 10; // podia haver formula maluca
+        remainingEnemies = waveNumber * 30; // podia haver formula maluca
         maxAlive = remainingEnemies / 2;
         
         Debug.Log("Starting wave: " + remainingEnemies + " / " + maxAlive);
