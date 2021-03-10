@@ -11,7 +11,7 @@ public class PlayerHP : HealthBar
   //  }
 
     public override void Die() {
-        // Debug.Log("Player DED");
+        // Debug.Log("Player Dead");
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

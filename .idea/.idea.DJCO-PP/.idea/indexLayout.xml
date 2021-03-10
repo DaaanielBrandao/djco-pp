@@ -32,6 +32,7 @@
       <Path>.vs</Path>
       <Path>.vscode</Path>
       <Path>Library</Path>
+      <Path>Temp</Path>
       <Path>Testing</Path>
       <Path>obj</Path>
     </explicitExcludes>

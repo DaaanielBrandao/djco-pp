@@ -4113,31 +4113,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b9e7743cc4b5a947b41eebbfd756b4b, type: 3}
---- !u!1 &455363680 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2120707255, guid: 46eb078eee0f26849a832464f275982e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2649974862877960539}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &455363682
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455363680}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 525c9c5ca6a2d9b41bfe3864ef60f0ed, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &459083970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4207,31 +4182,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca118f163172d84fba7b98039bda926, type: 3}
---- !u!1 &508284008 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 210015768, guid: 46eb078eee0f26849a832464f275982e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2649974862877960539}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &508284010
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508284008}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aa810d45b7b37814b907db4de4b6f192, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &508774761
 GameObject:
   m_ObjectHideFlags: 0
@@ -48588,31 +48538,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 968359362}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1013548766 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3530118828082041565, guid: 46eb078eee0f26849a832464f275982e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2649974862877960539}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1013548768
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013548766}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 71c38c03789a0fd48a441df6fb1a5c2f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1015222735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3233641485120644916, guid: b945ad67dba83c447a86517aa01e35b5,
@@ -53324,102 +53249,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 210015768, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 210015769, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.067
-      objectReference: {fileID: 0}
-    - target: {fileID: 210015769, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.017
-      objectReference: {fileID: 0}
-    - target: {fileID: 210015771, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: ammoBox
-      value: 
-      objectReference: {fileID: 6424140338521484876, guid: 63fa029f4367bf6409de35a9f9be5f01,
-        type: 3}
-    - target: {fileID: 210015771, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: cooldown
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 210015771, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: bd485efb4dc3f8d47b2bd1ba7b486026, type: 3}
-    - target: {fileID: 210015772, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -8066788865452727643, guid: 50b215cd35055a44aad4524daba645ce,
-        type: 3}
-    - target: {fileID: 1220756207, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220756210, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: currentAmmo
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1743003212, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.069
-      objectReference: {fileID: 0}
-    - target: {fileID: 1743003212, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.014
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120707255, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120707256, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.059
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120707256, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120707258, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: ammoBox
-      value: 
-      objectReference: {fileID: 6424140338521484876, guid: dbd643e208753174aa9a103281e0ea12,
-        type: 3}
-    - target: {fileID: 2120707258, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 9b68bcbe62e11b747af3f42bda325071, type: 3}
-    - target: {fileID: 2120707259, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -7847260546520102199, guid: 50b215cd35055a44aad4524daba645ce,
-        type: 3}
-    - target: {fileID: 2120707259, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bf91b0ca1d0a32c418a06d46ef738008, type: 2}
-    - target: {fileID: 1625806068514515015, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0697321
-      objectReference: {fileID: 0}
-    - target: {fileID: 1625806068514515015, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0541
-      objectReference: {fileID: 0}
-    - target: {fileID: 1625806068514515015, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0077
-      objectReference: {fileID: 0}
-    - target: {fileID: 2649974861155238066, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2649974861408128576, guid: 46eb078eee0f26849a832464f275982e,
         type: 3}
       propertyPath: m_RootOrder
@@ -53480,57 +53309,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 3530118828082041565, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564656636184473418, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 6576796224741579178, guid: 50b215cd35055a44aad4524daba645ce,
-        type: 3}
-    - target: {fileID: 4564656636184473418, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564656636184473418, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564656636184473418, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564656636184473418, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598479135848819332, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: ammoBox
-      value: 
-      objectReference: {fileID: 6424140338521484876, guid: 823048e0b6ae55243b3f610f8a80982b,
-        type: 3}
-    - target: {fileID: 4598479135848819332, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: cooldown
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598479135848819332, guid: 46eb078eee0f26849a832464f275982e,
-        type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 5554ddf875c902f4cabbbc41b42084bb, type: 3}
-    m_RemovedComponents:
-    - {fileID: 2120707257, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-    - {fileID: 210015770, guid: 46eb078eee0f26849a832464f275982e, type: 3}
-    - {fileID: 9162768828195757283, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46eb078eee0f26849a832464f275982e, type: 3}
 --- !u!1001 &2664184263773003291
 PrefabInstance:
