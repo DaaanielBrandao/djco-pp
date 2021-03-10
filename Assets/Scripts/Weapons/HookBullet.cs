@@ -13,11 +13,14 @@ public class HookBullet : Bullet
 	public float pullSpeed = 2f;
 	public float maxDistance = 5.0f;
 
+	private Vector3 relativeHolePosition;
+
 	protected void Start()
 	{
 		base.Start();
 
 		renderer = GetComponent<LineRenderer>();
+		relativeHolePosition = transform.position - shooter.transform.position;
 	}
 	protected void Update()
 	{
@@ -32,7 +35,7 @@ public class HookBullet : Bullet
 			else Destroy(gameObject);
 		}
 		
-		renderer.SetPosition(0, shooter.transform.position);
+		renderer.SetPosition(0, shooter.transform.position + relativeHolePosition);
 		renderer.SetPosition(1, transform.position);
 	}
 
