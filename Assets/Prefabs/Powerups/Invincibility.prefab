@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 404797ad9326a0b4780cc48935699e42, type: 2}
+  - {fileID: 2100000, guid: 4346c8d466c22ed478aa54f7766664b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   powerUpName: Invincibility
   hatSprite: {fileID: 7922159864823484835, guid: 21382185dcf282441a794e8a728ce99b,
     type: 3}
-  hatMaterial: {fileID: 2100000, guid: 404797ad9326a0b4780cc48935699e42, type: 2}
-  particleColor: {r: 0, g: 0.40378952, b: 1, a: 1}
+  hatMaterial: {fileID: 2100000, guid: 4346c8d466c22ed478aa54f7766664b0, type: 2}
+  particleColor: {r: 0.052918196, g: 1, b: 0, a: 1}
   dashSpeed: 0
   duration: 10

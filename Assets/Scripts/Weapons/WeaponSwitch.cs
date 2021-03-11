@@ -87,6 +87,15 @@ public class WeaponSwitch : MonoBehaviour
     private bool IsAtMaxWeapons() {
         return numWeapons == 9;
     }
+
+    public int getCurrentAmmo()
+    {
+        return GetSelectedWeapon().transform.GetComponent<Weapon>().currentAmmo;
+    }
+    public int getMaxAmmo()
+    {
+        return GetSelectedWeapon().transform.GetComponent<Weapon>().maxAmmo;
+    }
  
  
 }

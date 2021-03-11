@@ -136,4 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   maxTime: 5
-  damage: 100
+  damage: 10
