@@ -14,9 +14,11 @@ public class healthUI : MonoBehaviour
     private Image healthImageComponent;
     private Text healthTextComponent;
     private PlayerHP playerHP;
+    private TrailRenderer gradientHelper;
     void Start()
     {
         healthImageComponent = healthImage.transform.GetComponent<Image>();
+        gradientHelper = healthImage.transform.GetComponent<TrailRenderer>();
         healthTextComponent = healthText.transform.GetComponent<Text>();
         playerHP = player.transform.GetComponent<PlayerHP>();
     }
@@ -26,5 +28,6 @@ public class healthUI : MonoBehaviour
     {
         healthTextComponent.text = playerHP.currentHP.ToString(CultureInfo.CurrentCulture);
         healthImageComponent.fillAmount = (playerHP.currentHP / playerHP.maxHP);
+        healthImageComponent.color = gradientHelper.colorGradient.Evaluate((playerHP.currentHP / playerHP.maxHP));
     }
 }
