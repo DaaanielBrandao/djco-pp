@@ -6,8 +6,7 @@ using UnityEngine;
 public class StaggerBehavior : MonoBehaviour {   
     public float staggerHP = 0.25f;
     public float staggerTime = 5f;
-    public ParticleSystem dashKillEffect;
-    
+
     private enum StaggerState {Ready, Staggered, Survivor};
     private StaggerState staggerState;
 
@@ -40,10 +39,9 @@ public class StaggerBehavior : MonoBehaviour {
                     return;
 
                 CharacterMovement movement = player.GetComponent<CharacterMovement>();
-                if (staggerState == StaggerState.Staggered && movement.IsDashing()) {
-                    movement.ResetDash();
-                    enemyHP.Die();
-                    Instantiate(dashKillEffect, transform.position, transform.rotation);
+                if (staggerState == StaggerState.Staggered && movement.IsDashing())
+                {
+                    gameObject.GetComponent<EnemyController>().dashKill(player);
                 }
 
                 break;

@@ -6,6 +6,7 @@ public class PlayerHP : HealthBar
 {    
     public ParticleSystem explosionEffect;
     public AudioClip explosionSound;
+    public int dashKillHeal = 5;
     
 
     public override void Die() {
@@ -27,5 +28,10 @@ public class PlayerHP : HealthBar
             return;
         
         ChangeHp(-amount);
+    }
+
+    public void healDashKill()
+    {
+        ChangeHp(dashKillHeal);
     }
 }

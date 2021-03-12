@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     private StaggerBehavior staggerBehavior;
     private EnemyHP enemyHp;
     private Collider2D enemyCollider;
+    
+    public ParticleSystem dashKillEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +34,22 @@ public class EnemyController : MonoBehaviour
             CharacterMovement movement = player.GetComponent<CharacterMovement>();
             PowerupList powerups = player.GetComponent<PowerupList>();
             if (movement.IsDashing() && powerups.HasPowerup("DashKill"))
-                enemyHp.Die();
+            {
+                dashKill(player);
+            }
 
         }
+    }
+    //secalhar mudar de sitio
+    public void dashKill(GameObject player)
+    {
+        CharacterMovement movement = player.GetComponent<CharacterMovement>();
+        PlayerHP playerHp = player.GetComponent<PlayerHP>();
+        
+        
+        enemyHp.Die();
+        movement.ResetDash();
+        playerHp.healDashKill();
+        Instantiate(dashKillEffect, transform.position, transform.rotation);
     }
 }
