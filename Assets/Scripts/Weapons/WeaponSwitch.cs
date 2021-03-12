@@ -9,7 +9,7 @@ public class WeaponSwitch : MonoBehaviour
     public float swapCooldown = 0.2f;
     public int pressedNumber = 1;
     
-    private GameObject[] weapons = new GameObject[9];
+    private GameObject[] weapons = new GameObject[10];
     private int numWeapons;
 
     private bool canSwap = true;
@@ -36,6 +36,14 @@ public class WeaponSwitch : MonoBehaviour
             SelectWeapon(newPressedNumber);
             StartCoroutine(StartCooldown());
         }
+        //le testing
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Debug.Log(1 + ((pressedNumber ) % weapons.Length) + "  " + weapons.Length);
+            SelectWeapon( 1 + (pressedNumber) % weapons.Length );
+            StartCoroutine(StartCooldown());
+        }
+            
     }
     
     IEnumerator StartCooldown() {
@@ -85,7 +93,7 @@ public class WeaponSwitch : MonoBehaviour
     }
 
     private bool IsAtMaxWeapons() {
-        return numWeapons == 9;
+        return numWeapons == 10;
     }
 
     public int getCurrentAmmo()
