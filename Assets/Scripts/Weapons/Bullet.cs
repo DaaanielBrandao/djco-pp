@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     public float speed; // units/s
     public float maxTime; // s
     public float damage; // HP
+    public ParticleSystem hitWallPS;
+    public ParticleSystem hitEnemyPS;
 
     protected GameObject shooter;
 
@@ -53,11 +55,15 @@ public class Bullet : MonoBehaviour
     }
 
     protected virtual void OnGroundEnter(Collider2D other) {
+        if(hitWallPS != null)
+            Instantiate(hitWallPS, transform.position, transform.rotation);
         Destroy(gameObject);
     }
     
     protected virtual void OnEnemyEnter(Collider2D other) {
         other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
+        if(hitEnemyPS != null)
+            Instantiate(hitEnemyPS, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

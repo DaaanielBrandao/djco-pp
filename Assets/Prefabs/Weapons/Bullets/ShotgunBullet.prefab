@@ -137,3 +137,7 @@ MonoBehaviour:
   speed: 90
   maxTime: 0.3
   damage: 15
+  hitWallPS: {fileID: 5294064155384883988, guid: f6dd4291023e3e344a2fa3af34b572f2,
+    type: 3}
+  hitEnemyPS: {fileID: 3306692162415656968, guid: 70679a2ecfe0bbd4fa1c0f499115e9ae,
+    type: 3}
