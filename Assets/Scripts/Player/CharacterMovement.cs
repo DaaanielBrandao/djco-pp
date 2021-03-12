@@ -113,7 +113,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
         // Out of bounds
-        if (transform.position.y < -50)
+        if (transform.position.y < -100)
             transform.position = new Vector3(0, 10, 0);
 
         animator.SetBool("Moving", inputHor != 0);
