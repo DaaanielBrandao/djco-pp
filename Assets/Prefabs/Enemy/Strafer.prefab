@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   safetyNet: 1
-  speed: 10
+  speed: 7
 --- !u!114 &6250549600042985422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootType: 2
-  cooldown: 0.8
+  cooldown: 1.5
   numShots: 2
   angle: 10
   visionRadius: 50

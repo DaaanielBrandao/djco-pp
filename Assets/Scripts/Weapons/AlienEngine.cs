@@ -17,7 +17,7 @@ public class AlienEngine : WeaponAuto
         float angle = Random.Range(-spreadAngle/2, spreadAngle/2);
 
         hitboxar();
-        shooter.GetComponent<Rigidbody2D>().AddForce(Vector3.right * (-shooter.GetComponent<CharacterMovement>().facingDir.x * Time.deltaTime * force), ForceMode2D.Impulse);
+        shooter.GetComponent<Rigidbody2D>().AddForce(Vector3.right * (-shooter.GetComponent<CharacterMovement>().facingDir.x * force), ForceMode2D.Impulse);
     }
 
     private void hitboxar()

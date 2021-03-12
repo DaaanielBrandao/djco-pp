@@ -80310,6 +80310,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1153249938, guid: 46eb078eee0f26849a832464f275982e, type: 3}
+      propertyPath: force
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1179057226, guid: 46eb078eee0f26849a832464f275982e, type: 3}
       propertyPath: m_RootOrder
       value: 2
