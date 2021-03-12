@@ -4,7 +4,7 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class healthUI : MonoBehaviour
+public class HealthUI : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject healthImage;
