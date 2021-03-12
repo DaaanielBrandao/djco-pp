@@ -34,7 +34,7 @@ public class SoundManager : MonoBehaviour
     {
         if (_instance == null || _instance != this) // helps with not breaking
             _instance = this;
-
+        
         if (Input.GetKeyDown(KeyCode.P))
             playerAudio.PlayOneShot(pickleSound);
     }
@@ -44,5 +44,4 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning("Tried to play null sound.");
         else playerAudio.PlayOneShot(sound);
     }
-
 }

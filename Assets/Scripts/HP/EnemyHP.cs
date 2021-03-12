@@ -12,6 +12,8 @@ public class EnemyHP : HealthBar
         SoundManager.Instance.Play(explosionSound);
         Instantiate(explosionEffect, transform.position, transform.rotation);
         Destroy(gameObject);
+
+        GameObject.Find("Character").GetComponent<Wallet>().Deposit(Random.Range(3, 6)); // !!!
     }
     
     public void OnHit(float amount) {
