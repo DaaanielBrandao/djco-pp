@@ -31,6 +31,8 @@ public class ChargedBullet : Bullet
         if (charge < 1)
             base.OnEnemyEnter(other);
         else other.gameObject.GetComponent<EnemyHP>().OnHit(damage);
+        if(hitEnemyPS != null)
+            Instantiate(hitEnemyPS, transform.position, transform.rotation);
     }
 
     public static GameObject SpawnChargedBullet(GameObject bullet, GameObject shooter, Vector3 position, Quaternion rotation, float charge)

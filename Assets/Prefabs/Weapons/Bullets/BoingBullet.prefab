@@ -136,4 +136,8 @@ MonoBehaviour:
   speed: 58
   maxTime: 5
   damage: 30
+  hitWallPS: {fileID: 103930508564237827, guid: 6c70d944315e2e54992211e4d3d6e7c7,
+    type: 3}
+  hitEnemyPS: {fileID: 103930508564237827, guid: 6c70d944315e2e54992211e4d3d6e7c7,
+    type: 3}
   boingSound: {fileID: 8300000, guid: 34dc07c2ff2794944a7f68a72d7387bd, type: 3}

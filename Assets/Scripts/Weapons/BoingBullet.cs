@@ -24,6 +24,8 @@ public class BoingBullet : Bullet
 			transform.right = Vector3.Reflect(transform.right,  hit.normal);
 
 			SoundManager.Instance.Play(boingSound);
+			if(hitWallPS != null)
+				Instantiate(hitWallPS, transform.position, transform.rotation);
 		}
 	}
 }
