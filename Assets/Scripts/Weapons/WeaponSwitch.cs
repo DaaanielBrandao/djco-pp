@@ -89,6 +89,7 @@ public class WeaponSwitch : MonoBehaviour
         }
 
         weapons[numWeapons] = weapon;
+        weapon.transform.parent = transform;
         numWeapons++;
     }
 

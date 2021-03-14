@@ -60,3 +60,6 @@ TagManager:
   - name: Enemies
     uniqueID: 1349124125
     locked: 0
+  - name: Text
+    uniqueID: 1353295063
+    locked: 0
