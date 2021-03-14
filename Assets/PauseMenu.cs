@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor.Rendering.PostProcessing;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
@@ -13,10 +14,11 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject HUD;
-
     public GameObject pfx;
+    public GameObject pauseFirstButton;
+    
+    private GameObject lastSelected;
     private Volume volume;
-
     private DepthOfField depthOfField;
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,13 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+
+        if (isPaused)
+        {
+            if (EventSystem.current.currentSelectedGameObject == null)
+                EventSystem.current.SetSelectedGameObject(lastSelected);
+            lastSelected = EventSystem.current.currentSelectedGameObject;
+        }
     }
 
     public void Resume()
@@ -57,6 +66,8 @@ public class PauseMenu : MonoBehaviour
         HUD.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
         depthOfField.active = true;
     }
 
