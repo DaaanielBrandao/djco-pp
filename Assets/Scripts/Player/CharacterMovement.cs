@@ -59,6 +59,7 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.isPaused) return;
         UpdateDash();
         UpdateGroundTouch();
         HandleMove();
@@ -234,6 +235,7 @@ public class CharacterMovement : MonoBehaviour
     }
     
     public void ResetDash() {
+        timeStop.Freeze(0.03f);
         if (IsDashing())
             extraDash = true;
         else dashState = DashState.Ready;

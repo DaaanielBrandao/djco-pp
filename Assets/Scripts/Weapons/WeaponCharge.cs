@@ -16,7 +16,7 @@ public abstract class WeaponCharge : Weapon
     protected virtual void Update()
     {
         // Usar 9 milhoes de QI para o charge
-        
+        if (PauseMenu.isPaused) return;
         if(Input.GetKey(KeyCode.L))
         {
             if (!isCharging) {
