@@ -45,8 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.426
-  m_Color: {r: 1, g: 0.91595805, b: 0.4575472, a: 1}
+  m_FalloffIntensity: 0.446
+  m_Color: {r: 1, g: 0.9461649, b: 0.6462264, a: 1}
   m_Intensity: 2.08
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 354a6d2f00000000b957b5df7f6856231d006a50
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 24
   m_PointLightOuterAngle: 45
-  m_PointLightInnerRadius: 11.2
+  m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 17.7
   m_PointLightDistance: 3
   m_PointLightQuality: 1

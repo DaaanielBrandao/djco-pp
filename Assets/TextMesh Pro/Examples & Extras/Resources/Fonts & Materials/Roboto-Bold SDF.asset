@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Roboto-Bold SDF Material
-  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+  m_Shader: {fileID: 10101, guid: 0000000000000000e000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -93,6 +93,7 @@ Material:
     - _WeightNormal: 0
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
@@ -156,6 +157,20 @@ MonoBehaviour:
       m_Y: 0
       m_Width: 0
       m_Height: 0
+    m_Scale: 1
+    m_AtlasIndex: 0
+  - m_Index: 14
+    m_Metrics:
+      m_Width: 39.015625
+      m_Height: 38.84375
+      m_HorizontalBearingX: 1.1875
+      m_HorizontalBearingY: 63.984375
+      m_HorizontalAdvance: 40.78125
+    m_GlyphRect:
+      m_X: 899
+      m_Y: 244
+      m_Width: 40
+      m_Height: 39
     m_Scale: 1
     m_AtlasIndex: 0
   - m_Index: 20
@@ -536,24 +551,14 @@ MonoBehaviour:
       m_Height: 15
     m_Scale: 1
     m_AtlasIndex: 0
-  - m_Index: 14
-    m_Metrics:
-      m_Width: 39.015625
-      m_Height: 38.84375
-      m_HorizontalBearingX: 1.1875
-      m_HorizontalBearingY: 63.984375
-      m_HorizontalAdvance: 40.78125
-    m_GlyphRect:
-      m_X: 899
-      m_Y: 244
-      m_Width: 40
-      m_Height: 39
-    m_Scale: 1
-    m_AtlasIndex: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
     m_GlyphIndex: 4
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 42
+    m_GlyphIndex: 14
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 48
@@ -662,10 +667,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 8230
     m_GlyphIndex: 399
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 42
-    m_GlyphIndex: 14
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: 28204114720316640}
