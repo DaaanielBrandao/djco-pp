@@ -28,6 +28,7 @@ public class PlayerHP : HealthBar
             return;
         
         ChangeHp(-amount);
+        timeStop.Freeze(0.05f);
     }
 
     public void healDashKill()
