@@ -131,6 +131,9 @@ public class CharacterMovement : MonoBehaviour
 
             SoundManager.Instance.Play(jumpSound);
             dust.Play();
+            
+            //Camera.main.GetComponent<cameraShake>().cameraShakeAnim(0.1f,0.01f);
+            //Debug.Log(Camera.main.GetComponent<cameraShake>());
         }
 
         if (Input.GetKeyUp(KeyCode.I) && isJumping && !isGoingDown) {
@@ -160,7 +163,8 @@ public class CharacterMovement : MonoBehaviour
                     StartCoroutine(DoDash());
 
                     SoundManager.Instance.Play(dashSound);
-                    mainCamera.GetComponent<Animator>().SetTrigger("zoop");
+                    //mainCamera.GetComponent<Animator>().SetTrigger("zoop");
+                    Camera.main.GetComponent<cameraShake>().Shake(0.09f,0.03f);
                     dashDust.Play();
                 }
 

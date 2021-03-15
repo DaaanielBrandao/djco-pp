@@ -30,6 +30,7 @@ public class PlayerHP : HealthBar
             return;
         
         ChangeHp(-amount);
+        Camera.main.GetComponent<cameraShake>().Shake(0.05f,0.03f);
         timeStop.Freeze(0.05f);
     }
 

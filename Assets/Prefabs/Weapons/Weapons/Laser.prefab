@@ -4885,6 +4885,7 @@ MonoBehaviour:
   cooldown: 0.1
   shootSound: {fileID: 8300000, guid: b3811de05c6b2c64aa790bd4842a9551, type: 3}
   noAmmoSound: {fileID: 8300000, guid: d0530d764b434774eaa9da7c44299505, type: 3}
+  shakeMagnitude: 0
   maxAmmo: 1000
   currentAmmo: 1000
   ammoBox: {fileID: 6424140338521484876, guid: f70d1005c65d8f9429fbba824f9e759f, type: 3}

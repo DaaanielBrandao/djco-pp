@@ -7,6 +7,7 @@ public abstract class Weapon : MonoBehaviour
     public float cooldown;
     public AudioClip shootSound;
     public AudioClip noAmmoSound;
+    public float shakeMagnitude;
    
     public int maxAmmo;
     public int currentAmmo;
@@ -38,7 +39,8 @@ public abstract class Weapon : MonoBehaviour
         StartCoroutine(StartCooldown());
         Shoot();
         currentAmmo--;
-            
+        
+        Camera.main.GetComponent<cameraShake>().Shake(0.06f,shakeMagnitude);
         SoundManager.Instance.Play(shootSound);
         GetComponent<Animator>().SetTrigger("pew");
     }

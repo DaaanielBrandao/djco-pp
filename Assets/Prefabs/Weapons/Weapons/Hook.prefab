@@ -100,6 +100,7 @@ MonoBehaviour:
   cooldown: 0.8
   shootSound: {fileID: 8300000, guid: bd485efb4dc3f8d47b2bd1ba7b486026, type: 3}
   noAmmoSound: {fileID: 8300000, guid: d0530d764b434774eaa9da7c44299505, type: 3}
+  shakeMagnitude: 0.02
   maxAmmo: 3000
   currentAmmo: 3000
   ammoBox: {fileID: 6424140338521484876, guid: 63fa029f4367bf6409de35a9f9be5f01, type: 3}
@@ -149,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9071127553250006982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.111, y: 0.0106, z: 0}
+  m_LocalPosition: {x: 0.0402, y: -0.0002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9071127552064123132}

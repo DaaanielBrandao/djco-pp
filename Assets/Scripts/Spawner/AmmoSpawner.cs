@@ -27,10 +27,13 @@ public class AmmoSpawner : Spawner
         // maxAlive = 1;
        
         players = FindObjectsOfType<WeaponSwitch>();
-        maxAlive = players.GetRandom().GetWeapons().Length * defaultMaxAlixe;
-        cooldown = defaultCooldown / players.GetRandom().GetWeapons().Length;
+        if (players.Length > 0)
+        {
+            maxAlive = players.GetRandom().GetWeapons().Length * defaultMaxAlixe;
+            cooldown = defaultCooldown / players.GetRandom().GetWeapons().Length;
+        }
 
-        
+
         ResetCooldown();
     }
 
