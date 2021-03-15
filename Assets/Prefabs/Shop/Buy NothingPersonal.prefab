@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187978b59da7704dad156d398d714dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 99
+  itemCost: 0
   kaching: {fileID: 8300000, guid: 34017898581c6e441a9917a9232dbac3, type: 3}
   error: {fileID: 8300000, guid: c6fae1381cdd7fc439e5c41b65cb09f8, type: 3}
 --- !u!114 &3978999481017297381

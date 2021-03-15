@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,20 +7,29 @@ public class AmmoSpawner : Spawner
 {
     private Collider2D[] areas;
     private WeaponSwitch[] players;
+    private int defaultMaxAlixe;
+    private float defaultCooldown;
 
     // Start is called before the first frame update
     private void Start() {
         areas = GetComponents<Collider2D>();
     }
     
+
     public override void OnWave(int waveNumber)
     {
-        cooldown = 10000;
-        maxAlive = 1;
-
+        if (waveNumber == 1)
+        {
+            defaultMaxAlixe = maxAlive;
+            defaultCooldown = cooldown;
+        }
+        //cooldown = 10000;
+        // maxAlive = 1;
+       
         players = FindObjectsOfType<WeaponSwitch>();
-        
-        Debug.Log("Starting Ammo wave: " + maxAlive);
+        maxAlive = players.GetRandom().GetWeapons().Length * defaultMaxAlixe;
+        cooldown = defaultCooldown / players.GetRandom().GetWeapons().Length;
+
         
         ResetCooldown();
     }
