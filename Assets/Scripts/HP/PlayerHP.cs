@@ -12,7 +12,9 @@ public class PlayerHP : HealthBar
     public override void Die() {
         SoundManager.Instance.Play(explosionSound);
         Instantiate(explosionEffect, transform.position, transform.rotation);
-        GetComponent<SpriteRenderer>().enabled = false;
+
+        Camera.main.transform.parent=null;
+        Destroy(gameObject); 
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

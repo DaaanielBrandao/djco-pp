@@ -3,7 +3,9 @@ guid: 6187978b59da7704dad156d398d714dc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - kaching: {fileID: 8300000, guid: 34017898581c6e441a9917a9232dbac3, type: 3}
+  - error: {fileID: 8300000, guid: c6fae1381cdd7fc439e5c41b65cb09f8, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

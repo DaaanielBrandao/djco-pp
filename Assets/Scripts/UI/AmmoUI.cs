@@ -26,9 +26,10 @@ public class AmmoUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!weaponSwitch)
+            return;
         maxAmmoTextComponent.text = weaponSwitch.getMaxAmmo().ToString();
         currentAmmoTextComponent.text = weaponSwitch.getCurrentAmmo().ToString();
-        Debug.Log((weaponSwitch.getCurrentAmmo() / weaponSwitch.getMaxAmmo()));
         currentAmmoTextComponent.color = ammoTextGradient.Evaluate(((float)weaponSwitch.getCurrentAmmo() / (float)weaponSwitch.getMaxAmmo()));
     }
 }

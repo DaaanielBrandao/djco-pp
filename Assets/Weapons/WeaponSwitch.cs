@@ -37,12 +37,12 @@ public class WeaponSwitch : MonoBehaviour
             StartCoroutine(StartCooldown());
         }
         //le testing
-        if (Input.GetKey(KeyCode.Q))
-        {
-            Debug.Log(1 + ((pressedNumber ) % weapons.Length) + "  " + weapons.Length);
-            SelectWeapon( 1 + (pressedNumber) % weapons.Length );
-            StartCoroutine(StartCooldown());
-        }
+        //if (Input.GetKey(KeyCode.Q))
+        //{
+        //    Debug.Log(1 + ((pressedNumber ) % weapons.Length) + "  " + weapons.Length);
+        //    SelectWeapon( 1 + (pressedNumber) % weapons.Length );
+        //    StartCoroutine(StartCooldown());
+       // }
             
     }
     
@@ -82,15 +82,18 @@ public class WeaponSwitch : MonoBehaviour
         return null;        
     }
 
-    public void AddWeapon(GameObject weapon) { // Escolher slot? 
+    public void AddWeapon(GameObject prefab) { // Escolher slot? 
         if (IsAtMaxWeapons()) {
             Debug.LogWarning("Already at max weapons!");
             return;
         }
 
+        GameObject weapon = Instantiate(prefab, transform);
+        
+
         weapons[numWeapons] = weapon;
-        weapon.transform.parent = transform;
         numWeapons++;
+        SelectWeapon(numWeapons);
     }
 
     private bool IsAtMaxWeapons() {
@@ -99,11 +102,11 @@ public class WeaponSwitch : MonoBehaviour
 
     public int getCurrentAmmo()
     {
-        return GetSelectedWeapon().transform.GetComponent<Weapon>().currentAmmo;
+        return GetSelectedWeapon().GetComponent<Weapon>().currentAmmo;
     }
     public int getMaxAmmo()
     {
-        return GetSelectedWeapon().transform.GetComponent<Weapon>().maxAmmo;
+        return GetSelectedWeapon().GetComponent<Weapon>().maxAmmo;
     }
  
  

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class mainMenu : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     public GameObject defaultMain;
     public GameObject defaultOptions;
@@ -17,13 +17,13 @@ public class mainMenu : MonoBehaviour
         lastSelected = EventSystem.current.currentSelectedGameObject;
     }
 
-    public void MainMenu()
+    public void ToMainMenu()
     {
         EventSystem.current.SetSelectedGameObject(defaultMain);
         lastSelected = defaultMain;
     }
 
-    public void OptionsMenu()
+    public void ToOptionsMenu()
     {
         EventSystem.current.SetSelectedGameObject(defaultOptions);
         lastSelected = defaultOptions;

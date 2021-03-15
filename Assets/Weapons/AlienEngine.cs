@@ -12,7 +12,6 @@ public class AlienEngine : WeaponAuto
     public float damage = 20;
     public float force = 1000f;
 
-    public GameObject bullets;
     protected override void Shoot() {
         float angle = Random.Range(-spreadAngle/2, spreadAngle/2);
 

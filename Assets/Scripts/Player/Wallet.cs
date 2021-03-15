@@ -6,8 +6,7 @@ using UnityEngine;
 public class Wallet : MonoBehaviour
 {
 
-    public int coins { get; private set; }
-    public int uiCoins { get; private set; }
+    public int coins;
     public int lifetimeCoins { get; private set; }
 
     public AudioClip ding;
@@ -32,27 +31,18 @@ public class Wallet : MonoBehaviour
     {
         coins += numCoins;
         lifetimeCoins += numCoins;
-
-        StartCoroutine(DepositAnimation(numCoins));
     }
 
     public void Withdraw(int numCoins)
     {
+        Debug.Log(coins);
         coins -= numCoins;
-        uiCoins -= numCoins;
-        // kaching?
+        Debug.Log(coins);
     }
 
-    IEnumerator DepositAnimation(int numCoins) {
-        for (int i = 0; i < numCoins; i++)
-        {
-            SoundManager.Instance.Play(ding);
-            uiCoins++;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
 
-    
-    
-    
+    public bool CanAfford(int itemCost)
+    {
+        return coins >= itemCost;
+    }
 }
