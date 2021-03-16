@@ -67,6 +67,9 @@ public class GameManager : MonoBehaviour
 		spawnManager.ClearSpawned();
 		ammoManager.ClearSpawned();
 		powerUpManager.ClearSpawned();
+
+
+		GameObject.Find("HUD").GetComponent<HUD>().announceEndWave();
 		
 		Debug.Log("Ending wave!");
 	}
@@ -78,6 +81,10 @@ public class GameManager : MonoBehaviour
 		spawnManager.OnWave(waveNumber);
 		ammoManager.OnWave(waveNumber);
 		powerUpManager.OnWave(waveNumber);
+
+
+		GameObject.Find("HUD").GetComponent<HUD>().announceWaveStart(waveNumber);
+		GameObject.Find("Sky").GetComponent<skyController>().changeColor(waveNumber);
 		
 		Debug.Log("Starting wave!");
 

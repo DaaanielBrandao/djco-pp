@@ -13,8 +13,10 @@ public class EnemySpawnManager : Spawner {
     }
 
     public override void OnWave(int waveNumber) {
-        remainingEnemies = 10 * waveNumber + 40; // podia haver formula maluca
-        maxAlive = remainingEnemies / 4;
+        //remainingEnemies = 10 * waveNumber + 30; // podia haver formula maluca 
+        remainingEnemies = 1;
+        //maxAlive = remainingEnemies / 4;
+        maxAlive = 100;
         
         Debug.Log("Starting wave: " + remainingEnemies + " / " + maxAlive);
         
