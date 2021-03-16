@@ -4,12 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject defaultMain;
     public GameObject defaultOptions;
     private GameObject lastSelected;
+    public GameObject screenShakeToggle;
+    public bool awakening;
+    
+    private void Awake()
+    {
+        awakening = true;
+        screenShakeToggle.GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("ScreenShake",1) != 0);
+        awakening = false;
+    }
+
     private void Update()
     {
         if (EventSystem.current.currentSelectedGameObject == null)
@@ -38,5 +49,16 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void ToggleScreenShake()
+    {
+        if (!awakening)
+        {
+            if (PlayerPrefs.GetInt("ScreenShake", 1) != 0)
+                PlayerPrefs.SetInt("ScreenShake", 0);
+            else PlayerPrefs.SetInt("ScreenShake", 1);
+        }
+
     }
 }

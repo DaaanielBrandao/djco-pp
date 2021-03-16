@@ -164,7 +164,7 @@ public class CharacterMovement : MonoBehaviour
 
                     SoundManager.Instance.Play(dashSound);
                     //mainCamera.GetComponent<Animator>().SetTrigger("zoop");
-                    Camera.main.GetComponent<cameraShake>().Shake(0.09f,0.03f);
+                    Camera.main.GetComponent<cameraShake>().Shake(0.09f,0.02f);
                     dashDust.Play();
                 }
 
