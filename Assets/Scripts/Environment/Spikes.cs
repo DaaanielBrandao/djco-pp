@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
+    public int damage = 4;
     // Start is called before the first frame update
     public float knockbackForce = 32f;
     void Start()
@@ -22,6 +23,7 @@ public class Spikes : MonoBehaviour
             Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
             Vector2 knockbackDir = (other.gameObject.transform.position - gameObject.transform.position).normalized;
             playerRb.velocity = knockbackDir * knockbackForce;
+            other.gameObject.GetComponent<PlayerHP>().OnHit(damage);
 
             cm.Boioioing();
         }
