@@ -70,9 +70,16 @@ public class GameManager : MonoBehaviour
 		powerUpManager.ClearSpawned();
 		
 		shopDoor.SetActive(false);
+		refilPlayersResources();
+		FindObjectOfType<ShopManager>().RefreshShop();
 
 
 		GameObject.Find("HUD").GetComponent<HUD>().announceEndWave();
+		TrafficLight[] trafficLights = FindObjectsOfType<TrafficLight>();
+		foreach (TrafficLight trafficLight in trafficLights)
+		{
+			trafficLight.endWave();
+		}
 		
 		Debug.Log("Ending wave!");
 	}
@@ -89,5 +96,30 @@ public class GameManager : MonoBehaviour
 
 		GameObject.Find("HUD").GetComponent<HUD>().announceWaveStart(waveNumber);
 		GameObject.Find("Sky").GetComponent<SkyController>().changeColor(waveNumber);
+		TrafficLight[] trafficLights = FindObjectsOfType<TrafficLight>();
+		foreach (TrafficLight trafficLight in trafficLights)
+		{
+			trafficLight.startWave();
+		}
+		
+		
+		Debug.Log("Starting wave!");
+
+	}
+
+	private void refilPlayersResources()
+	{
+		PlayerHP[] playerHps = FindObjectsOfType<PlayerHP>();
+		WeaponSwitch[] ammoSwitchers = FindObjectsOfType<WeaponSwitch>();
+		
+		foreach (PlayerHP playerHp in playerHps)
+		{
+			playerHp.RefillHp();
+		}
+
+		foreach (WeaponSwitch ammoSwitcher in ammoSwitchers)
+		{
+			ammoSwitcher.RefillAmmo();
+		}
 	}
 }
