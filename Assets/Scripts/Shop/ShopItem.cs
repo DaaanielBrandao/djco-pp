@@ -22,6 +22,8 @@ public class ShopItem : MonoBehaviour
     
     private TextMeshProUGUI itemCostText;
     private Transform costUI;
+    private GameObject tooltip;
+    
     private Vector2 originalScale;
     private Animator animator;
     private ShopItemPurchase purchase;
@@ -34,6 +36,9 @@ public class ShopItem : MonoBehaviour
         itemCostText = GetComponentInChildren<TextMeshProUGUI>();
         purchase = GetComponent<ShopItemPurchase>();
         animator = GetComponent<Animator>();
+        tooltip = transform.Find("Tooltip").gameObject;
+        tooltip.SetActive(false);
+
 
         originalScale = costUI.localScale;
     }
@@ -59,6 +64,9 @@ public class ShopItem : MonoBehaviour
         
         animator.SetBool("Hover", isHovered);
         animator.SetBool("NoMoney", cantAfford);
+        
+        tooltip.SetActive(player);
+
     }
 
     private void HandleBuy()
