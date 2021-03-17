@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 				}
 				break;
 			case GameState.Shopping:
-				if (Input.GetKeyDown(KeyCode.S)) {
+				if (Input.GetKeyDown(KeyCode.Z)) {
 					gameState = GameState.Starting;
 				}
 
