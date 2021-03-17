@@ -77467,6 +77467,7 @@ MonoBehaviour:
   spawnOnGround: 1
   enemyPrefab: {fileID: 4621168938474701276, guid: a8fb91382d20411409f13c9a8fea46e8,
     type: 3}
+  spawnAmounts: 020000000100000005000000000000000000000000000000000000000000000000000000
 --- !u!61 &1352795361
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78109,6 +78110,7 @@ MonoBehaviour:
   spawnOnGround: 0
   enemyPrefab: {fileID: 5566599878092044620, guid: ddd229a7f347d9447976aaa57c037733,
     type: 3}
+  spawnAmounts: 010000000200000000000000000000000000000000000000000000000000000000000000
 --- !u!61 &1408983212
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82883,7 +82885,8 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1751374686308637711, guid: 46eb078eee0f26849a832464f275982e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 46eb078eee0f26849a832464f275982e, type: 3}
 --- !u!1001 &2664184263773003291
 PrefabInstance:

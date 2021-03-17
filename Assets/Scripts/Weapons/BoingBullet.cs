@@ -9,7 +9,7 @@ public class BoingBullet : Bullet
 
 	public AudioClip boingSound;
 
-	protected void Start() {
+	protected override void Start() {
 		
 		base.Start();
 

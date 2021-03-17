@@ -8,21 +8,22 @@ public class HookBullet : Bullet
 {
 
 	private GameObject pulledEnemy;
-	private LineRenderer renderer;
+	private LineRenderer lineRenderer;
 	
 	public float pullSpeed = 2f;
 	public float maxDistance = 5.0f;
 
 	private Vector3 relativeHolePosition;
 
-	protected void Start()
+	protected override void Start()
 	{
 		base.Start();
 
-		renderer = GetComponent<LineRenderer>();
+		lineRenderer = GetComponent<LineRenderer>();
 		relativeHolePosition = transform.position - shooter.transform.position;
 	}
-	protected void Update()
+	
+	protected override void Update()
 	{
 		if (!pulledEnemy)
 			base.Update();
@@ -35,8 +36,8 @@ public class HookBullet : Bullet
 			else Destroy(gameObject);
 		}
 		
-		renderer.SetPosition(0, shooter.transform.position + relativeHolePosition);
-		renderer.SetPosition(1, transform.position);
+		lineRenderer.SetPosition(0, shooter.transform.position + relativeHolePosition);
+		lineRenderer.SetPosition(1, transform.position);
 	}
 
 	protected override void OnEnemyEnter(Collider2D other)

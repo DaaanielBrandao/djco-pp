@@ -9,7 +9,7 @@ public class ChargedBullet : Bullet
     public float minSpeed;
     public float minDamage;
     
-    protected void Start()
+    protected override void Start()
     {
         base.Start();
             

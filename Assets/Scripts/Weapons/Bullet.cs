@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     protected Vector2 charSpeed;
 
     // Start is called before the first frame update
-    protected void Start()
+    protected virtual void Start()
     {        
 
         Vector2 velocity = shooter.GetComponent<Rigidbody2D>().velocity;
@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
 
         transform.Translate((Vector2.right * speed + charSpeed) * Time.deltaTime);

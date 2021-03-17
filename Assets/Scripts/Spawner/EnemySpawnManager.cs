@@ -1,22 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawnManager : Spawner {
     
     private int remainingEnemies = 0;
     private EnemySpawner[] spawners;
+    
 	
-    // Start is called before the first frame update
-    private void Start() {
-        spawners = gameObject.GetComponentsInChildren<EnemySpawner>();
-    }
-
     public override void OnWave(int waveNumber) {
-        //remainingEnemies = 10 * waveNumber + 30; // podia haver formula maluca 
-        remainingEnemies = 1;
-        //maxAlive = remainingEnemies / 4;
+        spawners = gameObject.GetComponentsInChildren<EnemySpawner>();
+
+        remainingEnemies = 0;
+        foreach (EnemySpawner spawner in spawners)
+            remainingEnemies += spawner.OnWave(waveNumber);
         maxAlive = 100;
+
+        cooldown = 2;
         
         Debug.Log("Starting wave: " + remainingEnemies + " / " + maxAlive);
         
@@ -32,8 +33,8 @@ public class EnemySpawnManager : Spawner {
         List<GameObject> spawns = new List<GameObject>();
         for (int i = 0; i < numToSpawn; i++)
         {
-            EnemySpawner spawner = spawners.GetRandom();
-            spawns.Add(spawner.SpawnEnemy());
+            EnemySpawner[] validSpawners = spawners.Where(spawner => spawner.GetComponent<EnemySpawner>().CanSpawnEnemies()).ToArray();
+            spawns.Add(validSpawners.GetRandom().SpawnEnemy());
         }
         remainingEnemies -= numToSpawn;
 
