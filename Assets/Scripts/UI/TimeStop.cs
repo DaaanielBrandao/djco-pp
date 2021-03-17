@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class timeStop : MonoBehaviour
+public class TimeStop : MonoBehaviour
 {
     private static float pendingFreezeDuration = 0f;
     private static float timeDuration;

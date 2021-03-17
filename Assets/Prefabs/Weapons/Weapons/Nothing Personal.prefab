@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4324899461743582033
 Transform:
   m_ObjectHideFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   cooldown: 0.8
   shootSound: {fileID: 8300000, guid: 5554ddf875c902f4cabbbc41b42084bb, type: 3}
   noAmmoSound: {fileID: 8300000, guid: d0530d764b434774eaa9da7c44299505, type: 3}
+  shakeMagnitude: 0
   maxAmmo: 3000
   currentAmmo: 3000
   ammoBox: {fileID: 6424140338521484876, guid: 823048e0b6ae55243b3f610f8a80982b, type: 3}

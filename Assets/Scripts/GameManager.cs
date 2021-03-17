@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
 
 		GameObject.Find("HUD").GetComponent<HUD>().announceWaveStart(waveNumber);
-		GameObject.Find("Sky").GetComponent<skyController>().changeColor(waveNumber);
+		GameObject.Find("Sky").GetComponent<SkyController>().changeColor(waveNumber);
 		
 		Debug.Log("Starting wave!");
 

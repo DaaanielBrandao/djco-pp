@@ -21,10 +21,9 @@ public class ShopItem : MonoBehaviour
     
     
     private TextMeshProUGUI itemCostText;
-    
     private Transform costUI;
     private Vector2 originalScale;
-    
+    private Animator animator;
     private ShopItemPurchase purchase;
     
     private GameObject player;
@@ -33,20 +32,38 @@ public class ShopItem : MonoBehaviour
     {
         costUI = transform.Find("Cost");
         itemCostText = GetComponentInChildren<TextMeshProUGUI>();
-        
         purchase = GetComponent<ShopItemPurchase>();
+        animator = GetComponent<Animator>();
 
         originalScale = costUI.localScale;
     }
 
     // Update is called once per frame
-    private void Update() {
-        itemCostText.text = itemCost.ToString();
+    private void Update()
+    {
 
+        UpdateUI();
+        HandleBuy();
+
+
+
+    }
+
+    private void UpdateUI()
+    {
+        itemCostText.text = itemCost.ToString();
         costUI.localScale = originalScale * (player ? 1.5f : 1); // eu queria fazer um coiso tipo e tal
 
-        if (player && Input.GetKeyDown(KeyCode.V))
-        {
+        bool isHovered = player;
+        bool cantAfford = player && !player.GetComponent<Wallet>().CanAfford(itemCost);
+        
+        animator.SetBool("Hover", isHovered);
+        animator.SetBool("NoMoney", cantAfford);
+    }
+
+    private void HandleBuy()
+    {
+        if (player && Input.GetKeyDown(KeyCode.K)) {
 
             Wallet wallet = player.GetComponent<Wallet>();
             if (wallet.CanAfford(itemCost)) {
@@ -68,8 +85,7 @@ public class ShopItem : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player")) {
             player = null;
         }
     }

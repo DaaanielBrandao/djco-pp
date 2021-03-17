@@ -164,7 +164,7 @@ public class CharacterMovement : MonoBehaviour
 
                     SoundManager.Instance.Play(dashSound);
                     //mainCamera.GetComponent<Animator>().SetTrigger("zoop");
-                    Camera.main.GetComponent<cameraShake>().Shake(0.09f,0.02f);
+                    Camera.main.GetComponent<CameraShake>().Shake(0.09f,0.02f);
                     dashDust.Play();
                 }
 
@@ -239,7 +239,7 @@ public class CharacterMovement : MonoBehaviour
     }
     
     public void ResetDash() {
-        timeStop.Freeze(0.03f);
+        TimeStop.Freeze(0.03f);
         if (IsDashing())
             extraDash = true;
         else dashState = DashState.Ready;

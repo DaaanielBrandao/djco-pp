@@ -33,8 +33,8 @@ public abstract class HealthBar : MonoBehaviour
         currentHP = maxHP;
     }
 
-    public void SetHpPercentage(float perc) {
-        currentHP = maxHP * perc;
+    public void SetHpPercentage(float percentage) {
+        currentHP = maxHP * percentage;
     }
 
     protected void ChangeHp(float amount) {
@@ -42,6 +42,13 @@ public abstract class HealthBar : MonoBehaviour
     }
 
     public float PercentageOfMax() {
-        return currentHP / (float)maxHP;
+        return currentHP / maxHP;
+    }
+
+    public void AddMaxHP(float percentage)
+    {
+        int increment = (int) Math.Round(maxHP * percentage);
+        maxHP += increment;
+        currentHP += increment;
     }
 }

@@ -39,7 +39,7 @@ public class NothingPersonalBullet : Bullet
 		st.position = other.gameObject.transform.position + transform.right * 5 + new Vector3(0, 5, 0);
 
 		shooter.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-		timeStop.Freeze(0.1f);
+		TimeStop.Freeze(0.1f);
 		base.OnEnemyEnter(other);
 
 		//if (!enemy)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class skyController : MonoBehaviour
+public class SkyController : MonoBehaviour
 {
     public Gradient gradient;
     

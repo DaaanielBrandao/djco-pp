@@ -35,9 +35,7 @@ public class Wallet : MonoBehaviour
 
     public void Withdraw(int numCoins)
     {
-        Debug.Log(coins);
         coins -= numCoins;
-        Debug.Log(coins);
     }
 
 

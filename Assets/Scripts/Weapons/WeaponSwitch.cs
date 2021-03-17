@@ -97,7 +97,7 @@ public class WeaponSwitch : MonoBehaviour
     }
 
     private bool IsAtMaxWeapons() {
-        return numWeapons == 10;
+        return numWeapons == 9;
     }
 
     public int getCurrentAmmo()
@@ -107,6 +107,17 @@ public class WeaponSwitch : MonoBehaviour
     public int getMaxAmmo()
     {
         return GetSelectedWeapon().GetComponent<Weapon>().maxAmmo;
+    }
+    public void RefillAmmo() {
+        foreach (GameObject weapon in weapons) { 
+            weapon.GetComponent<Weapon>().RefillAmmo();
+        }
+    }
+    
+    public void AddMaxAmmo(float percentage) {
+        for (int i = 0; i < numWeapons; i++) {
+            weapons[i].GetComponent<Weapon>().AddMaxAmmo(percentage);
+        }
     }
  
  

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,7 +41,7 @@ public abstract class Weapon : MonoBehaviour
         Shoot();
         currentAmmo--;
         
-        Camera.main.GetComponent<cameraShake>().Shake(0.06f,shakeMagnitude);
+        Camera.main.GetComponent<CameraShake>().Shake(0.06f,shakeMagnitude);
         SoundManager.Instance.Play(shootSound);
         GetComponent<Animator>().SetTrigger("pew");
     }
@@ -58,5 +59,12 @@ public abstract class Weapon : MonoBehaviour
         
         Debug.Log("AMMO " + gameObject.name);
         return true;
+    }
+    
+    public void AddMaxAmmo(float percentage)
+    {
+        int increment = (int) Math.Round(maxAmmo * percentage);
+        maxAmmo += increment;
+        currentAmmo += increment;
     }
 }

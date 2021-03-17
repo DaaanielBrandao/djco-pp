@@ -13,7 +13,7 @@ public class PlayerHP : HealthBar
         SoundManager.Instance.Play(explosionSound);
         Instantiate(explosionEffect, transform.position, transform.rotation);
 
-        Camera.main.transform.parent=null;
+        //Camera.main.transform.parent=null;
         Destroy(gameObject); 
     }
 
@@ -30,8 +30,8 @@ public class PlayerHP : HealthBar
             return;
         
         ChangeHp(-amount);
-        Camera.main.GetComponent<cameraShake>().Shake(0.05f,0.03f);
-        timeStop.Freeze(0.05f);
+        Camera.main.GetComponent<CameraShake>().Shake(0.05f,0.03f);
+        TimeStop.Freeze(0.05f);
     }
 
     public void healDashKill()
