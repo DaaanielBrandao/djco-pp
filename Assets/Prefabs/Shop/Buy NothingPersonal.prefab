@@ -34,6 +34,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1902954988804891083, guid: 88d0a4ed36ebdb14da4bb6789b54bcaa,
         type: 3}
+    - target: {fileID: 8744033928800178995, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_text
+      value: "<b> NPK Gun </b>\nTeleports you behind the enemy when hit. Deals massive
+        damage. Slow fire rate.\n\n<size=1.2><i> teleports behind you</i>\n Nothing
+        personal, covid</size>"
+      objectReference: {fileID: 0}
     - target: {fileID: 8987597991476397006, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}
       propertyPath: m_Name

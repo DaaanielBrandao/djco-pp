@@ -34,6 +34,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3589812607843110488, guid: 4f22acdd8acb7cb439e81ad464093e4b,
         type: 3}
+    - target: {fileID: 8744033928800178995, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_text
+      value: '<b> Uzi </b>
+
+        this is the item description yes!
+
+
+        <size=1.2>The
+        arrows of this grotesque bow are laced with an inverted energy, casuing shots
+        to lose velocity and create brief barriers.</size>'
+      objectReference: {fileID: 0}
     - target: {fileID: 8987597991476397006, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}
       propertyPath: m_Name

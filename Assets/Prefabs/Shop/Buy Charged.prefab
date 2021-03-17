@@ -34,6 +34,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4424855862765491500, guid: e5938591f1c2ad74abc4a5d8f3ffbb8d,
         type: 3}
+    - target: {fileID: 8744033928800178995, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_text
+      value: '<b>Plasma Gun </b>
+
+        this is the item description yes!
+
+
+        <size=1.2>The
+        arrows of this grotesque bow are laced with an inverted energy, casuing shots
+        to lose velocity and create brief barriers.</size>'
+      objectReference: {fileID: 0}
     - target: {fileID: 8987597991441141895, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}
       propertyPath: m_Sprite

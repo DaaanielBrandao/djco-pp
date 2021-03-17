@@ -93,7 +93,8 @@ public class GameManager : MonoBehaviour
 		powerUpManager.OnWave(waveNumber);
 		
 		shopDoor.SetActive(true);
-
+		refilPlayersResources(); // this is nice for testing the weapons you just bought without worrying about ammo 
+		
 		GameObject.Find("HUD").GetComponent<HUD>().announceWaveStart(waveNumber);
 		GameObject.Find("Sky").GetComponent<SkyController>().changeColor(waveNumber);
 		TrafficLight[] trafficLights = FindObjectsOfType<TrafficLight>();
