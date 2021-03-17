@@ -29,9 +29,9 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update() {
 		spawnManager.gameObject.SetActive(gameState == GameState.Fight);
-		ammoManager.gameObject.SetActive(gameState == GameState.Fight);
+	    ammoManager.gameObject.SetActive(gameState == GameState.Fight);
 		powerUpManager.gameObject.SetActive(gameState == GameState.Fight);
-		
+
 		switch (gameState) {
 			case GameState.Menu:
 				if (Input.GetKeyDown(KeyCode.Z)) {
@@ -87,11 +87,7 @@ public class GameManager : MonoBehaviour
 		
 		shopDoor.SetActive(true);
 
-
 		GameObject.Find("HUD").GetComponent<HUD>().announceWaveStart(waveNumber);
 		GameObject.Find("Sky").GetComponent<SkyController>().changeColor(waveNumber);
-		
-		Debug.Log("Starting wave!");
-
 	}
 }

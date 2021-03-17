@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class WeaponAuto : Weapon
 {
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {  
         if (PauseMenu.isPaused) return;
         if(IsShooting()) {     

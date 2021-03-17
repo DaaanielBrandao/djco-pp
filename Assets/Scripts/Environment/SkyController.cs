@@ -13,7 +13,7 @@ public class SkyController : MonoBehaviour
 
     public GameObject globalLight;
     public Gradient lightGradint;
-    private Light2D light;
+    private Light2D skyLight;
 
 
     private SpriteRenderer sprite;
@@ -21,7 +21,7 @@ public class SkyController : MonoBehaviour
     void Start()
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
-        light = globalLight.GetComponent<Light2D>();
+        skyLight = globalLight.GetComponent<Light2D>();
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class SkyController : MonoBehaviour
         {
             sprite.color = Color.Lerp(gradient.Evaluate((float)(wave - 1) / totalWaves), gradient.Evaluate((float)wave / totalWaves),
                 currentTransitionTime);
-            light.color = Color.Lerp(lightGradint.Evaluate((float) (wave - 1) / totalWaves),
+            skyLight.color = Color.Lerp(lightGradint.Evaluate((float) (wave - 1) / totalWaves),
                 lightGradint.Evaluate((float) wave / totalWaves),
                 currentTransitionTime);
             yield return new WaitForSeconds(0.01f);
