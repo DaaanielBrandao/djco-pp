@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+	public GameObject shopDoor;
 	private enum GameState {
 		Menu,
 		Starting,
@@ -67,6 +68,8 @@ public class GameManager : MonoBehaviour
 		spawnManager.ClearSpawned();
 		ammoManager.ClearSpawned();
 		powerUpManager.ClearSpawned();
+		
+		shopDoor.SetActive(false);
 
 
 		GameObject.Find("HUD").GetComponent<HUD>().announceEndWave();
@@ -81,6 +84,8 @@ public class GameManager : MonoBehaviour
 		spawnManager.OnWave(waveNumber);
 		ammoManager.OnWave(waveNumber);
 		powerUpManager.OnWave(waveNumber);
+		
+		shopDoor.SetActive(true);
 
 
 		GameObject.Find("HUD").GetComponent<HUD>().announceWaveStart(waveNumber);
