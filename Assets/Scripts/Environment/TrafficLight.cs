@@ -25,13 +25,14 @@ public class TrafficLight : MonoBehaviour
         lightGreen = green.transform.GetChild (0).gameObject;
         lightYellow = yellow.transform.GetChild (0).gameObject;
         lightRed = red.transform.GetChild (0).gameObject;
-        turnGreen();
+        turnRed();
     }
 
     // Update is called once per frame
     void Update()
     {
         //testing stuff
+        /*
         if(Input.GetKeyDown(KeyCode.O)){
             switchertester3000 = (switchertester3000 + 1) % 3;
             Debug.Log(switchertester3000);
@@ -42,6 +43,7 @@ public class TrafficLight : MonoBehaviour
             turnYellow();
         if(switchertester3000 == 2)
             turnRed();
+            */
     }
     private void turnOffAll(){
         greenRenderer.color = UnityEngine.Color.grey;
@@ -68,6 +70,27 @@ public class TrafficLight : MonoBehaviour
         turnOffAll();
         redRenderer.color = UnityEngine.Color.white;
         lightRed.SetActive(true);
+    }
+
+    public void startWave()
+    {
+        turnYellow();
+        StartCoroutine(waitToSwitch("green"));
+    }
+
+    public void endWave()
+    {
+        turnYellow();
+        StartCoroutine(waitToSwitch("red"));
+    }
+
+    IEnumerator waitToSwitch(string color)
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log("aaa");
+        if (color == "red")
+            turnRed();
+        else turnGreen();
     }
 
 }

@@ -110,7 +110,8 @@ public class WeaponSwitch : MonoBehaviour
     }
     public void RefillAmmo() {
         foreach (GameObject weapon in weapons) { 
-            weapon.GetComponent<Weapon>().RefillAmmo();
+            if(weapon != null)
+                weapon.GetComponent<Weapon>().RefillAmmo();
         }
     }
     
