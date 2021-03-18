@@ -35,6 +35,12 @@ TextureImporter:
   - first:
       213: -3384753320246346993
     second: ammopacks_10
+  - first:
+      213: -5192467926820099258
+    second: ammopacks_11
+  - first:
+      213: 7513206668665944437
+    second: ammopacks_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -186,8 +192,8 @@ TextureImporter:
       name: ammopacks_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 48
+        y: 48
         width: 16
         height: 9
       alignment: 0
@@ -207,7 +213,7 @@ TextureImporter:
       name: ammopacks_4
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 32
         width: 16
         height: 9
@@ -228,7 +234,7 @@ TextureImporter:
       name: ammopacks_5
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 32
         width: 16
         height: 9
@@ -249,8 +255,8 @@ TextureImporter:
       name: ammopacks_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 32
+        y: 32
         width: 16
         height: 9
       alignment: 0
@@ -270,8 +276,8 @@ TextureImporter:
       name: ammopacks_7
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 48
+        y: 32
         width: 16
         height: 9
       alignment: 0
@@ -291,7 +297,7 @@ TextureImporter:
       name: ammopacks_8
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 16
         width: 16
         height: 9
@@ -312,12 +318,12 @@ TextureImporter:
       name: ammopacks_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 16
+        y: 16
         width: 16
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,7 +339,49 @@ TextureImporter:
       name: ammopacks_10
       rect:
         serializedVersion: 2
-        x: 16
+        x: 32
+        y: 16
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b7466d9c0f601d0800000000000000
+      internalID: -3384753320246346993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammopacks_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b67427ee5a0f7b0800000000000000
+      internalID: -5192467926820099258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammopacks_12
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 16
         height: 9
@@ -344,8 +392,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0b7466d9c0f601d0800000000000000
-      internalID: -3384753320246346993
+      spriteID: 579fde198a5444860800000000000000
+      internalID: 7513206668665944437
       vertices: []
       indices: 
       edges: []

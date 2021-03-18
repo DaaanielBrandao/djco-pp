@@ -84,7 +84,8 @@ public class CharacterMovement : MonoBehaviour
 
         if (isOnGround) {
             isJumping = false;
-            extraDash = false;
+            if(!IsDashing())
+                extraDash = false;
         }
     }
 

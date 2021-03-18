@@ -16,6 +16,18 @@ public class Timer : MonoBehaviour
 
 	private void Update()
 	{
+		Color tmp = timerText.color;
+		if ((PlayerPrefs.GetInt("SpeedRunClock", 1) == 1))
+		{
+			tmp.a = 1;
+		}
+		else
+		{
+			tmp.a = 0;
+		}
+		timerText.color = tmp;
+		
+		
 		time += Time.deltaTime;
 
 		int milliseconds = (int)(time * 1000) % 1000;

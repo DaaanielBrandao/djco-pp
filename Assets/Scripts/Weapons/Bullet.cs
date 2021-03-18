@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
         transform.Translate((Vector2.right * speed + charSpeed) * Time.deltaTime);
     }
 
-    IEnumerator DestroyAfterLifetime() {
+    protected virtual IEnumerator DestroyAfterLifetime() {
         yield return new WaitForSeconds(maxTime);
         Destroy(gameObject);
     }
