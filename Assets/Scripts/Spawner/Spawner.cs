@@ -43,4 +43,9 @@ public abstract class Spawner : MonoBehaviour {
 	protected void ResetCooldown() {
 		cooldownRemaining = 0;
 	}
+
+	public List<GameObject> GetAliveObjects()
+	{
+		return aliveObjs;
+	}
 }
