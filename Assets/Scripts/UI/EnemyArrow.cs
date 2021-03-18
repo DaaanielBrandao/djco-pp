@@ -32,7 +32,7 @@ public class EnemyArrow : MonoBehaviour
         arrow.SetActive(false);
 
         if (spawner) {
-            Debug.Log("hi");
+            //Debug.Log("hi");
             GameObject enemy = GetFarEnemy(spawner.GetAliveObjects());
 
             if (enemy) {

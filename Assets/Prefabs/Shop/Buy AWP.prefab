@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4108965584119554390
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7896901919815876289, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1194682846078262038, guid: 50b215cd35055a44aad4524daba645ce,
+        type: 3}
+    - target: {fileID: 8263508939469911625, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 4252100658461385333, guid: 5227c252a8f0f7a43ba7b1696516d519,
+        type: 3}
+    - target: {fileID: 8744033928800178995, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_text
+      value: '<b> Oppressor </b>
+
+        this is the item description yes!
+
+
+        <size=1.2>The
+        arrows of this grotesque bow are laced with an inverted energy, casuing shots
+        to lose velocity and create brief barriers.</size>'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397006, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_Name
+      value: Buy AWP
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987597991476397007, guid: 5b7c8879afadaf14480955ccdb715988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b7c8879afadaf14480955ccdb715988, type: 3}
