@@ -20,6 +20,7 @@ public abstract class Weapon : MonoBehaviour
     protected GameObject shooter;
 
     protected virtual void Start() {
+        Debug.Log(gameObject.name);
         shooter = transform.parent.parent.gameObject;
         hole = transform.Find("WeaponHole").gameObject;
     }
