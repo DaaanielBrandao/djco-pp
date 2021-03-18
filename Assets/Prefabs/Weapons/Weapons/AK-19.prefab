@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0.15
-  shootSound: {fileID: 8300000, guid: e5448290200347c468483ef124e9657d, type: 3}
+  shootSound: {fileID: 8300000, guid: 2434d5f722e1a094b99ff6f0f628e950, type: 3}
   noAmmoSound: {fileID: 8300000, guid: d0530d764b434774eaa9da7c44299505, type: 3}
   shakeMagnitude: 0.01
   maxAmmo: 3000

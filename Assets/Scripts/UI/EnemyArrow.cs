@@ -44,7 +44,7 @@ public class EnemyArrow : MonoBehaviour
 
     private void PointTo(GameObject enemy) {
         Vector2 dir = (enemy.transform.position - player.transform.position).normalized;
-        rectTransform.localPosition = dir * 200; // DONI
+        rectTransform.localPosition = dir * 300; // DONI
         rectTransform.rotation = Quaternion.Euler(0, 0,  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
     }
 
