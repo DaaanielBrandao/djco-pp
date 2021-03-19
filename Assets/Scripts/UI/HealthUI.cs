@@ -36,5 +36,7 @@ public class HealthUI : MonoBehaviour
         if (healthImageComponent.fillAmount < damageImageComponent.fillAmount)
             damageImageComponent.fillAmount = Mathf.Max(damageImageComponent.fillAmount - decreaseRate * Time.deltaTime,
                 healthImageComponent.fillAmount);
+        if (healthImageComponent.fillAmount > damageImageComponent.fillAmount)
+            damageImageComponent.fillAmount = healthImageComponent.fillAmount;
     }
 }
