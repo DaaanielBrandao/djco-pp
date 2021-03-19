@@ -15,7 +15,8 @@ public class EnemySpawnManager : Spawner {
         remainingEnemies = 0;
         foreach (EnemySpawner spawner in spawners)
             remainingEnemies += spawner.OnWave(waveNumber);
-        maxAlive = 100;
+        maxAlive = (int) (remainingEnemies / (1 + ((float)waveNumber / 2f)));
+        Debug.Log("Max Alive: " + maxAlive);
 
         cooldown = 2;
         

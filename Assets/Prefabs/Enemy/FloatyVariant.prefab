@@ -177,7 +177,7 @@ MonoBehaviour:
   maxRange: 20
   circleSpeed: 1.5
   circleDir: 1
-  visionRadius: 70
+  visionRadius: 60
   goingAway: 0
   nextWayPointDistance: 1
 --- !u!114 &4218416260492619949
