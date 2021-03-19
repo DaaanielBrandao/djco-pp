@@ -87,7 +87,6 @@ public class TrafficLight : MonoBehaviour
     IEnumerator waitToSwitch(string color)
     {
         yield return new WaitForSeconds(1f);
-        Debug.Log("aaa");
         if (color == "red")
             turnRed();
         else turnGreen();

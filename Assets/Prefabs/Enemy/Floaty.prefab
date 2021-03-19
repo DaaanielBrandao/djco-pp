@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 9206780454109631611}
   - component: {fileID: 1542353176}
   - component: {fileID: 8244762482115200331}
+  - component: {fileID: -8378587164199942615}
   m_Layer: 13
   m_Name: Floaty
   m_TagString: Untagged
@@ -172,12 +173,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  minRange: 7.5
-  maxRange: 10
+  minRange: 10
+  maxRange: 20
   circleSpeed: 1.5
   circleDir: 1
-  visionRadius: 50
+  visionRadius: 60
   goingAway: 0
+  nextWayPointDistance: 1
 --- !u!114 &9206780454109631611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +232,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staggerHP: 0.5
   staggerTime: 5
+--- !u!114 &-8378587164199942615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566599878092044620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1

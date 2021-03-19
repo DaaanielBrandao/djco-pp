@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Pathfinding;
 using UnityEngine;
 
 public class Follow : MovementBehavior
@@ -19,9 +21,20 @@ public class Follow : MovementBehavior
     private PlayerDetector detector;
     private Animator animator;
 
+    private Path path;
+    private int currentWayPoint = 0;
+    public float nextWayPointDistance = 3f;
+    private bool reachedEndPath = false;
+
+    private Seeker seeker;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
+
         originalScale = transform.localScale;
 
         // Ignore platforms
@@ -33,10 +46,11 @@ public class Follow : MovementBehavior
         animator = GetComponent<Animator>();
         detector = gameObject.AddComponent<PlayerDetector>();
         detector.radius = visionRadius;
+        InvokeRepeating(nameof(UpdatePath),0f,.05f);
     }
 
     // Update is called once per frame
-    void Update() { 
+    void FixedUpdate() { 
         GameObject follow = detector.nearestPlayer;
         if (follow != null && Vector2.Distance(follow.transform.position, transform.position) <= visionRadius)
             FollowObject(follow);
@@ -45,6 +59,25 @@ public class Follow : MovementBehavior
         AvoidOtherEnemies();
     }
 
+    void UpdatePath()
+    {
+        if(detector.nearestPlayer != null && seeker.IsDone())
+        {
+           // Debug.Log(detector.nearestPlayer.transform.position);
+            seeker.StartPath(rb.position, detector.nearestPlayer.transform.position, OnPathComplete);
+        }
+    }
+
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            //Debug.Log("newpath!");
+            path = p;
+            currentWayPoint = 0;
+        }
+    }
+    
     void AvoidOtherEnemies() {
         CircleCollider2D collider = GetComponent<CircleCollider2D>();
         float colliderRadius = collider.bounds.extents.x;
@@ -75,30 +108,58 @@ public class Follow : MovementBehavior
        // transform.Translate(new Vector3(x, y));
     }
 
-    void FollowObject(GameObject follow) {
-        Vector2 dir = follow.transform.position - gameObject.transform.position;
+    void FollowObject(GameObject follow)
+    {
+        
+        Vector2 dir;
+        if (path == null)
+        {
+            return;
+        }
+        if (currentWayPoint >= path.vectorPath.Count)
+        {
+            reachedEndPath = true;
+            return;
+
+        }
+        
+        reachedEndPath = false;
+        dir = ((Vector2) path.vectorPath[Math.Min(currentWayPoint + 5, path.vectorPath.Count - 1)] - rb.position).normalized;
+        float distanceToWaypoint = Vector2.Distance(rb.position, path.vectorPath[currentWayPoint]);
+        //Debug.Log("wapoint: " + currentWayPoint + " " + dir + "distancetoway: " + distanceToWaypoint);
+        
+        if (distanceToWaypoint < nextWayPointDistance)
+        {
+            currentWayPoint++;
+        }
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        float distance = dir.magnitude;
-
+        float distance =  (follow.transform.position - gameObject.transform.position).magnitude;
+       // Debug.Log("Distance: " + distance);
+        //float distance = dir.magnitude;
+        
         if (distance == 0 && minRange > 0) // Edge case
             dir = new Vector2(0, 1);
 
         // Move
         if (distance > maxRange) { // Towards player
-            dir = dir.normalized;
-            dir.y *= 2;
+            Debug.Log("chasing");
+            dir.x *= 1.5f;
+
         }
-        else if (distance < minRange)  // Away from player
-            dir = -dir.normalized / 2;
-        else {
-            dir = Vector2.zero;
+        else if (distance < minRange)
+        {
+            // Away from player
+            dir = -dir/ 2;
+            Debug.Log("awaying");
         }
+
+        Debug.Log(dir.magnitude);
+        //Vector2 force = dir * speed * Time.deltaTime;
+        //rb.AddForce(force);
         
         transform.Translate(dir * speed * Time.deltaTime, Space.World);
-
-
+        
         // Rotate
         if (angle > 90 || angle < -90) {
             transform.localScale = new Vector2(-originalScale.x, originalScale.y);
@@ -110,12 +171,17 @@ public class Follow : MovementBehavior
         }
 
         // Circle
-        transform.RotateAround(follow.transform.position, Vector3.forward, circleDir * circleSpeed * 360 / distance * Time.deltaTime);
+        //transform.RotateAround(follow.transform.position, Vector3.forward, circleDir * circleSpeed * 360 / distance * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("Ground")) {
             circleDir = -circleDir;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        //Gizmos.DrawSphere (path.vectorPath[Math.Min(currentWayPoint + 5, path.vectorPath.Count - 1)],1);
     }
 }
