@@ -18,7 +18,7 @@ public class WalletUI : MonoBehaviour {
 	{
 		walletTextComponent = walletText.GetComponent<Text>();
 		playerWallet = player.GetComponent<Wallet>();
-		coinsOld = playerWallet.coins;
+		coinsOld = 0;
 	}
 
 	

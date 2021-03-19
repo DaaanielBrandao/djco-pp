@@ -24,6 +24,11 @@ public class Wallet : MonoBehaviour
 
     private void OnResetGame() {
         coins = 0;
+        if ((PlayerPrefs.GetInt("GMEMode", 0) == 1))
+        {
+            Debug.Log("stonks");
+            coins = 9999;
+        }
         lifetimeCoins = 0;
     }
 

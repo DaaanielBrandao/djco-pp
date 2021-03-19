@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     private GameObject lastSelected;
     public GameObject screenShakeToggle;
     public GameObject speedRunClockToggle;
+    public GameObject GMEModeToggle;
     public bool awakening;
     
     private void Awake()
@@ -20,6 +21,7 @@ public class MainMenu : MonoBehaviour
         awakening = true;
         screenShakeToggle.GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("ScreenShake",1) != 0);
         speedRunClockToggle.GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("SpeedRunClock",1) != 0);
+        GMEModeToggle.GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("GMEMode",0) != 0);
         awakening = false;
     }
 
@@ -69,6 +71,16 @@ public class MainMenu : MonoBehaviour
         if (!awakening)
         {
             if (PlayerPrefs.GetInt(toggle, 1) != 0)
+                PlayerPrefs.SetInt(toggle, 0);
+            else PlayerPrefs.SetInt(toggle, 1);
+        }
+    }
+    
+    public void ToggleDefZero(String toggle)
+    {
+        if (!awakening)
+        {
+            if (PlayerPrefs.GetInt(toggle, 0) != 0)
                 PlayerPrefs.SetInt(toggle, 0);
             else PlayerPrefs.SetInt(toggle, 1);
         }
