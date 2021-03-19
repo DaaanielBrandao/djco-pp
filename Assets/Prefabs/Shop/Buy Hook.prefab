@@ -37,9 +37,9 @@ PrefabInstance:
     - target: {fileID: 8744033928800178995, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}
       propertyPath: m_text
-      value: "<b> Hook Gun </b>\nPulls enemies hit towards you. Deals massive damage.
-        Slow fire rate.\n\n<size=1.2>Useful against people that don't want to take
-        the vaccine \n\"GET OVER HERE\"</size>"
+      value: "<b><color=#5e78e0> Hook Gun </color></b>\nPulls enemies hit towards
+        you. Deals massive damage. Slow fire rate.\n\n<size=1.2>Useful against people
+        that don't want to take the vaccine \n\"GET OVER HERE\"</size>"
       objectReference: {fileID: 0}
     - target: {fileID: 8987597991476397006, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}

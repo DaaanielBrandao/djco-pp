@@ -88,14 +88,15 @@ PrefabInstance:
     - target: {fileID: 2801504050591754253, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}
       propertyPath: m_text
-      value: '<b> Backpack </b>
+      value: '<b><color=#52cc50> Backpack</color> </b>
 
-        this is the item description yes!
+        this is the item
+        description yes!
 
 
-        <size=1.2>The
-        arrows of this grotesque bow are laced with an inverted energy, casuing shots
-        to lose velocity and create brief barriers.</size>'
+        <size=1.2>The arrows of this grotesque bow are
+        laced with an inverted energy, casuing shots to lose velocity and create
+        brief barriers.</size>'
       objectReference: {fileID: 0}
     - target: {fileID: 3615990159745893887, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}

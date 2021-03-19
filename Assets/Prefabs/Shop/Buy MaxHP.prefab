@@ -93,7 +93,7 @@ PrefabInstance:
     - target: {fileID: 2801504050591754253, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}
       propertyPath: m_text
-      value: '<b> Heart Container </b>
+      value: '<b><color=#52cc50> Heart Container</color> </b>
 
         +5 Max HP
 
