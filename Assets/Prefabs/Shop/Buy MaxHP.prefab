@@ -98,9 +98,8 @@ PrefabInstance:
         +5 Max HP
 
 
-        <size=1.2>The
-        arrows of this grotesque bow are laced with an inverted energy, casuing shots
-        to lose velocity and create brief barriers.</size>'
+        <size=1.2>Did
+        your mom ever tell you to get a life? Well NOW YOU CAN!</size>'
       objectReference: {fileID: 0}
     - target: {fileID: 2801504050591754253, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}
