@@ -36,10 +36,10 @@ PrefabInstance:
         <size=1.2>A masterwork shotgun.
 
         The
-        right answer isn''t always a gun that shoots lasers, a hookshot, or a teleporter.
-        Sometimes, to deal with a virus, all you need is a simple concept executed
-        immaculately. This double-barreled shotgun represents the best of traditional
-        guncraft.</size>'
+        right answer to a pandemic isn''t always a vaccine, social distancing or
+        masks. Sometimes, to deal with a virus, all you need is a simple concept
+        executed immaculately. This double-barreled shotgun represents the best of
+        traditional guncraft.</size>'
       objectReference: {fileID: 0}
     - target: {fileID: 8987597991476397006, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}

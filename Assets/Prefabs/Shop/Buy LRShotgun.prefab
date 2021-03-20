@@ -22,14 +22,10 @@ PrefabInstance:
     - target: {fileID: 8744033928800178995, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}
       propertyPath: m_text
-      value: '<b> LR Shotgun </b>
-
-        this is the item description yes!
-
-
-        <size=1.2>"Shotguns
-        in videogames are so unrealistic. My dads shotgun has 1km of range and he
-        never got the virus"</size>'
+      value: "<b> Illegally Modded Shotgun </b>\nShoots a bullet that spreads into
+        shotgun pellets after traveling for a while. \n\n<size=1.2>\"What? No, I
+        didn't illegally mod the shotgun to get more range! This is just how shotguns
+        work in real life!\"</size>"
       objectReference: {fileID: 0}
     - target: {fileID: 8987597991476397006, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}
