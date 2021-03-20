@@ -29,13 +29,17 @@ PrefabInstance:
       propertyPath: m_text
       value: '<b><color=#5e78e0>Super Shotgun</color> </b>
 
-        this is the item
-        description yes!
+        Slow fire rate,
+        huge damage, medium spread
 
 
-        <size=1.2>The arrows of this grotesque bow are
-        laced with an inverted energy, casuing shots to lose velocity and create
-        brief barriers.</size>'
+        <size=1.2>A masterwork shotgun.
+
+        The
+        right answer isn''t always a gun that shoots lasers, a hookshot, or a teleporter.
+        Sometimes, to deal with a virus, all you need is a simple concept executed
+        immaculately. This double-barreled shotgun represents the best of traditional
+        guncraft.</size>'
       objectReference: {fileID: 0}
     - target: {fileID: 8987597991476397006, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}

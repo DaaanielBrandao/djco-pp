@@ -32,14 +32,9 @@ PrefabInstance:
     - target: {fileID: 8744033928800178995, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}
       propertyPath: m_text
-      value: '<b> Combat Shotgun </b>
-
-        this is the item description yes!
-
-
-        <size=1.2>The
-        arrows of this grotesque bow are laced with an inverted energy, casuing shots
-        to lose velocity and create brief barriers.</size>'
+      value: "<b> Tactical Shotgun </b>\nMedium fire rate and damage, big spread.\n\n<size=1.2>Got
+        a number one victory royale\r\nYeah fortnite we bout to get down (get down)\r\nTen
+        kills on the board right now\r\nJust wiped out tomato town\r\n </size>"
       objectReference: {fileID: 0}
     - target: {fileID: 8987597991476397006, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}
