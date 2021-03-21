@@ -175,7 +175,7 @@ MonoBehaviour:
   cooldown: 0.8
   numShots: 9
   angle: 25
-  visionRadius: 50
+  visionRadius: 200
   defaultAngle: 0
   bullet: {fileID: 8704626361003132037, guid: 4c5d365d856da204ab7aee3e53bd58c7, type: 3}
 --- !u!114 &2550122405440634034
