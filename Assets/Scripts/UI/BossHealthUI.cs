@@ -21,14 +21,14 @@ public class BossHealthUI : MonoBehaviour
     {
         healthImageComponent = healthImage.transform.GetComponent<Image>();
         damageImageComponent = damageImage.transform.GetComponent<Image>();
-        healthTextComponent = healthText.transform.GetComponent<Text>();
+        //healthTextComponent = healthText.transform.GetComponent<Text>();
         healthBar = transform.parent.parent.GetComponent<HealthBar>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthTextComponent.text = healthBar.currentHP + " / " + healthBar.maxHP;
+        //healthTextComponent.text = healthBar.currentHP + " / " + healthBar.maxHP;
         healthImageComponent.fillAmount = healthBar.PercentageOfMax();
         healthImageComponent.color = hpBarGradient.Evaluate(healthBar.PercentageOfMax());
 
