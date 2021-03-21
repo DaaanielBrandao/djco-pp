@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    public bool ignoreCollisions = false;
     public float speed = 30; // units/s
     public float maxTime = 5; // s
     public float damage = 100; // HP
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
         StartCoroutine(DestroyAfterLifetime());
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * speed * Time.deltaTime);
+        transform.Translate(Vector3.right * (speed * Time.deltaTime));
     }
 
-    IEnumerator DestroyAfterLifetime() {
+    IEnumerator DestroyAfterLifetime()
+    {
         yield return new WaitForSeconds(maxTime);
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer != LayerMask.NameToLayer("Enemy"))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        int layer = other.gameObject.layer;
+        if (ignoreCollisions && layer != LayerMask.NameToLayer("Player"))
+            return;
+        if (layer != LayerMask.NameToLayer("Enemy"))
+        {
             Destroy(gameObject);
+        }
     }
 }
