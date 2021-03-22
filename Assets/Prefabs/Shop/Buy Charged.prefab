@@ -37,16 +37,16 @@ PrefabInstance:
     - target: {fileID: 8744033928800178995, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}
       propertyPath: m_text
-      value: '<b>Plasma Gun </b>
+      value: '<b><color=#5e78e0>Plasma Gun </color></b>
 
-        The more you charge it, the more powerfull
-        the shot is. Pierces if fully charged.
+        The more you charge
+        it, the more powerfull the shot is. Pierces if fully charged.
 
 
-        <size=1.2>This alien weapon
-        has fought, and won, four major intergalactic wars but not even plasma technology
-        could save a type III civilization that didn''t close the schools at 10pm
-        in the middle of a pandemic.</size>'
+        <size=1.2>This
+        alien weapon has fought, and won, four major intergalactic wars but not even
+        plasma technology could save a type III civilization that didn''t close the
+        schools at 10pm in the middle of a pandemic.</size>'
       objectReference: {fileID: 0}
     - target: {fileID: 8987597991441141895, guid: 5b7c8879afadaf14480955ccdb715988,
         type: 3}

@@ -2,7 +2,7 @@
 
 public class HPPurchase : ShopItem.ShopItemPurchase
 {
-	public float bonus = 0.05f;
+	public float bonus = 5f;
 	
 	public override void PurchaseItem(GameObject player)
 	{

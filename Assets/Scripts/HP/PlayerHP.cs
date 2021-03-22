@@ -14,7 +14,8 @@ public class PlayerHP : HealthBar
         Instantiate(explosionEffect, transform.position, transform.rotation);
 
         //Camera.main.transform.parent=null;
-        Destroy(gameObject); 
+        Destroy(gameObject);
+        Time.timeScale = 1f;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

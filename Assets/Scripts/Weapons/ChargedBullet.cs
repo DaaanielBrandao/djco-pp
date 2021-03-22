@@ -17,7 +17,7 @@ public class ChargedBullet : Bullet
         speed = minSpeed + charge * (speed - minSpeed);
         
         //size
-        transform.localScale += new Vector3(charge, charge, 0);
+        transform.localScale += new Vector3(charge * transform.localScale.x , charge * transform.localScale.y, 0);
         
         //damage
         damage = minDamage + charge * (damage - minDamage);
