@@ -2,8 +2,8 @@
 using UnityEngine;
 
 public abstract class Spawner : MonoBehaviour {
-	protected int maxAlive = 5;
-	protected float cooldown = 2.0f;
+	public int maxAlive = 5;
+	public float cooldown = 2.0f;
 	private float cooldownRemaining = 0;
 
 	public abstract void OnWave(int waveNumber);
