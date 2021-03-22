@@ -18,7 +18,7 @@ public abstract class Weapon : MonoBehaviour
     protected bool canShoot = true;
     protected GameObject hole;
     protected GameObject shooter;
-
+    
     protected virtual void Start() {
         shooter = transform.parent.parent.gameObject;
         hole = transform.Find("WeaponHole").gameObject;
