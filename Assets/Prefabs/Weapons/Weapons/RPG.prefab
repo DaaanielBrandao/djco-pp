@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 128477973018345951}
   - component: {fileID: 128477973018345950}
-  - component: {fileID: 128477973018345944}
   - component: {fileID: 3881613993537408774}
   - component: {fileID: 1171002284800472413}
+  - component: {fileID: 6812152138123318428}
   m_Layer: 12
   m_Name: RPG
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128477973018345948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.028, y: 0.01, z: 0}
+  m_LocalPosition: {x: -0.1107, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.4}
   m_Children:
   - {fileID: 128477973620292902}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7362661061344524757, guid: 50b215cd35055a44aad4524daba645ce,
+  m_Sprite: {fileID: -4990152456489421206, guid: 50b215cd35055a44aad4524daba645ce,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,25 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &128477973018345944
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128477973018345948}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6939c358d2a8c884394018dfa80209c0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!120 &3881613993537408774
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -238,10 +219,29 @@ MonoBehaviour:
   shakeMagnitude: 0.03
   maxAmmo: 10
   currentAmmo: 10
-  ammoBox: {fileID: 0}
+  ammoBox: {fileID: 6424140338521484876, guid: fa8ac69f5a0559646b177f3bab4e4dc8, type: 3}
   minAngle: 1
   maxAngle: -1
   bullets: {fileID: 1699364382931973259, guid: 1f4420d982094f84ba4d2a0e45a95b4a, type: 3}
+--- !u!95 &6812152138123318428
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128477973018345948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc3597ae1eb3bdb4f9ce2149eb0e0ff1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &128477973620292903
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128477973620292903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.111, y: 0.0106, z: 0}
+  m_LocalPosition: {x: 0.071, y: 0.0056, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 128477973018345951}

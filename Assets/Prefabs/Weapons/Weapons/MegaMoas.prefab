@@ -123,7 +123,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 74eed7b8a11202649ae33c7cda98a8ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   shakeMagnitude: 0.001
   maxAmmo: 40
   currentAmmo: 40
-  ammoBox: {fileID: 0}
+  ammoBox: {fileID: 6424140338521484876, guid: d4ab1384dc59b9748881b6babea84239, type: 3}
   minePrefab: {fileID: 3042473315414297760, guid: 000e1220ebf406f4f9ad24c248cfbd5a,
     type: 3}
   damage: 200

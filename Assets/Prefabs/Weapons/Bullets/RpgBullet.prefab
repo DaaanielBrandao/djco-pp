@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 60
-  maxTime: 3
+  maxTime: 0.7
   damage: 20
   hitWallPS: {fileID: 5294064155384883988, guid: f6dd4291023e3e344a2fa3af34b572f2,
     type: 3}

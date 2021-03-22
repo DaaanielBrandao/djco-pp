@@ -41,6 +41,12 @@ TextureImporter:
   - first:
       213: 7513206668665944437
     second: ammopacks_12
+  - first:
+      213: -3410278413735626373
+    second: ammopacks_13
+  - first:
+      213: -2620849886296858168
+    second: ammopacks_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -365,7 +371,7 @@ TextureImporter:
         width: 16
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -386,7 +392,7 @@ TextureImporter:
         width: 16
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -394,6 +400,48 @@ TextureImporter:
       bones: []
       spriteID: 579fde198a5444860800000000000000
       internalID: 7513206668665944437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammopacks_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79fa14e9d14ca0d0800000000000000
+      internalID: -3410278413735626373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammopacks_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c127ad0aeed0abd0800000000000000
+      internalID: -2620849886296858168
       vertices: []
       indices: 
       edges: []

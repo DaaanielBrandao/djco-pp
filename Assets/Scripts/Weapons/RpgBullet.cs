@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class RpgBullet : Bullet
 {
@@ -39,5 +41,11 @@ public class RpgBullet : Bullet
 		
 		SoundManager.Instance.Play(kaboomSound);
 		Instantiate(explosionPS, transform.position, explosionPS.transform.rotation);
+	}
+	
+	protected override IEnumerator DestroyAfterLifetime() {
+		yield return new WaitForSeconds(maxTime);
+		Explode();
+		Destroy(gameObject);
 	}
 }

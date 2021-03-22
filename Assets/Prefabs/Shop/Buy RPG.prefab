@@ -75,13 +75,20 @@ PrefabInstance:
     - target: {fileID: 2801504050591754253, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}
       propertyPath: m_text
-      value: '<b> RPG </b>
+      value: '<b><color=#edba00> RPG </color></b>
 
-        Shoot to make your enemies go bazinga!
+        Shoot missiles that blow
+        up for huge damage.
 
 
-        <size=1.2>RPG?
-        But I thought this was a shooter!</size>'
+        <size=1.2>RPG? Wasn''t this supposed to be
+        a shooter?</size>'
       objectReference: {fileID: 0}
+    - target: {fileID: 3615990159745893887, guid: f0c33d0db7bfba449ad7112429066d7f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4990152456489421206, guid: 50b215cd35055a44aad4524daba645ce,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0c33d0db7bfba449ad7112429066d7f, type: 3}
