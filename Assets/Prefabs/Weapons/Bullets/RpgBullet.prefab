@@ -74,7 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 957571850055131362, guid: 50b215cd35055a44aad4524daba645ce, type: 3}
+  m_Sprite: {fileID: -5523592324075461199, guid: 50b215cd35055a44aad4524daba645ce,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,7 +142,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e7d25b7b3b0b3a04b83602a5bdb69dd7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -162,7 +163,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -170,7 +171,16 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 0.048389435
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.172043
         value: 1
         inSlope: 0
         outSlope: 0
@@ -178,23 +188,32 @@ TrailRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.99462366
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 0.98223066, b: 0.75, a: 0.6901961}
+      key1: {r: 0.9450981, g: 0.92549026, b: 0.70980394, a: 0.6392157}
+      key2: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0}
+      key3: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 0
-      ctime3: 0
+      ctime2: 65535
+      ctime3: 65535
       ctime4: 0
       ctime5: 0
       ctime6: 0
@@ -217,7 +236,7 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
+  m_Autodestruct: 1
   m_Emitting: 1
 --- !u!114 &-5125332304208690366
 MonoBehaviour:
@@ -231,8 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a0d0ee07fb4c9d98ecabff3e215e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
-  maxTime: 5
+  speed: 60
+  maxTime: 3
   damage: 20
   hitWallPS: {fileID: 5294064155384883988, guid: f6dd4291023e3e344a2fa3af34b572f2,
     type: 3}
@@ -240,6 +259,6 @@ MonoBehaviour:
     type: 3}
   explosionDamage: 80
   explosionRange: 10
-  explosionPS: {fileID: 5244189803977291356, guid: 05b57acb1a4a4064b9ad03e722e40c00,
+  explosionPS: {fileID: 4284874100570707830, guid: 884918f1609626b409c06299ac8cea02,
     type: 3}
   kaboomSound: {fileID: 8300000, guid: 5edf01180316b0848afccf4bc53a4e4e, type: 3}

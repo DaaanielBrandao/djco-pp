@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &128477973018345951
 Transform:
   m_ObjectHideFlags: 0
@@ -154,8 +154,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.006454468
-        value: 0.4888897
+        time: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -163,8 +163,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.467812
-        value: 1
+        time: 0.47856182
+        value: 0.65753365
         inSlope: 0.034650475
         outSlope: 0.034650475
         tangentMode: 0
@@ -173,7 +173,7 @@ LineRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.9806328
-        value: 0.5481489
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -235,12 +235,12 @@ MonoBehaviour:
   cooldown: 1
   shootSound: {fileID: 8300000, guid: d25dcf89beb1e0c4795b6f13e277d57b, type: 3}
   noAmmoSound: {fileID: 8300000, guid: d0530d764b434774eaa9da7c44299505, type: 3}
-  shakeMagnitude: 1
+  shakeMagnitude: 0.03
   maxAmmo: 10
   currentAmmo: 10
   ammoBox: {fileID: 0}
-  minAngle: 10
-  maxAngle: -10
+  minAngle: 1
+  maxAngle: -1
   bullets: {fileID: 1699364382931973259, guid: 1f4420d982094f84ba4d2a0e45a95b4a, type: 3}
 --- !u!1 &128477973620292903
 GameObject:
