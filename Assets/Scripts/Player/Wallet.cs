@@ -30,12 +30,14 @@ public class Wallet : MonoBehaviour
             coins = 9999;
         }
         lifetimeCoins = 0;
+        GameInfo.score = lifetimeCoins;
     }
 
     public void Deposit(int numCoins)
     {
         coins += numCoins;
         lifetimeCoins += numCoins;
+        GameInfo.score = lifetimeCoins;
     }
 
     public void Withdraw(int numCoins)

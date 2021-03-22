@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class GameManager : MonoBehaviour
 		Fight,
 		Shopping
 	}
+	public int finalWaveNum;
 	private int waveNumber = 0;
 	private GameState gameState;
 
@@ -17,13 +20,17 @@ public class GameManager : MonoBehaviour
 	private AmmoSpawner ammoManager;
 	private PowerupSpawner powerUpManager;
 
+
 	
 	void Start()
 	{
+		GameInfo.isOver = false;
+		GameInfo.waveNum = 0;
 		gameState = GameState.Menu;
 		spawnManager = GetComponentInChildren<EnemySpawnManager>(true);
 		ammoManager = GetComponentInChildren<AmmoSpawner>(true);
 		powerUpManager = GetComponentInChildren<PowerupSpawner>(true);
+		
 	}
 
 	// Update is called once per frame
@@ -31,7 +38,12 @@ public class GameManager : MonoBehaviour
 		spawnManager.gameObject.SetActive(gameState == GameState.Fight);
 	    ammoManager.gameObject.SetActive(gameState == GameState.Fight);
 		powerUpManager.gameObject.SetActive(gameState == GameState.Fight);
-
+		if (allDead() && !GameInfo.isOver)
+		{
+			Debug.Log("alldead");
+			GameInfo.isOver = true;
+			StartCoroutine(EndGame("GameOver"));
+		}
 		switch (gameState) {
 			case GameState.Menu:
 				if (Input.GetKeyDown(KeyCode.Z)) {
@@ -64,6 +76,12 @@ public class GameManager : MonoBehaviour
 
 	private void EndWave()
 	{
+		if (waveNumber == (finalWaveNum))
+		{
+			GameInfo.isOver = true;
+			Debug.Log("win!");
+			StartCoroutine(EndGame("GameWin"));
+		}
 		gameState = GameState.Shopping;
 		spawnManager.ClearSpawned();
 		ammoManager.ClearSpawned();
@@ -87,7 +105,7 @@ public class GameManager : MonoBehaviour
 	private void StartWave()
 	{
 		waveNumber++;
-		
+		GameInfo.waveNum = waveNumber;
 		spawnManager.OnWave(waveNumber);
 		ammoManager.OnWave(waveNumber);
 		powerUpManager.OnWave(waveNumber);
@@ -122,5 +140,16 @@ public class GameManager : MonoBehaviour
 		{
 			ammoSwitcher.RefillAmmo();
 		}
+	}
+
+	private bool allDead()
+	{
+		PlayerHP[] playerHps = FindObjectsOfType<PlayerHP>();
+		return playerHps.Length == 0;
+	}
+	
+	IEnumerator EndGame(String scene) {
+		yield return new WaitForSeconds(3f);
+		SceneManager.LoadScene(scene);      
 	}
 }

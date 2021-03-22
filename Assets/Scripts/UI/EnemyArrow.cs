@@ -52,6 +52,7 @@ public class EnemyArrow : MonoBehaviour
     {
         GameObject closest = null;
         float minDistance = Mathf.Infinity;
+        if (player == null) return null;
         foreach (GameObject enemy in enemies) {
             if (!enemy)
                 continue;

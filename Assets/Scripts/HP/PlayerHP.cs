@@ -12,6 +12,7 @@ public class PlayerHP : HealthBar
     public override void Die() {
         SoundManager.Instance.Play(explosionSound);
         Instantiate(explosionEffect, transform.position, transform.rotation);
+        
 
         //Camera.main.transform.parent=null;
         Destroy(gameObject);

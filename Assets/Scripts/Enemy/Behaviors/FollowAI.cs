@@ -143,7 +143,7 @@ public class FollowAI : MovementBehavior
 
         // Move
         if (distance > maxRange) { // Towards player
-            Debug.Log("chasing");
+           // Debug.Log("chasing");
             dir.x *= 1.5f;
 
         }
@@ -151,10 +151,10 @@ public class FollowAI : MovementBehavior
         {
             // Away from player
             dir = -dir/ 2;
-            Debug.Log("awaying");
+            //Debug.Log("awaying");
         }
 
-        Debug.Log(dir.magnitude);
+        //Debug.Log(dir.magnitude);
         //Vector2 force = dir * speed * Time.deltaTime;
         //rb.AddForce(force);
         

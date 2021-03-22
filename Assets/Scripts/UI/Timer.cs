@@ -27,10 +27,11 @@ public class Timer : MonoBehaviour
 		}
 		timerText.color = tmp;
 		
-		
-		time += Time.deltaTime;
+		if(!GameInfo.isOver)
+			time += Time.deltaTime;
+		GameInfo.time = time;
 
-		int milliseconds = (int)(time * 1000) % 1000;
+			int milliseconds = (int)(time * 1000) % 1000;
 		int seconds = (int) time % 60;
 		int minutes = (int) time / 60;
 		
