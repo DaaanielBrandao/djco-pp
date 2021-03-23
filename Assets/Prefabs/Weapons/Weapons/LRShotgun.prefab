@@ -131,8 +131,8 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: fead2a42efc107c46904f78f87a313eb, type: 3}
   noAmmoSound: {fileID: 0}
   shakeMagnitude: 0.01
-  maxAmmo: 1000
-  currentAmmo: 1000
+  maxAmmo: 30
+  currentAmmo: 30
   ammoBox: {fileID: 5626032299268538682, guid: 0c51231e85a89954ab91e58dbfe15e59, type: 3}
   minAngle: -2.5
   maxAngle: 2.5

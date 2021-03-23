@@ -131,8 +131,8 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: 2434d5f722e1a094b99ff6f0f628e950, type: 3}
   noAmmoSound: {fileID: 8300000, guid: d0530d764b434774eaa9da7c44299505, type: 3}
   shakeMagnitude: 0.01
-  maxAmmo: 3000
-  currentAmmo: 3000
+  maxAmmo: 45
+  currentAmmo: 45
   ammoBox: {fileID: 6424140338521484876, guid: 953679e8c04a61e48a8e40368e3f1c2b, type: 3}
   spreadAngle: 5
   bullets: {fileID: 6240859661206303410, guid: 050a30f1610fd624babeda7a2103ef8a, type: 3}

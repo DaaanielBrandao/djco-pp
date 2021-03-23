@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 1757857331887322679}
   - component: {fileID: 2272243944419170460}
   m_Layer: 13
-  m_Name: Boss 1
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -741,7 +741,7 @@ MonoBehaviour:
   angle: 25
   visionRadius: 200
   defaultAngle: 0
-  bullet: {fileID: 8704626361003132037, guid: 4c5d365d856da204ab7aee3e53bd58c7, type: 3}
+  bullet: {fileID: 8704626361003132037, guid: 737002f254949ac45b01ab2d9ab03f21, type: 3}
 --- !u!114 &4389737523641453028
 MonoBehaviour:
   m_ObjectHideFlags: 0

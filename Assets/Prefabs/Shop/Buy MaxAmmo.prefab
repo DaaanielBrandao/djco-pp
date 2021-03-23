@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4392668e814e74925a7023365b79c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonus: 0.05
+  bonus: 0.1
 --- !u!1001 &1129285000289169430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 2523037588939929836, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}
       propertyPath: itemCost
-      value: 11
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2523037588939929840, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}

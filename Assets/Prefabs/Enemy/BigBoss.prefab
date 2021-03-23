@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869676825cdd4b443978c3cee0c943e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 4000
+  maxHP: 3000
   currentHP: 0
   isDead: 0
   explosionEffect: {fileID: 1405314833516141001, guid: ac38f01fd261e9942ac9cddafff06425,
