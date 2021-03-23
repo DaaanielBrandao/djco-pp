@@ -122,5 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de25f53aec66662469f5f2fbfeba6f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: Uzi
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: 237da8fad69524e4e8f6c7b50caaf970, type: 3}
