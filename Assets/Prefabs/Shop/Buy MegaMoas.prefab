@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 2523037588939929836, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}
       propertyPath: itemCost
-      value: 10
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2523037588939929840, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}
@@ -88,13 +88,15 @@ PrefabInstance:
     - target: {fileID: 2801504050591754253, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}
       propertyPath: m_text
-      value: '<b> <color=#5e78e0>MEGA GAMING </color></b>
+      value: '<b> <color=#edba00> Coronect </color></b>
 
-        Spawns thing.
-        Two go brrt.
+        Bullets stick to
+        enemies and the ground. When 2 bullets are placed a laser is created between
+        them dealing huge damage
 
 
-        <size=1.2>BAZINGA</size>'
+        <size=1.2>You gotta take two shots to
+        make it effective</size>'
       objectReference: {fileID: 0}
     - target: {fileID: 3615990159745893887, guid: f0c33d0db7bfba449ad7112429066d7f,
         type: 3}
