@@ -10,9 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4514283834575631346}
   - component: {fileID: 3835575541431128937}
-  m_Layer: 12
+  - component: {fileID: -5447683733835365536}
+  - component: {fileID: -4475806979148460876}
+  - component: {fileID: 2036235781063280837}
+  m_Layer: 10
   m_Name: MegaMoasMine
-  m_TagString: Untagged
+  m_TagString: Player Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,10 +70,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -376895387
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8214522916810776661, guid: c8bfa6334ad410a45a44535227bc4d10,
+  m_Sprite: {fileID: 8152990066277046786, guid: 50b215cd35055a44aad4524daba645ce,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -82,3 +85,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5447683733835365536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3042473315414297760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a7dc8bab132e3742a6ac7fc89a237f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  maxTime: 999999
+  damage: 0
+  hitWallPS: {fileID: 5294064155384883988, guid: f6dd4291023e3e344a2fa3af34b572f2,
+    type: 3}
+  hitEnemyPS: {fileID: 3306692162415656968, guid: 70679a2ecfe0bbd4fa1c0f499115e9ae,
+    type: 3}
+  isStuck: 0
+--- !u!50 &-4475806979148460876
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3042473315414297760}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!70 &2036235781063280837
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3042473315414297760}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.08, y: 0.08}
+  m_Direction: 1

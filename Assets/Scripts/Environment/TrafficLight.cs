@@ -1,9 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrafficLight : MonoBehaviour
 {
+
+    private enum LightState { Red, Yellow, Green }
+    private LightState lightState;
+
     public GameObject green;
     public GameObject yellow;
     public GameObject red;
@@ -12,10 +17,14 @@ public class TrafficLight : MonoBehaviour
     private SpriteRenderer yellowRenderer;
     private SpriteRenderer redRenderer;
 
-    private GameObject  lightGreen;
-    private GameObject  lightYellow;
-    private GameObject  lightRed;
-    public int switchertester3000 = 0;
+    private GameObject lightGreen;
+    private GameObject lightYellow;
+    private GameObject lightRed;
+
+    private GameObject tooltip;
+    private GameManager gameManager;
+    private GameObject player;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,71 +34,71 @@ public class TrafficLight : MonoBehaviour
         lightGreen = green.transform.GetChild (0).gameObject;
         lightYellow = yellow.transform.GetChild (0).gameObject;
         lightRed = red.transform.GetChild (0).gameObject;
-        turnRed();
+
+        lightState = LightState.Red;
+
+        gameManager = transform.parent.GetComponent<GameManager>();
+        
+        tooltip = transform.Find("Tooltip").gameObject;
+        tooltip.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //testing stuff
-        /*
-        if(Input.GetKeyDown(KeyCode.O)){
-            switchertester3000 = (switchertester3000 + 1) % 3;
-            Debug.Log(switchertester3000);
+        greenRenderer.color = lightState == LightState.Green ? Color.white : Color.grey;
+        yellowRenderer.color = lightState == LightState.Yellow ? Color.white : Color.grey;
+        redRenderer.color = lightState == LightState.Red ? Color.white : Color.grey;
+        lightGreen.SetActive(lightState == LightState.Green);
+        lightYellow.SetActive(lightState == LightState.Yellow);
+        lightRed.SetActive(lightState == LightState.Red);
+        
+        if (player && Input.GetKeyDown(KeyCode.K)) {
+            gameManager.OnTrafficLightPush();
         }
-        if(switchertester3000 == 0)
-            turnGreen();
-        if(switchertester3000 == 1)
-            turnYellow();
-        if(switchertester3000 == 2)
-            turnRed();
-            */
+        
+        tooltip.SetActive(player && lightState == LightState.Red);
     }
-    private void turnOffAll(){
-        greenRenderer.color = UnityEngine.Color.grey;
-        yellowRenderer.color = UnityEngine.Color.grey;
-        redRenderer.color = UnityEngine.Color.grey;
-        lightGreen.SetActive(false);
-        lightYellow.SetActive(false);
-        lightRed.SetActive(false);
+    
+
+    private void TurnGreen() {
+        lightState = LightState.Green;
     }
 
-    private void turnGreen(){
-        turnOffAll();
-        greenRenderer.color = UnityEngine.Color.white;
-        lightGreen.SetActive(true);
+    private void TurnYellow() {
+        lightState = LightState.Yellow;
     }
 
-    private void turnYellow(){
-        turnOffAll();
-        yellowRenderer.color = UnityEngine.Color.white;
-        lightYellow.SetActive(true);
+    private void TurnRed() {
+        lightState = LightState.Red;
     }
 
-    private void turnRed(){
-        turnOffAll();
-        redRenderer.color = UnityEngine.Color.white;
-        lightRed.SetActive(true);
+    public void StartWave() {
+        TurnYellow();
+        StartCoroutine(WaitToSwitch(LightState.Green));
     }
 
-    public void startWave()
-    {
-        turnYellow();
-        StartCoroutine(waitToSwitch("green"));
+    public void EndWave() {
+        TurnYellow();
+        StartCoroutine(WaitToSwitch(LightState.Red));
     }
 
-    public void endWave()
-    {
-        turnYellow();
-        StartCoroutine(waitToSwitch("red"));
-    }
-
-    IEnumerator waitToSwitch(string color)
+    IEnumerator WaitToSwitch(LightState newState)
     {
         yield return new WaitForSeconds(1f);
-        if (color == "red")
-            turnRed();
-        else turnGreen();
+        lightState = newState;
+    }
+    
+    private void OnTriggerStay2D(Collider2D other) {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player")) {
+            player = other.gameObject;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player")) {
+            player = null;
+        }
     }
 
 }

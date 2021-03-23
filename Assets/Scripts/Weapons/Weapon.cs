@@ -52,13 +52,8 @@ public abstract class Weapon : MonoBehaviour
         canShoot = true;        
     }
 
-    public bool RefillAmmo() {
-        if(maxAmmo <= currentAmmo)
-            return false;
+    public void RefillAmmo() {
         currentAmmo = maxAmmo;
-        
-        Debug.Log("AMMO " + gameObject.name);
-        return true;
     }
     
     public void AddMaxAmmo(float percentage)

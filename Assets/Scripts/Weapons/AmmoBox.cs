@@ -19,14 +19,10 @@ public class AmmoBox : MonoBehaviour
             Debug.LogWarning("Weapon Name is null on " + name);
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Player")){
-            //other.gameObject.transform.Find("Shotgun").GetComponent<Shotgun>().addAmmo();
-            //float test = other.gameObject.transform.Find("Shotgun").GetComponent<Shotgun>().spreadAngle;
-            //var instance = Activator.CreateInstance(weaponType,className);
             WeaponSwitch weaponSwitch = other.gameObject.GetComponentInChildren<WeaponSwitch>();
-            if(weaponSwitch.GetWeapon(weaponName).RefillAmmo()) {
-                Destroy(gameObject);
-                SoundManager.Instance.Play(soundEffect);
-            }
+            weaponSwitch.GetWeapon(weaponName).RefillAmmo();
+            Destroy(gameObject);
+            SoundManager.Instance.Play(soundEffect);
         }
     }
 }

@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1086579518638528746
 Transform:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7362661061344524757, guid: 50b215cd35055a44aad4524daba645ce,
+  m_Sprite: {fileID: 7673595688670553196, guid: 50b215cd35055a44aad4524daba645ce,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 1086579518638528745}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6939c358d2a8c884394018dfa80209c0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5b3f27058cea8074f98b2815db38d294, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -149,13 +149,13 @@ LineRenderer:
   - {x: 0, y: -8.856415, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 2
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.006454468
-        value: 0.4888897
+        time: 0
+        value: 0.25185204
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -163,7 +163,7 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.467812
+        time: 0.47426647
         value: 1
         inSlope: 0.034650475
         outSlope: 0.034650475
@@ -172,8 +172,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9806328
-        value: 0.5481489
+        time: 1
+        value: 0.22222292
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -239,9 +239,9 @@ MonoBehaviour:
   maxAmmo: 40
   currentAmmo: 40
   ammoBox: {fileID: 6424140338521484876, guid: d4ab1384dc59b9748881b6babea84239, type: 3}
-  minePrefab: {fileID: 3042473315414297760, guid: 000e1220ebf406f4f9ad24c248cfbd5a,
+  bulletPrefab: {fileID: 3042473315414297760, guid: 000e1220ebf406f4f9ad24c248cfbd5a,
     type: 3}
-  damage: 200
+  activationDamage: 90
   activationSound: {fileID: 8300000, guid: 62e06ed74d3b4cf4db4928aa183e1f7d, type: 3}
 --- !u!1 &1086579519240528914
 GameObject:
