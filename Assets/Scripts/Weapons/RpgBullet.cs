@@ -6,6 +6,11 @@ public class RpgBullet : Bullet
 {
 	public float explosionDamage = 50.0f;
 	public float explosionRange = 10.0f;
+	
+	public float playerDamage = 50.0f;
+	public float playerKnockback = 50.0f;
+	
+	
 	public ParticleSystem explosionPS;
 	
 	public AudioClip kaboomSound;
@@ -33,12 +38,16 @@ public class RpgBullet : Bullet
 	private void Explode()
 	{
 
-		Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRange, LayerMask.GetMask("Enemy"));
-		Debug.Log(hits.Length);
-		foreach (Collider2D hit in hits) {
+		Collider2D[] enemyHits = Physics2D.OverlapCircleAll(transform.position, explosionRange, LayerMask.GetMask("Enemy"));
+		foreach (Collider2D hit in enemyHits) {
 			hit.gameObject.GetComponent<EnemyHP>().OnHit(explosionDamage);
 		}
 		
+		Collider2D[] playerHits = Physics2D.OverlapCircleAll(transform.position, explosionRange, LayerMask.GetMask("Player"));
+		foreach (Collider2D hit in playerHits) {
+			hit.gameObject.GetComponent<PlayerHP>().OnHit(playerDamage);
+			hit.gameObject.GetComponent<Rigidbody2D>().velocity = playerKnockback * (hit.transform.position - transform.position).normalized;
+		}
 		SoundManager.Instance.Play(kaboomSound);
 		Instantiate(explosionPS, transform.position, explosionPS.transform.rotation);
 	}

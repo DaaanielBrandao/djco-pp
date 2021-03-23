@@ -46,15 +46,9 @@ public class GameManager : MonoBehaviour
 		}
 		switch (gameState) {
 			case GameState.Menu:
-				if (Input.GetKeyDown(KeyCode.Z)) {
-					waveNumber = 0;
-					gameState = GameState.Starting;
-				}
-
 				break;
 			case GameState.Starting:
 				StartWave();
-
 				gameState = GameState.Fight;
 				break;
 			case GameState.Fight:
@@ -64,10 +58,6 @@ public class GameManager : MonoBehaviour
 				}
 				break;
 			case GameState.Shopping:
-				if (Input.GetKeyDown(KeyCode.Z)) {
-					gameState = GameState.Starting;
-				}
-
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
@@ -96,7 +86,7 @@ public class GameManager : MonoBehaviour
 		TrafficLight[] trafficLights = FindObjectsOfType<TrafficLight>();
 		foreach (TrafficLight trafficLight in trafficLights)
 		{
-			trafficLight.endWave();
+			trafficLight.EndWave();
 		}
 		
 		Debug.Log("Ending wave!");
@@ -115,10 +105,10 @@ public class GameManager : MonoBehaviour
 		
 		GameObject.Find("HUD").GetComponent<HUD>().announceWaveStart(waveNumber);
 		GameObject.Find("Sky").GetComponent<SkyController>().changeColor(waveNumber);
-		TrafficLight[] trafficLights = FindObjectsOfType<TrafficLight>();
+		TrafficLight[] trafficLights = GetComponentsInChildren<TrafficLight>();
 		foreach (TrafficLight trafficLight in trafficLights)
 		{
-			trafficLight.startWave();
+			trafficLight.StartWave();
 		}
 		
 		
@@ -151,5 +141,13 @@ public class GameManager : MonoBehaviour
 	IEnumerator EndGame(String scene) {
 		yield return new WaitForSeconds(3f);
 		SceneManager.LoadScene(scene);      
+	}
+
+	public void OnTrafficLightPush()
+	{
+		if (gameState == GameState.Menu || gameState == GameState.Shopping) {
+			waveNumber = 0;
+			gameState = GameState.Starting;
+		}
 	}
 }

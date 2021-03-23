@@ -259,6 +259,8 @@ MonoBehaviour:
     type: 3}
   explosionDamage: 80
   explosionRange: 10
+  playerDamage: 30
+  playerKnockback: 75
   explosionPS: {fileID: 4284874100570707830, guid: 884918f1609626b409c06299ac8cea02,
     type: 3}
   kaboomSound: {fileID: 8300000, guid: 5edf01180316b0848afccf4bc53a4e4e, type: 3}
