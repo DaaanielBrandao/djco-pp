@@ -259,7 +259,7 @@ MonoBehaviour:
     type: 3}
   explosionDamage: 80
   explosionRange: 10
-  playerDamage: 30
+  playerDamage: 31
   playerKnockback: 75
   explosionPS: {fileID: 4284874100570707830, guid: 884918f1609626b409c06299ac8cea02,
     type: 3}
