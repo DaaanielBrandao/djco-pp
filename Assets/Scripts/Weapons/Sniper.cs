@@ -16,7 +16,7 @@ public class Sniper : WeaponSemiAuto
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    protected void Update()
+    protected override void Update()
     {
         base.Update();
         

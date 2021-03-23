@@ -32,9 +32,7 @@ public class EnemyBullet : MonoBehaviour
         int layer = other.gameObject.layer;
         if (ignoreCollisions && layer != LayerMask.NameToLayer("Player"))
             return;
-        if (layer != LayerMask.NameToLayer("Enemy"))
-        {
+        if (layer == LayerMask.NameToLayer("Player") || layer == LayerMask.NameToLayer("Ground"))
             Destroy(gameObject);
-        }
     }
 }

@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 		}
 		switch (gameState) {
 			case GameState.Menu:
+				waveNumber = 0;
 				break;
 			case GameState.Starting:
 				StartWave();
@@ -146,7 +147,6 @@ public class GameManager : MonoBehaviour
 	public void OnTrafficLightPush()
 	{
 		if (gameState == GameState.Menu || gameState == GameState.Shopping) {
-			waveNumber = 0;
 			gameState = GameState.Starting;
 		}
 	}

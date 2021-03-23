@@ -15,7 +15,7 @@ public class MegaMoasWeapon : WeaponSemiAuto
     
     private LineRenderer lineRenderer;
 
-    private List<Tuple<GameObject, GameObject>> awaitingActivation = new List<Tuple<GameObject, GameObject>>();
+    private List<Tuple<GameObject, GameObject, bool>> awaitingActivation = new List<Tuple<GameObject, GameObject, bool>>();
 
     private void OnDisable()
     {
@@ -40,34 +40,36 @@ public class MegaMoasWeapon : WeaponSemiAuto
 
     protected override void Update() {
         base.Update();
-        
+
         if (firstMine && secondMine) {
             // StartCoroutine(ScheduleActivation(firstMine, secondMine));
-            awaitingActivation.Add(new Tuple<GameObject, GameObject>(firstMine, secondMine));
+            awaitingActivation.Add(new Tuple<GameObject, GameObject, bool>(firstMine, secondMine, false));
             firstMine = null;
             secondMine = null;
         }
 
         for (int i = 0; i < awaitingActivation.Count; i++)
         {
-            var (item1, item2) = awaitingActivation[i];
+            var (item1, item2, isScheduled) = awaitingActivation[i];
             if (item1 && item2)
             {
+                if (isScheduled)
+                    continue;
                 MegaMoasBullet mine1 = item1.GetComponent<MegaMoasBullet>();
                 MegaMoasBullet mine2 = item2.GetComponent<MegaMoasBullet>();
                 if (mine1.isStuck && mine2.isStuck)
                 {
+                    awaitingActivation[i] = new Tuple<GameObject, GameObject, bool>(item1, item2, true);
                     StartCoroutine(ScheduleActivation(item1, item2));
-                    awaitingActivation.RemoveAt(i);
                 }
             }
-            else
-            {
+            else {
                 Destroy(item1);
                 Destroy(item2);
-                awaitingActivation.RemoveAt(i);
+                awaitingActivation.RemoveAt(i--);
             }
         }
+        
     }
 
     protected override void Shoot()
@@ -81,8 +83,12 @@ public class MegaMoasWeapon : WeaponSemiAuto
     IEnumerator ScheduleActivation(GameObject mine1, GameObject mine2)
     {
         yield return new WaitForSeconds(0.5f);
-        if (!mine1 || !mine2)
+        if (!mine1 || !mine2) {
+            Destroy(mine1);
+            Destroy(mine2);          
             yield break;
+        }
+        
         Vector2 from = mine1.transform.position, to = mine2.transform.position;
         Vector2 dir = to - from;
         float distance = dir.magnitude;
