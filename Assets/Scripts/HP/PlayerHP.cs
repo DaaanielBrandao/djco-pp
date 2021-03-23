@@ -6,6 +6,7 @@ public class PlayerHP : HealthBar
 {    
     public ParticleSystem explosionEffect;
     public AudioClip explosionSound;
+    public AudioClip getHitSound;
     public int dashKillHeal = 5;
     
 
@@ -32,6 +33,7 @@ public class PlayerHP : HealthBar
             return;
         
         ChangeHp(-amount);
+        SoundManager.Instance.Play(getHitSound);
         Camera.main.GetComponent<CameraShake>().Shake(0.05f,0.03f);
         TimeStop.Freeze(0.05f);
     }
