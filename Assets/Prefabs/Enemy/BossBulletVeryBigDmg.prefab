@@ -137,4 +137,4 @@ MonoBehaviour:
   ignoreCollisions: 1
   speed: 46
   maxTime: 5
-  damage: 15
+  damage: 10

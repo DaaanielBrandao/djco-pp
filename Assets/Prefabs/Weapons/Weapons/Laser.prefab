@@ -4890,7 +4890,7 @@ MonoBehaviour:
   currentAmmo: 100
   ammoBox: {fileID: 6424140338521484876, guid: f70d1005c65d8f9429fbba824f9e759f, type: 3}
   range: 40
-  damage: 7
+  damage: 9
   maxAngle: 45
   maxLockedAngle: 60
   laserPS: {fileID: 3211276423822894524}

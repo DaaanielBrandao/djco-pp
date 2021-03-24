@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 	
 	void Start()
 	{
+		shopDoor.SetActive(false);
 		GameInfo.isOver = false;
 		GameInfo.waveNum = 0;
 		gameState = GameState.Menu;

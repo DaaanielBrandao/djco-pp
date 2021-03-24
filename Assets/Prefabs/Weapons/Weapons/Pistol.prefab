@@ -104,8 +104,8 @@ MonoBehaviour:
   maxAmmo: 3000
   currentAmmo: 3000
   ammoBox: {fileID: 2775062643748803201, guid: 1c6236019b5fef646a700906a6cb6146, type: 3}
-  minAngle: -2.5
-  maxAngle: 2.5
+  minAngle: -4
+  maxAngle: 4
   bullets: {fileID: 1573597018435887170, guid: d51550cf3c2c4534bbcfb1932bcaedbb, type: 3}
 --- !u!95 &4252100658461385329
 Animator:

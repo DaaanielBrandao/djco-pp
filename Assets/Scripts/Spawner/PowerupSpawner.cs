@@ -18,6 +18,10 @@ public class PowerupSpawner : Spawner
     {
 
         Debug.Log("Starting Powerup wave: " + maxAlive);
+        if (waveNumber == 4 || waveNumber == 9)
+        {
+            maxAlive = 0;
+        }
         
         ResetCooldown();
     }

@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869676825cdd4b443978c3cee0c943e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1000
+  maxHP: 600
   currentHP: 0
   isDead: 0
   explosionEffect: {fileID: 1405314833516141001, guid: ac38f01fd261e9942ac9cddafff06425,
@@ -736,7 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootType: 0
-  cooldown: 0.8
+  cooldown: 1.3
   numShots: 9
   angle: 25
   visionRadius: 200
