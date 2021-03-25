@@ -26,12 +26,13 @@ public class ShopManager : MonoBehaviour
 
 		hpSlot = transform.GetChild(numSlots - 2);
 		ammoSlot = transform.GetChild(numSlots - 1);
-		
+		RefreshShop();
+
 	}
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.R))
+		if (Input.GetKeyDown(KeyCode.R) && (PlayerPrefs.GetInt("GMEMode", 0) == 1))
 			RefreshShop();
 	}
 

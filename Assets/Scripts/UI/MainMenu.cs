@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public GameObject screenShakeToggle;
     public GameObject speedRunClockToggle;
     public GameObject GMEModeToggle;
+    public GameObject volumeSlider;
     public bool awakening;
     
     private void Awake()
@@ -22,6 +23,7 @@ public class MainMenu : MonoBehaviour
         screenShakeToggle.GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("ScreenShake",1) != 0);
         speedRunClockToggle.GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("SpeedRunClock",1) != 0);
         GMEModeToggle.GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("GMEMode",0) != 0);
+        volumeSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("Volume",1f);
         awakening = false;
     }
 
@@ -53,6 +55,11 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void updateVolume(float value)
+    {
+        PlayerPrefs.SetFloat("Volume", value);
     }
 
     public void ToggleScreenShake()

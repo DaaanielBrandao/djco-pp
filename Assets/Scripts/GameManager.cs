@@ -24,14 +24,14 @@ public class GameManager : MonoBehaviour
 	
 	void Start()
 	{
-		shopDoor.SetActive(false);
 		GameInfo.isOver = false;
 		GameInfo.waveNum = 0;
 		gameState = GameState.Menu;
+		shopDoor.SetActive(false);
 		spawnManager = GetComponentInChildren<EnemySpawnManager>(true);
 		ammoManager = GetComponentInChildren<AmmoSpawner>(true);
 		powerUpManager = GetComponentInChildren<PowerupSpawner>(true);
-		
+
 	}
 
 	// Update is called once per frame

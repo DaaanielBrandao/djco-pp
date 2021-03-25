@@ -22,26 +22,29 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerAudio = GetComponent<AudioSource>();        
+        playerAudio = GetComponent<AudioSource>();
+        setVolume(PlayerPrefs.GetFloat("Volume",1f));
     }
 
 
 
 
-
+    
     // Update is called once per frame
     void Update()
     {
         if (_instance == null || _instance != this) // helps with not breaking
             _instance = this;
-        
-        if (Input.GetKeyDown(KeyCode.P))
-            playerAudio.PlayOneShot(pickleSound);
     }
 
     public void Play(AudioClip sound) {
         if (sound == null)
             Debug.LogWarning("Tried to play null sound.");
         else playerAudio.PlayOneShot(sound);
+    }
+
+    public void setVolume(float volume)
+    {
+        playerAudio.volume = volume;
     }
 }

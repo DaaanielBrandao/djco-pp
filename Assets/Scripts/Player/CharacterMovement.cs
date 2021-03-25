@@ -125,7 +125,7 @@ public class CharacterMovement : MonoBehaviour
     void HandleJump() {
         bool isGoingDown = rb.velocity.y < 0;
         
-        if(Input.GetKeyDown(KeyCode.I) && isOnGround) { // && isOnGround && !gameOver){
+        if((Input.GetKeyDown(KeyCode.I)|| Input.GetKeyDown(KeyCode.Space)) && isOnGround) { // && isOnGround && !gameOver){
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumping = true; 
 
@@ -199,7 +199,7 @@ public class CharacterMovement : MonoBehaviour
             case DashState.WaveDash:
                 rb.velocity = new Vector2(dashSpeed * dashDir.x ,rb.velocity.y);
 
-                if(Input.GetKeyDown(KeyCode.I)){
+                if(Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Space)){
                     dashState = DashState.Ready;
                     rb.velocity = new Vector2(Mathf.Abs(dashSpeed * dashDir.x) * facingDir.x ,rb.velocity.y);
                     waveDust.Stop();
