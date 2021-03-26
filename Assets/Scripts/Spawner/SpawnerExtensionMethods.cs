@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public static class SpawnerExtensionMethods {
-	public static Vector2 GetValidSpawnPosition(this Collider2D[] colliders, float minPlayerDistance = 30.0f) {
+	public static Vector2 GetValidSpawnPosition(this Collider2D[] colliders, float minPlayerDistance = 50.0f) {
 		// Gets a random index and goes on until it finds a collider where no player is nearby
 		int index = Random.Range(0, colliders.Length);
 
