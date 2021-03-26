@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject defaultMain;
     public GameObject defaultOptions;
+    public GameObject defaultHTP;
     private GameObject lastSelected;
     public GameObject screenShakeToggle;
     public GameObject speedRunClockToggle;
@@ -44,6 +45,12 @@ public class MainMenu : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(defaultOptions);
         lastSelected = defaultOptions;
+    }
+
+    public void ToHowToPlay()
+    {
+        EventSystem.current.SetSelectedGameObject(defaultHTP);
+        lastSelected = defaultHTP;
     }
 
     public void PlayGame()
