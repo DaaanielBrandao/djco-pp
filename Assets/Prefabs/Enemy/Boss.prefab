@@ -760,7 +760,7 @@ MonoBehaviour:
   maxRange: 40
   ignoreGround: 1
   ignorePlatforms: 1
-  visionRadius: 200
+  visionRadius: 1000
 --- !u!114 &1757857331887322679
 MonoBehaviour:
   m_ObjectHideFlags: 0
